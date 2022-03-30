@@ -1,3 +1,7 @@
+* {
+  overflow: visible;
+}
+
 @font-face {
   font-family:"NeueHaasDisplayXXThin";
   src:url("fonts/NeueHaasDisplayXXThin.ttf") format("truetype");
@@ -49,4 +53,16 @@
 @font-face {
   font-family:"ABCArizonaPlusVariable";
   src:url("fonts/ABCArizonaPlusVariable-Trial.ttf") format("truetype");
+}
+
+.b-canvas  {
+  overflow: visible;
+}
+
+canvas  {
+  overflow: visible;
+}
+
+#distortion-text-component  {
+  overflow: visible;
 }

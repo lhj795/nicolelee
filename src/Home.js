@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { Typography, Grid } from '@material-ui/core';
 import { Link } from "react-router-dom";
@@ -12,6 +12,7 @@ import InvolvCover from './img/INVOLV/InvolvCover.jpg';
 import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import Placeholder from './img/Placeholder.png';
+import { DistortionText } from "react-text-fun";
 
 const cardStyles = makeStyles(({
     textDecoration: {
@@ -66,7 +67,6 @@ const cardStyles = makeStyles(({
 const homepageStyles = makeStyles(({
     wrap: {
         padding: "16px 16px",
-        color: "#222222"
     },
     about: {
         height: "60vh",
@@ -105,6 +105,15 @@ const homepageStyles = makeStyles(({
             fontVariationSettings: "'wght' 100, 'ital' 100, 'SRFF' 0",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
+    },
+    interCV: {
+        width: "100%",
+        // backgroundColor: "#222222",
+    },
+    distortionText: {
+        display: "flex",
+        justifyContent: "center",
+        padding: "40vh 0"
     },
 }));
 
@@ -159,10 +168,42 @@ function Card(props) {
 const title = ([" Designer", "n Engineer", " Web Developer", " Foodie", " Designer"]);
 
 export default function Work(props) {
-    const classes = homepageStyles();
+    const classes = homepageStyles(props);
+
+    // This ref is connected to the list
+    const listRef = useRef();
+
+    // The size of the list
+    // It will be updated later
+    const [height, setHeight] = useState();
+
+    // The data of the list at the beginning
+    const workItems = useState();
+
+    // This function calculates width and height of the list
+    const getListSize = () => {
+        const newHeight = listRef.current.clientHeight;
+        setHeight(newHeight);
+    };
+
+    // Get 'width' and 'height' after the initial render and every time the list changes
+    useEffect(() => {
+        getListSize();
+    }, [workItems]);
+
+    // Update 'width' and 'height' when the window resizes
+    useEffect(() => {
+        window.addEventListener("resize", getListSize);
+    }, []);
 
     const [index, setIndex] = useState(0);
-    const [scrollColor, setScrollColor] = useState("#222222");
+
+    // const [scrollColor, setScrollColor] = useState("#222222");
+    const scrollYPosition = window.pageYOffset
+    const dynamicBgColor = (scrollYPosition >= height - 1000) ? "#222222" : "";
+
+    const scrollColor = (scrollYPosition >= height - 1000) ? "white" : "#222222";
+
 
     useEffect(() => {
         const tick = () => setIndex(i => i + 1);
@@ -182,140 +223,156 @@ export default function Work(props) {
     }
 
     return (
-        <div>
-        <div style={{position: "fixed", zIndex: "100", width: "100%"}}>
-        <Base color={scrollColor} selected="work"/>
-        </div>
-        <div className={classes.wrap}>
-            <ThemeProvider theme={TypographyTheme}>
-                <Grid container className={classes.about}>
-                    <Grid item xs={2} />
-                    <Grid item xs={3}>
-                        <div
-                            className={classes.animatedItem}
-                        >
-                            <div className={classes.variableTitle}>
-                                Nicole Lee
-                            </div>
-                        </div>
-                        <Typography variant="body1">
-                            I am a
-                            <span>{title[index % title.length]}</span>
-                        </Typography>
-                        <Typography variant="body1">
-                            I reside in the intersection between design and engineering. <br />
-                            I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Typography variant="h1">
-                            WORK
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"TalentMind"}
-                            desc={"All Recruiting Workflow on One Platform"}
-                            caption={"UI/UX, Branding, Frontend Dev"}
-                            img={TalentMindCover}
-                            alt={"TalentMind"}
-                            bgColor={BgColors.TenEx}
-                            link={"/TalentMind"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Able"}
-                            desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
-                            caption={"UX Strategy, Consumer Product, Experience Design"}
-                            img={Placeholder}
-                            alt={"Able"}
-                            bgColor={BgColors.More}
-                            link={"/Able"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Lightly"}
-                            desc={"Bringing Back Casual Moments in Hybrid Workspace"}
-                            caption={"Product Design, UI/UX"}
-                            img={Placeholder}
-                            alt={"Lightly"}
-                            bgColor={BgColors.More}
-                            link={"/Lightly"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"AMC World"}
-                            desc={"A Reimagined Movie-Watching Experience"}
-                            caption={"Experience Design, Service Design"}
-                            img={AMCCover}
-                            alt={"AMC World"}
-                            bgColor={BgColors.AMC}
-                            link={"/AMC"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Kozi"}
-                            desc={"New Way of Addressing Seasonal Affective Disorder"}
-                            caption={"Designing for Mental Health, Gaming UI/UX"}
-                            img={KoziCover}
-                            alt={"Kozi"}
-                            bgColor={BgColors.Kozi}
-                            link={"/Kozi"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Involv"}
-                            desc={"Bringing Community Together to Support Each Other"}
-                            caption={"UI/UX "}
-                            img={InvolvCover}
-                            alt={"Drift"}
-                            bgColor={BgColors.Involv}
-                            link={"/Involv"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Drift"}
-                            desc={"Safer and Affordable Scooter Sharing Experience"}
-                            caption={"UI/UX, Ride-Sharing Experience"}
-                            img={DriftCover}
-                            alt={"Drift"}
-                            bgColor={BgColors.Drift}
-                            link={"/Drift"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"CRAIGSLIST HOUSING"}
-                            desc={"Housing Browsing made Reliable"}
-                            caption={"UI/UX, Responsive Design"}
-                            img={CraigslistCover}
-                            alt={"Drift"}
-                            bgColor={BgColors.Craigslist}
-                            link={"/Craigslist"}
-                        />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card
-                            title={"Localyze"}
-                            desc={"Streamlining International Relocation"}
-                            caption={"UI/UX"}
-                            img={LocalyzeCover}
-                            alt={"Localyze"}
-                            bgColor={BgColors.Localyze}
-                            link={"/TalentMind"}
-                        />
-                    </Grid>
-                </Grid>
-            </ThemeProvider>
-        </div>
+        <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
+            <div ref={listRef}>
+                <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
+                    <Base color={scrollColor} selected="work" />
+                </div>
+                <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
+                    <ThemeProvider theme={TypographyTheme}>
+                        <Grid container className={classes.about}>
+                            <Grid item xs={2} />
+                            <Grid item xs={3}>
+                                <div
+                                    className={classes.animatedItem}
+                                >
+                                    <div className={classes.variableTitle}>
+                                        Nicole Lee
+                                    </div>
+                                </div>
+                                <Typography variant="body1">
+                                    I am a
+                                    <span>{title[index % title.length]}</span>
+                                </Typography>
+                                <Typography variant="body1">
+                                    I reside in the intersection between design and engineering. <br />
+                                    I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography variant="h1">
+                                    WORK
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"TalentMind"}
+                                    desc={"All Recruiting Workflow on One Platform"}
+                                    caption={"UI/UX, Branding, Frontend Dev"}
+                                    img={TalentMindCover}
+                                    alt={"TalentMind"}
+                                    bgColor={BgColors.TenEx}
+                                    link={"/TalentMind"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Able"}
+                                    desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
+                                    caption={"UX Strategy, Consumer Product, Experience Design"}
+                                    img={Placeholder}
+                                    alt={"Able"}
+                                    bgColor={BgColors.More}
+                                    link={"/Able"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Lightly"}
+                                    desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                    caption={"Product Design, UI/UX"}
+                                    img={Placeholder}
+                                    alt={"Lightly"}
+                                    bgColor={BgColors.More}
+                                    link={"/Lightly"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"AMC World"}
+                                    desc={"A Reimagined Movie-Watching Experience"}
+                                    caption={"Experience Design, Service Design"}
+                                    img={AMCCover}
+                                    alt={"AMC World"}
+                                    bgColor={BgColors.AMC}
+                                    link={"/AMC"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Kozi"}
+                                    desc={"New Way of Addressing Seasonal Affective Disorder"}
+                                    caption={"Designing for Mental Health, Gaming UI/UX"}
+                                    img={KoziCover}
+                                    alt={"Kozi"}
+                                    bgColor={BgColors.Kozi}
+                                    link={"/Kozi"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Involv"}
+                                    desc={"Bringing Community Together to Support Each Other"}
+                                    caption={"UI/UX "}
+                                    img={InvolvCover}
+                                    alt={"Drift"}
+                                    bgColor={BgColors.Involv}
+                                    link={"/Involv"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Drift"}
+                                    desc={"Safer and Affordable Scooter Sharing Experience"}
+                                    caption={"UI/UX, Ride-Sharing Experience"}
+                                    img={DriftCover}
+                                    alt={"Drift"}
+                                    bgColor={BgColors.Drift}
+                                    link={"/Drift"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"CRAIGSLIST HOUSING"}
+                                    desc={"Housing Browsing made Reliable"}
+                                    caption={"UI/UX, Responsive Design"}
+                                    img={CraigslistCover}
+                                    alt={"Drift"}
+                                    bgColor={BgColors.Craigslist}
+                                    link={"/Craigslist"}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card
+                                    title={"Localyze"}
+                                    desc={"Streamlining International Relocation"}
+                                    caption={"UI/UX"}
+                                    img={LocalyzeCover}
+                                    alt={"Localyze"}
+                                    bgColor={BgColors.Localyze}
+                                    link={"/TalentMind"}
+                                />
+                            </Grid>
+                        </Grid>
+                    </ThemeProvider>
+                </div>
+            </div>
+            <div className={classes.interCV}>
+                <div className={classes.distortionText}>
+                    <DistortionText
+                        text="nicole lee"
+                        fill="white"
+                        speed={0.5}
+                        rotation={45.0}
+                        distortX={1}
+                        distortY={1}
+                        noiseAmplitude={0.05}
+                        fontSize={200}
+                    />
+                </div>
+            </div>
         </div>
     )
 }
