@@ -13,6 +13,10 @@ import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import Placeholder from './img/Placeholder.png';
 import { DistortionText } from "react-text-fun";
+import Cursor from './img/cursor.svg';
+import Typewriter from 'typewriter-effect';
+import lottie from "lottie-web";
+import EngineerAnim from "./img/engineer.json";
 
 const cardStyles = makeStyles(({
     textDecoration: {
@@ -68,6 +72,8 @@ const homepageStyles = makeStyles(({
     wrap: {
         padding: "16px 16px",
     },
+    
+    //about
     about: {
         height: "60vh",
         alignItems: "center",
@@ -109,15 +115,13 @@ const homepageStyles = makeStyles(({
     distortionText: {
         display: "flex",
         justifyContent: "center",
-        padding: "40vh 0"
+        padding: "30vh 0 20vh"
     },
-}));
 
-const designerStyles = makeStyles(({
-    wrap: {
-        height: "100vh",
-        backgroundColor: "navy",
-        color: "white",
+    //product designer
+    productDesignerContainer: {
+        height: "25vh",
+        color: "#222222",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -127,29 +131,63 @@ const designerStyles = makeStyles(({
         display: "flex",
         maxWidth: "16.6666666%",
         flexBasis: "16.6666666%",
-        backgroundColor: "black",
     },
     text: {
         alignSelf: "center",
         textAlign: "center",
         width: "100%",
+        zIndex: "4"
     },
     borderPreAnim: {
         position: "absolute",
-        border: '2px solid white',
+        border: '1px solid white',
         width: "0",
         height: "0",
         display: "flex",
         overflow: "hidden",
+        backgroundColor: "#555555",
     },
     border: {
         position: "absolute",
-        border: '2px solid white',
+        border: '1px solid white',
         animation: `$buttonEffect 2s`,
         width: "16.666666%",
         height: "5vh",
         display: "flex",
         overflow: "hidden",
+    },
+    fillPreAnim: {
+        position: "absolute",
+        width: "0",
+        height: "0",
+        display: "flex",
+        overflow: "hidden",
+        backgroundColor: "white",
+        borderRadius: "2.5vh",
+    },
+    fill: {
+        position: "absolute",
+        animation: `$fillEffect 2s`,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        overflow: "hidden",
+        backgroundColor: "white",
+        borderRadius: "2.5vh",
+    },
+    "@keyframes fillEffect": {
+        "0%": {
+            width: "0",
+            height: "0",
+        },
+        "25%": {
+            width: "0",
+            height: "0",
+        },
+        "100%": {
+            width: "100%",
+            height: "100%",
+        },
     },
     "@keyframes buttonEffect": {
         "0%": {
@@ -165,6 +203,208 @@ const designerStyles = makeStyles(({
             height: "5vh",
         },
     },
+    dotPreAnim: {
+        width: "6px",
+        height: "6px",
+        borderRadius: "50%",
+        border: "1px solid white",
+        backgroundColor: "#222222",
+        zIndex: "1",
+        position: "absolute",
+        marginLeft: "-3px",
+        marginTop: "-3px",
+    },
+    dot2: {
+        width: "6px",
+        height: "6px",
+        borderRadius: "50%",
+        border: "1px solid white",
+        backgroundColor: "#222222",
+        marginLeft: "calc(16.66666% - 3px)",
+        marginTop: "-3px",
+        zIndex: "1",
+        position: "absolute",
+        animation: `$dot2Effect 2s`,
+    },
+    "@keyframes dot2Effect": {
+        "0%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "25%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "100%": {
+            marginLeft: "calc(16.66666% - 3px)",
+            marginTop: "-3px",
+        },
+    },
+    dot3: {
+        width: "6px",
+        height: "6px",
+        borderRadius: "50%",
+        border: "1px solid white",
+        backgroundColor: "#222222",
+        marginLeft: "-3px",
+        marginTop: "calc(5vh - 3px)",
+        zIndex: "1",
+        position: "absolute",
+        animation: `$dot3Effect 2s`,
+    },
+    "@keyframes dot3Effect": {
+        "0%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "25%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "100%": {
+            marginLeft: "-3px",
+            marginTop: "calc(5vh - 3px)",
+        },
+    },
+    dot4: {
+        width: "6px",
+        height: "6px",
+        borderRadius: "50%",
+        border: "1px solid white",
+        backgroundColor: "#222222",
+        zIndex: "1",
+        position: "absolute",
+        animation: `$dot4Effect 2s`,
+        marginLeft: "calc(16.66666% - 3px)",
+        marginTop: "calc(5vh - 3px)",
+    },
+    "@keyframes dot4Effect": {
+        "0%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "25%": {
+            marginLeft: "-3px",
+            marginTop: "-3px",
+        },
+        "100%": {
+            marginLeft: "calc(16.66666% - 3px)",
+            marginTop: "calc(5vh - 3px)",
+        },
+    },
+    cursorPreAnim: {
+        height: "43px",
+        width: "27px",
+        position: "absolute",
+        zIndex: "2",
+        marginLeft: "calc(-8.333333% + 13.5px)",
+        marginTop: "calc(-5vh + 43px)",
+    },
+    cursor: {
+        height: "43px",
+        width: "27px",
+        position: "absolute",
+        zIndex: "2",
+        animation: `$cursorEffect 2s`,
+        marginLeft: "calc(8.333333% + 13.5px)",
+        marginTop: "5vh",
+    },
+    "@keyframes cursorEffect": {
+        "0%": {
+            marginLeft: "calc(-8.333333% + 13.5px)",
+            marginTop: "calc(-5vh + 43px)",
+        },
+        "25%": {
+            marginLeft: "calc(-8.333333% + 13.5px)",
+            marginTop: "calc(-5vh + 43px)",
+        },
+        "100%": {
+            marginLeft: "calc(8.333333% + 13.5px)",
+            marginTop: "5vh",
+        },
+    },
+
+    //web developer
+    webDevContainer: {
+        height: "25vh",
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        fontFamily: "monospace",
+        fontSize: "clamp(16px, 1.25rem, 20px)",
+    },
+    keyboardContainer: {
+        minWidth: "33.33333%",
+        flexBasis: "33.33333%",
+    },
+    keyboardRow: {
+        minWidth: "100%",
+        width: "100%",
+        flexBasis: "100%",
+        display: "flex",
+        backgroundColor: "navy",
+        justifyContent: "space-between",
+    },
+    sKeyboard: {
+        width: "1.770833333vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    mKeyboard: {
+        width: "3.4375vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    tKeyboard: {
+        width: "2.604166667vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    rKeyboard: {
+        width: "3.958333333vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    fKeyboard: {
+        width: "5.572916667vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    cKeyboard: {
+        width: "2.447916667vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    lKeyboard: {
+        width: "15.1vw",
+        height: "1.770833333vw",
+        backgroundColor: "white",
+        margin: ".2083333333vw 0"
+    },
+    engineerAnimContainer: {
+        width: "30%",
+        display: "flex",
+        alignItems: "flex-start",
+        color: "white",
+        paddingBottom: "10vh",
+    },
+    engineerText: {
+        width: "100%",
+        alignSelf: "center",
+        textAlign: "center",
+        position: "absolute",
+        fontFamily: 'NeueHaasDisplayMedium',
+        fontSize: "clamp(16px, 1.25rem, 20px)",
+        lineHeight: "1.125",
+    }
 }));
 
 function Card(props) {
@@ -214,71 +454,43 @@ function Card(props) {
     )
 }
 
-function ProductDesigner(props) {
-    const classes = designerStyles(props);
-
-    return (
-        <div className={classes.wrap}>
-            <div className={classes.buttonAnim}>
-                <div className={classes.border}>
-                <ThemeProvider theme={TypographyTheme}>
-                    <Typography variant="h4" className={classes.text}>Product Designer</Typography>
-                </ThemeProvider>
-                </div>
-            </div>
-        </div>
-    )
-}
-
 const title = ([" Designer", "n Engineer", " Web Developer", " Foodie", " Designer"]);
 
 export default function Work(props) {
     const classes = homepageStyles(props);
 
+    const workRef = useRef();
+    const [workHeight, setWorkHeight] = useState(0);
+    useEffect(() => {
+        setWorkHeight(workRef.current.clientHeight);
+    },[]);
+
     const workNameRef = useRef();
     const [wNHeight, setWNHeight] = useState(0);
-    console.log(wNHeight);
-
     useEffect(() => {
         setWNHeight(workNameRef.current.clientHeight);
     },[]);
 
-    // This ref is connected to the list
-    const workRef = useRef();
-
-    // The size of the list
-    // It will be updated later
-    const [height, setHeight] = useState();
-
-    // The data of the list at the beginning
-    const workItems = useState();
-
-    // This function calculates width and height of the list
-    const getWorkSize = () => {
-        const newHeight = workRef.current.clientHeight;
-        setHeight(newHeight);
-    };
-
-    // Get 'width' and 'height' after the initial render and every time the list changes
+    const workNameDesignRef = useRef();
+    const [wNDHeight, setWNDHeight] = useState(0);
     useEffect(() => {
-        getWorkSize();
-    }, [workItems]);
+        setWNHeight(workNameDesignRef.current.clientHeight);
+    },[]);
 
-    // Update 'width' and 'height' when the window resizes
-    useEffect(() => {
-        window.addEventListener("resize", getWorkSize);
-    }, []);
+    const scrollYPosition = window.pageYOffset
+    const windowHeight = window.innerHeight*0.8
+    const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#222222" : "";
+    const scrollColor = (scrollYPosition >= workHeight - windowHeight) ? "white" : "#222222";
+    const borderAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.border : classes.borderPreAnim;
+    const fillAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.fill : classes.fillPreAnim;
+    const dot4AnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.dot4 : classes.dotPreAnim;
+    const dot3AnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.dot3 : classes.dotPreAnim;
+    const dot2AnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.dot2 : classes.dotPreAnim;
+    const cursorAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.cursor : classes.cursorPreAnim;
 
-    console.log(height);
+    const typingString = "< Web Developer />"
 
     const [index, setIndex] = useState(0);
-
-    // const [scrollColor, setScrollColor] = useState("#222222");
-    const scrollYPosition = window.pageYOffset
-    const dynamicBgColor = (scrollYPosition >= height - 1000) ? "#222222" : "";
-
-    const scrollColor = (scrollYPosition >= height - 1000) ? "white" : "#222222";
-
     useEffect(() => {
         const tick = () => setIndex(i => i + 1);
         const id = setInterval(tick, 2500);
@@ -296,158 +508,197 @@ export default function Work(props) {
         More: "#EDF1FA",
     }
 
+    let engineerAnimContainer = React.createRef()
+    useEffect(() => {
+        lottie.loadAnimation({
+            container: engineerAnimContainer.current,
+            animationData: EngineerAnim,
+            naame: "engineer",
+            renderer: "svg",
+            count: 1
+        })
+    }, []);
+
     return (
+        <ThemeProvider theme={TypographyTheme}>
         <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
-            <div ref={workNameRef}>
-                <div ref={workRef}>
-                    <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
-                        <Base color={scrollColor} selected="work" />
-                    </div>
-                    <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
-                        <ThemeProvider theme={TypographyTheme}>
-                            <Grid container className={classes.about}>
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
-                                    <div
-                                        className={classes.animatedItem}
-                                    >
-                                        <div className={classes.variableTitle}>
-                                            Nicole Lee
+            <div ref={workNameDesignRef}>
+                <div ref={workNameRef}>
+                    <div ref={workRef}>
+                        <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
+                            <Base color={scrollColor} selected="work" />
+                        </div>
+                        <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
+                                <Grid container className={classes.about}>
+                                    <Grid item xs={2} />
+                                    <Grid item xs={3}>
+                                        <div
+                                            className={classes.animatedItem}
+                                        >
+                                            <div className={classes.variableTitle}>
+                                                Nicole Lee
+                                            </div>
                                         </div>
-                                    </div>
-                                    <Typography variant="body1">
-                                        I am a
-                                        <span>{title[index % title.length]}</span>
-                                    </Typography>
-                                    <Typography variant="body1">
-                                        I reside in the intersection between design and engineering. <br />
-                                        I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
-                                    </Typography>
+                                        <Typography variant="body1">
+                                            I am a
+                                            <span>{title[index % title.length]}</span>
+                                        </Typography>
+                                        <Typography variant="body1">
+                                            I reside in the intersection between design and engineering.
+                                            I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
+                                        </Typography>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12}>
-                                    <Typography variant="h1">
-                                        WORK
-                                    </Typography>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12}>
+                                        <Typography variant="h1">
+                                            WORK
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"TalentMind"}
+                                            desc={"All Recruiting Workflow on One Platform"}
+                                            caption={"UI/UX, Branding, Frontend Dev"}
+                                            img={TalentMindCover}
+                                            alt={"TalentMind"}
+                                            bgColor={BgColors.TenEx}
+                                            link={"/TalentMind"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Able"}
+                                            desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
+                                            caption={"UX Strategy, Consumer Product, Experience Design"}
+                                            img={Placeholder}
+                                            alt={"Able"}
+                                            bgColor={BgColors.More}
+                                            link={"/Able"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Lightly"}
+                                            desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                            caption={"Product Design, UI/UX"}
+                                            img={Placeholder}
+                                            alt={"Lightly"}
+                                            bgColor={BgColors.More}
+                                            link={"/Lightly"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"AMC World"}
+                                            desc={"A Reimagined Movie-Watching Experience"}
+                                            caption={"Experience Design, Service Design"}
+                                            img={AMCCover}
+                                            alt={"AMC World"}
+                                            bgColor={BgColors.AMC}
+                                            link={"/AMC"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Kozi"}
+                                            desc={"New Way of Addressing Seasonal Affective Disorder"}
+                                            caption={"Designing for Mental Health, Gaming UI/UX"}
+                                            img={KoziCover}
+                                            alt={"Kozi"}
+                                            bgColor={BgColors.Kozi}
+                                            link={"/Kozi"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Involv"}
+                                            desc={"Bringing Community Together to Support Each Other"}
+                                            caption={"UI/UX "}
+                                            img={InvolvCover}
+                                            alt={"Drift"}
+                                            bgColor={BgColors.Involv}
+                                            link={"/Involv"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Drift"}
+                                            desc={"Safer and Affordable Scooter Sharing Experience"}
+                                            caption={"UI/UX, Ride-Sharing Experience"}
+                                            img={DriftCover}
+                                            alt={"Drift"}
+                                            bgColor={BgColors.Drift}
+                                            link={"/Drift"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"CRAIGSLIST HOUSING"}
+                                            desc={"Housing Browsing made Reliable"}
+                                            caption={"UI/UX, Responsive Design"}
+                                            img={CraigslistCover}
+                                            alt={"Drift"}
+                                            bgColor={BgColors.Craigslist}
+                                            link={"/Craigslist"}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Card
+                                            title={"Localyze"}
+                                            desc={"Streamlining International Relocation"}
+                                            caption={"UI/UX"}
+                                            img={LocalyzeCover}
+                                            alt={"Localyze"}
+                                            bgColor={BgColors.Localyze}
+                                            link={"/TalentMind"}
+                                        />
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"TalentMind"}
-                                        desc={"All Recruiting Workflow on One Platform"}
-                                        caption={"UI/UX, Branding, Frontend Dev"}
-                                        img={TalentMindCover}
-                                        alt={"TalentMind"}
-                                        bgColor={BgColors.TenEx}
-                                        link={"/TalentMind"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Able"}
-                                        desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
-                                        caption={"UX Strategy, Consumer Product, Experience Design"}
-                                        img={Placeholder}
-                                        alt={"Able"}
-                                        bgColor={BgColors.More}
-                                        link={"/Able"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Lightly"}
-                                        desc={"Bringing Back Casual Moments in Hybrid Workspace"}
-                                        caption={"Product Design, UI/UX"}
-                                        img={Placeholder}
-                                        alt={"Lightly"}
-                                        bgColor={BgColors.More}
-                                        link={"/Lightly"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"AMC World"}
-                                        desc={"A Reimagined Movie-Watching Experience"}
-                                        caption={"Experience Design, Service Design"}
-                                        img={AMCCover}
-                                        alt={"AMC World"}
-                                        bgColor={BgColors.AMC}
-                                        link={"/AMC"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Kozi"}
-                                        desc={"New Way of Addressing Seasonal Affective Disorder"}
-                                        caption={"Designing for Mental Health, Gaming UI/UX"}
-                                        img={KoziCover}
-                                        alt={"Kozi"}
-                                        bgColor={BgColors.Kozi}
-                                        link={"/Kozi"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Involv"}
-                                        desc={"Bringing Community Together to Support Each Other"}
-                                        caption={"UI/UX "}
-                                        img={InvolvCover}
-                                        alt={"Drift"}
-                                        bgColor={BgColors.Involv}
-                                        link={"/Involv"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Drift"}
-                                        desc={"Safer and Affordable Scooter Sharing Experience"}
-                                        caption={"UI/UX, Ride-Sharing Experience"}
-                                        img={DriftCover}
-                                        alt={"Drift"}
-                                        bgColor={BgColors.Drift}
-                                        link={"/Drift"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"CRAIGSLIST HOUSING"}
-                                        desc={"Housing Browsing made Reliable"}
-                                        caption={"UI/UX, Responsive Design"}
-                                        img={CraigslistCover}
-                                        alt={"Drift"}
-                                        bgColor={BgColors.Craigslist}
-                                        link={"/Craigslist"}
-                                    />
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <Card
-                                        title={"Localyze"}
-                                        desc={"Streamlining International Relocation"}
-                                        caption={"UI/UX"}
-                                        img={LocalyzeCover}
-                                        alt={"Localyze"}
-                                        bgColor={BgColors.Localyze}
-                                        link={"/TalentMind"}
-                                    />
-                                </Grid>
-                            </Grid>
-                        </ThemeProvider>
+                        </div>
+                    </div>
+                    <div className={classes.distortionText}>
+                        <DistortionText
+                            text="nicole lee"
+                            fill="white"
+                            speed={0.5}
+                            rotation={45.0}
+                            distortX={1}
+                            distortY={1}
+                            noiseAmplitude={0.05}
+                            fontSize={200}
+                        />
                     </div>
                 </div>
-                <div className={classes.distortionText}>
-                    <DistortionText
-                        text="nicole lee"
-                        fill="white"
-                        speed={0.5}
-                        rotation={45.0}
-                        distortX={1}
-                        distortY={1}
-                        noiseAmplitude={0.05}
-                        fontSize={200}
-                    />
+                <div className={classes.productDesignerContainer}>
+                    <img className={cursorAnimClass} alt="Cursor" src={Cursor}/>
+                    <div className={classes.buttonAnim}>
+                        <div className={classes.dotPreAnim}/>
+                        <div className={dot2AnimClass}/>
+                        <div className={dot3AnimClass}/>
+                        <div className={dot4AnimClass}/>
+                        <div className={borderAnimClass}>
+                        <div className={fillAnimClass}/>
+                            <Typography variant="h4" className={classes.text}>Product Designer</Typography>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <ProductDesigner/>
+            <div className={classes.webDevContainer}>
+                <Typewriter
+                    options={{
+                        strings: [typingString],
+                        autoStart: true,
+                        loop: true,
+                    }}
+                />
+            </div>
+            <div className={classes.engineerAnimContainer}>
+                {/* TO DO fix the multiplying bug */}
+                <div ref={engineerAnimContainer}/>
+                <div variant="h4" className={classes.engineerText}>ENGINEER</div>
+            </div>
         </div>
+        </ThemeProvider>
     )
 }
