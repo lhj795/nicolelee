@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(({
     wrap: {
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "16px",
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '16px',
+        position: 'fixed',
+        width: 'calc(100% - 32px)',
+        // zIndex: '100',
+        mixBlendMode: 'overlay',
     },
     home: {
-        textDecoration: "none",
-        fontFamily: "NeueHaasDisplayRoman",
-        fontSize: "clamp(20px, 1.563rem, 25px)",
+        textDecoration: 'none',
+        fontFamily: 'NeueHaasDisplayRoman',
+        fontSize: 'clamp(20px, 1.563rem, 25px)',
     },
     navBarItem: {
-        fontFamily: "NeueHaasDisplayRoman",
-        fontSize: "clamp(16px, 1.25rem, 20px)",
-        lineHeight: "1.25",
+        fontFamily: 'NeueHaasDisplayRoman',
+        fontSize: 'clamp(16px, 1.25rem, 20px)',
+        lineHeight: '1.25',
     },
     navBarItemHover: {
-        fontFamily: "NeueHaasDisplayMedium",
-        fontSize: "clamp(16px, 1.25rem, 20px)",
-        lineHeight: "1.25",
+        fontFamily: 'NeueHaasDisplayMedium',
+        fontSize: 'clamp(16px, 1.25rem, 20px)',
+        lineHeight: '1.25',
     },
     link: {
-        textDecoration: "none",
+        textDecoration: 'none',
     },
     navBar: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-end",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
     }
 }));
 
@@ -67,19 +71,19 @@ export default function Base(props) {
     const classes = useStyles(props);
     
     return (
-        <div className={classes.wrap}>
-            <Link className={classes.home} style={{color: props.color}} to="/">
+        <div className={classes.wrap} style={{filter: props.filter}}>
+            <Link className={classes.home} style={{color: props.color}} to='/'>
                 Nicole Lee
             </Link>
             <div className={classes.navBar}>
                 <NavBarItem
-                    link={"/"}
-                    children={"Home"}
+                    link={'/'}
+                    children={'Home'}
                     color={props.color}
                 />
                 <NavBarItem
-                    link={"/About"}
-                    children={"About"}
+                    link={'/About'}
+                    children={'About'}
                     color={props.color}
                 />
             </div>

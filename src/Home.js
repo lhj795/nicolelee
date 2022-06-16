@@ -475,7 +475,7 @@ export default function Work(props) {
     },[]);
 
     const workNameDesignRef = useRef();
-    const [wNDHeight, setWNDHeight] = useState(0);
+    // const [wNDHeight, setWNDHeight] = useState(0);
     useEffect(() => {
         setWNHeight(workNameDesignRef.current.clientHeight);
     },[]);
@@ -520,7 +520,7 @@ export default function Work(props) {
             renderer: "svg",
             count: 1
         })
-    }, []);
+    }, [engineerAnimContainer]);
 
     return (
         <StyledEngineProvider injectFirst>
@@ -684,7 +684,7 @@ export default function Work(props) {
                             <div className={dot4AnimClass}/>
                             <div className={borderAnimClass}>
                             <div className={fillAnimClass}/>
-                                <Typography variant="h4" className={classes.text}>Product Designer</Typography>
+                                <Typography variant="button" className={classes.text}>Product Designer</Typography>
                             </div>
                         </div>
                     </div>
