@@ -657,9 +657,10 @@ export default function Work(props) {
                                 </Grid>
                         </div>
                     </div>
-                    <div className={classes.distortionText}>
+                    <div className={classes.distortionText}> 
+                    {/* intersectionobserver */}
                         <DistortionText
-                            text="nicole lee"
+                            text="nicole is a..."
                             fill="white"
                             speed={0.5}
                             rotation={45.0}
