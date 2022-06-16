@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Typography, Grid } from '@material-ui/core';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid } from '@mui/material';
 import { Link } from "react-router-dom";
 import { TypographyTheme } from './components/ui/Typography';
 import Base from "./Base";
@@ -426,32 +427,34 @@ function Card(props) {
     const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;
 
     return (
-        <ThemeProvider theme={TypographyTheme}>
-            <Link className={classes.textDecoration} to={props.link}>
-                <div
-                    className={classes.overlay}
-                    onMouseEnter={onHover}
-                    onMouseLeave={onLeave}
-                >
-                    <img
-                        className={zoomedStyle}
-                        src={props.img}
-                        alt={props.alt}
-                    />
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={TypographyTheme}>
+                <Link className={classes.textDecoration} to={props.link}>
                     <div
-                        className={hoveredStyle}
-                        style={{
-                            backgroundColor: props.bgColor,
-                        }}
+                        className={classes.overlay}
+                        onMouseEnter={onHover}
+                        onMouseLeave={onLeave}
                     >
-                        <Typography style={{ textTransform: "uppercase" }} variant="h4">{props.title}</Typography>
-                        <Typography variant="body1">{props.desc}</Typography>
-                        <div className={classes.caption}><Typography variant="caption">{props.caption}</Typography></div>
+                        <img
+                            className={zoomedStyle}
+                            src={props.img}
+                            alt={props.alt}
+                        />
+                        <div
+                            className={hoveredStyle}
+                            style={{
+                                backgroundColor: props.bgColor,
+                            }}
+                        >
+                            <Typography style={{ textTransform: "uppercase" }} variant="h4">{props.title}</Typography>
+                            <Typography variant="body1">{props.desc}</Typography>
+                            <div className={classes.caption}><Typography variant="caption">{props.caption}</Typography></div>
+                        </div>
                     </div>
-                </div>
-            </Link>
-        </ThemeProvider>
-    )
+                </Link>
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
 }
 
 const title = ([" Designer", "n Engineer", " Web Developer", " Foodie", " Designer"]);
@@ -520,186 +523,188 @@ export default function Work(props) {
     }, []);
 
     return (
-        <ThemeProvider theme={TypographyTheme}>
-        <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
-            <div ref={workNameDesignRef}>
-                <div ref={workNameRef}>
-                    <div ref={workRef}>
-                        <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
-                            <Base color={scrollColor} selected="work" />
-                        </div>
-                        <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
-                                <Grid container className={classes.about}>
-                                    <Grid item xs={2} />
-                                    <Grid item xs={3}>
-                                        <div
-                                            className={classes.animatedItem}
-                                        >
-                                            <div className={classes.variableTitle}>
-                                                Nicole Lee
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={TypographyTheme}>
+            <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
+                <div ref={workNameDesignRef}>
+                    <div ref={workNameRef}>
+                        <div ref={workRef}>
+                            <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
+                                <Base color={scrollColor} selected="work" />
+                            </div>
+                            <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
+                                    <Grid container className={classes.about}>
+                                        <Grid item xs={2} />
+                                        <Grid item xs={3}>
+                                            <div
+                                                className={classes.animatedItem}
+                                            >
+                                                <div className={classes.variableTitle}>
+                                                    Nicole Lee
+                                                </div>
                                             </div>
-                                        </div>
-                                        <Typography variant="body1">
-                                            I am a
-                                            <span>{title[index % title.length]}</span>
-                                        </Typography>
-                                        <Typography variant="body1">
-                                            I reside in the intersection between design and engineering.
-                                            I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
-                                        </Typography>
+                                            <Typography variant="body1">
+                                                I am a
+                                                <span>{title[index % title.length]}</span>
+                                            </Typography>
+                                            <Typography variant="body1">
+                                                I reside in the intersection between design and engineering.
+                                                I collaborate to utilize the arts and technology to intervene in and thus create human-centered experiences.
+                                            </Typography>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12}>
-                                        <Typography variant="h1">
-                                            WORK
-                                        </Typography>
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12}>
+                                            <Typography variant="h1">
+                                                WORK
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"TalentMind"}
+                                                desc={"All Recruiting Workflow on One Platform"}
+                                                caption={"UI/UX, Branding, Frontend Dev"}
+                                                img={TalentMindCover}
+                                                alt={"TalentMind"}
+                                                bgColor={BgColors.TenEx}
+                                                link={"/TalentMind"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Able"}
+                                                desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
+                                                caption={"UX Strategy, Consumer Product, Experience Design"}
+                                                img={Placeholder}
+                                                alt={"Able"}
+                                                bgColor={BgColors.More}
+                                                link={"/Able"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Lightly"}
+                                                desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                                caption={"Product Design, UI/UX"}
+                                                img={Placeholder}
+                                                alt={"Lightly"}
+                                                bgColor={BgColors.More}
+                                                link={"/Lightly"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"AMC World"}
+                                                desc={"A Reimagined Movie-Watching Experience"}
+                                                caption={"Experience Design, Service Design"}
+                                                img={AMCCover}
+                                                alt={"AMC World"}
+                                                bgColor={BgColors.AMC}
+                                                link={"/AMC"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Kozi"}
+                                                desc={"New Way of Addressing Seasonal Affective Disorder"}
+                                                caption={"Designing for Mental Health, Gaming UI/UX"}
+                                                img={KoziCover}
+                                                alt={"Kozi"}
+                                                bgColor={BgColors.Kozi}
+                                                link={"/Kozi"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Involv"}
+                                                desc={"Bringing Community Together to Support Each Other"}
+                                                caption={"UI/UX "}
+                                                img={InvolvCover}
+                                                alt={"Drift"}
+                                                bgColor={BgColors.Involv}
+                                                link={"/Involv"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Drift"}
+                                                desc={"Safer and Affordable Scooter Sharing Experience"}
+                                                caption={"UI/UX, Ride-Sharing Experience"}
+                                                img={DriftCover}
+                                                alt={"Drift"}
+                                                bgColor={BgColors.Drift}
+                                                link={"/Drift"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"CRAIGSLIST HOUSING"}
+                                                desc={"Housing Browsing made Reliable"}
+                                                caption={"UI/UX, Responsive Design"}
+                                                img={CraigslistCover}
+                                                alt={"Drift"}
+                                                bgColor={BgColors.Craigslist}
+                                                link={"/Craigslist"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"Localyze"}
+                                                desc={"Streamlining International Relocation"}
+                                                caption={"UI/UX"}
+                                                img={LocalyzeCover}
+                                                alt={"Localyze"}
+                                                bgColor={BgColors.Localyze}
+                                                link={"/TalentMind"}
+                                            />
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"TalentMind"}
-                                            desc={"All Recruiting Workflow on One Platform"}
-                                            caption={"UI/UX, Branding, Frontend Dev"}
-                                            img={TalentMindCover}
-                                            alt={"TalentMind"}
-                                            bgColor={BgColors.TenEx}
-                                            link={"/TalentMind"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Able"}
-                                            desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
-                                            caption={"UX Strategy, Consumer Product, Experience Design"}
-                                            img={Placeholder}
-                                            alt={"Able"}
-                                            bgColor={BgColors.More}
-                                            link={"/Able"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Lightly"}
-                                            desc={"Bringing Back Casual Moments in Hybrid Workspace"}
-                                            caption={"Product Design, UI/UX"}
-                                            img={Placeholder}
-                                            alt={"Lightly"}
-                                            bgColor={BgColors.More}
-                                            link={"/Lightly"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"AMC World"}
-                                            desc={"A Reimagined Movie-Watching Experience"}
-                                            caption={"Experience Design, Service Design"}
-                                            img={AMCCover}
-                                            alt={"AMC World"}
-                                            bgColor={BgColors.AMC}
-                                            link={"/AMC"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Kozi"}
-                                            desc={"New Way of Addressing Seasonal Affective Disorder"}
-                                            caption={"Designing for Mental Health, Gaming UI/UX"}
-                                            img={KoziCover}
-                                            alt={"Kozi"}
-                                            bgColor={BgColors.Kozi}
-                                            link={"/Kozi"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Involv"}
-                                            desc={"Bringing Community Together to Support Each Other"}
-                                            caption={"UI/UX "}
-                                            img={InvolvCover}
-                                            alt={"Drift"}
-                                            bgColor={BgColors.Involv}
-                                            link={"/Involv"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Drift"}
-                                            desc={"Safer and Affordable Scooter Sharing Experience"}
-                                            caption={"UI/UX, Ride-Sharing Experience"}
-                                            img={DriftCover}
-                                            alt={"Drift"}
-                                            bgColor={BgColors.Drift}
-                                            link={"/Drift"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"CRAIGSLIST HOUSING"}
-                                            desc={"Housing Browsing made Reliable"}
-                                            caption={"UI/UX, Responsive Design"}
-                                            img={CraigslistCover}
-                                            alt={"Drift"}
-                                            bgColor={BgColors.Craigslist}
-                                            link={"/Craigslist"}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Card
-                                            title={"Localyze"}
-                                            desc={"Streamlining International Relocation"}
-                                            caption={"UI/UX"}
-                                            img={LocalyzeCover}
-                                            alt={"Localyze"}
-                                            bgColor={BgColors.Localyze}
-                                            link={"/TalentMind"}
-                                        />
-                                    </Grid>
-                                </Grid>
+                            </div>
+                        </div>
+                        <div className={classes.distortionText}> 
+                        {/* intersectionobserver */}
+                            <DistortionText
+                                text="nicole is a..."
+                                fill="white"
+                                speed={0.5}
+                                rotation={45.0}
+                                distortX={1}
+                                distortY={1}
+                                noiseAmplitude={0.05}
+                                fontSize={200}
+                            />
                         </div>
                     </div>
-                    <div className={classes.distortionText}> 
-                    {/* intersectionobserver */}
-                        <DistortionText
-                            text="nicole is a..."
-                            fill="white"
-                            speed={0.5}
-                            rotation={45.0}
-                            distortX={1}
-                            distortY={1}
-                            noiseAmplitude={0.05}
-                            fontSize={200}
-                        />
-                    </div>
-                </div>
-                <div className={classes.productDesignerContainer}>
-                    <img className={cursorAnimClass} alt="Cursor" src={Cursor}/>
-                    <div className={classes.buttonAnim}>
-                        <div className={classes.dotPreAnim}/>
-                        <div className={dot2AnimClass}/>
-                        <div className={dot3AnimClass}/>
-                        <div className={dot4AnimClass}/>
-                        <div className={borderAnimClass}>
-                        <div className={fillAnimClass}/>
-                            <Typography variant="h4" className={classes.text}>Product Designer</Typography>
+                    <div className={classes.productDesignerContainer}>
+                        <img className={cursorAnimClass} alt="Cursor" src={Cursor}/>
+                        <div className={classes.buttonAnim}>
+                            <div className={classes.dotPreAnim}/>
+                            <div className={dot2AnimClass}/>
+                            <div className={dot3AnimClass}/>
+                            <div className={dot4AnimClass}/>
+                            <div className={borderAnimClass}>
+                            <div className={fillAnimClass}/>
+                                <Typography variant="h4" className={classes.text}>Product Designer</Typography>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className={classes.webDevContainer}>
+                    <Typewriter
+                        options={{
+                            strings: [typingString],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                    />
+                </div>
+                <div className={classes.engineerAnimContainer}>
+                    {/* TO DO fix the multiplying bug */}
+                    <div ref={engineerAnimContainer}/>
+                    <div variant="h4" className={classes.engineerText}>ENGINEER</div>
+                </div>
             </div>
-            <div className={classes.webDevContainer}>
-                <Typewriter
-                    options={{
-                        strings: [typingString],
-                        autoStart: true,
-                        loop: true,
-                    }}
-                />
-            </div>
-            <div className={classes.engineerAnimContainer}>
-                {/* TO DO fix the multiplying bug */}
-                <div ref={engineerAnimContainer}/>
-                <div variant="h4" className={classes.engineerText}>ENGINEER</div>
-            </div>
-        </div>
-        </ThemeProvider>
-    )
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
 }

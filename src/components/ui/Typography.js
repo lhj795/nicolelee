@@ -1,7 +1,7 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 import './../../App.css';
 
-export const TypographyTheme = createTheme({
+export const TypographyTheme = createTheme(adaptV4Theme({
     typography:{
         h1: {
             fontFamily: 'NeueHaasDisplayXXThin',
@@ -48,4 +48,4 @@ export const TypographyTheme = createTheme({
             textDecoration: "none",
         }
     },
-});
+}));
