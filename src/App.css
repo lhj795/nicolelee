@@ -51,6 +51,14 @@
 }
 
 @font-face {
+  font-family:"NeueHaasDisplayLightItalic";
+  src:url("fonts/NeueHaasDisplayLightItalic.ttf") format("truetype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:100;
+}
+
+@font-face {
   font-family:"ABCArizonaPlusVariable";
   src:url("fonts/ABCArizonaPlusVariable-Trial.ttf") format("truetype");
 }
@@ -65,4 +73,27 @@ canvas  {
 
 #distortion-text-component  {
   overflow: visible;
+}
+
+p {
+  margin: 0;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background: #efefef;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background: #757575; 
+  border-radius: 5px;  
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #333333; 
+  cursor: pointer;
 }
