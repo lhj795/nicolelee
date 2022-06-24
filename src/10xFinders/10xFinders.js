@@ -1304,6 +1304,7 @@ export default function TenEx(props) {
                         </div>
                     </div>
                 </div>
+                </div>
             </ThemeProvider>
         </StyledEngineProvider >
     );
