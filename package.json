@@ -1,6 +1,8 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "homepage": "https://nicolelee.vercel.app/",
+  
   "private": true,
   "dependencies": {
     "@babel/core": "^7.18.5",
