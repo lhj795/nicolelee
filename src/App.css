@@ -51,8 +51,29 @@
 }
 
 @font-face {
+  font-family:"NeueHaasDisplayLightItalic";
+  src:url("fonts/NeueHaasDisplayLightItalic.ttf") format("truetype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:100;
+}
+
+@font-face {
   font-family:"ABCArizonaPlusVariable";
   src:url("fonts/ABCArizonaPlusVariable-Trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: GTWalsheimPro-Bold;
+  src: url("fonts/GTWalsheimPro-Bold.woff") format("woff"), url("fonts/GTWalsheimPro-Bold.ttf")  format("truetype");
+}
+@font-face {
+  font-family: GTWalsheimPro-Regular;
+  src: url("fonts/GTWalsheimPro-Regular.woff") format("woff"), url("fonts/GTWalsheimPro-Regular.ttf")  format("truetype");
+}
+@font-face {
+  font-family: GTWalsheimPro-Medium;
+  src: url("fonts/GTWalsheimPro-Medium.woff") format("woff"), url("fonts/GTWalsheimPro-Medium.ttf")  format("truetype");
 }
 
 .b-canvas  {
@@ -65,4 +86,27 @@ canvas  {
 
 #distortion-text-component  {
   overflow: visible;
+}
+
+p {
+  margin: 0;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background: #efefef;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background: #757575; 
+  border-radius: 5px;  
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #333333; 
+  cursor: pointer;
 }

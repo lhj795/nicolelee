@@ -5,13 +5,14 @@ import { Typography, Grid } from '@mui/material';
 import { Link } from "react-router-dom";
 import { TypographyTheme } from './components/ui/Typography';
 import Base from "./Base";
-import TalentMindCover from './img/TALENTMIND/TalentMindCover.png';
+import TalentMindCover from './10xFinders/img/TalentMindCover.png';
 import AMCCover from './img/AMC/AMCCover.jpg';
 import CraigslistCover from './img/CRAIGSLIST/CraigslistCover.jpg';
 import DriftCover from './img/DRIFT/DriftCover.jpg';
 import InvolvCover from './img/INVOLV/InvolvCover.jpg';
 import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
+import AbleCover from './Able/img/AssistiveHanger01.png';
 import Placeholder from './img/Placeholder.png';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
@@ -446,9 +447,9 @@ function Card(props) {
                                 backgroundColor: props.bgColor,
                             }}
                         >
-                            <Typography style={{ textTransform: "uppercase" }} variant="h4">{props.title}</Typography>
-                            <Typography variant="body1">{props.desc}</Typography>
-                            <div className={classes.caption}><Typography variant="caption">{props.caption}</Typography></div>
+                            <Typography style={{ textTransform: "uppercase", color: props.color }} variant="h4">{props.title}</Typography>
+                            <Typography style={{ color: props.color }} variant="body1">{props.desc}</Typography>
+                            <div className={classes.caption}><Typography style={{ color: props.color }} variant="caption">{props.caption}</Typography></div>
                         </div>
                     </div>
                 </Link>
@@ -502,6 +503,7 @@ export default function Work(props) {
 
     var BgColors = {
         TenEx: "rgba(198, 215, 236, 0.5)",
+        Able: "rgba(255, 255, 255, 0.5)",
         AMC: "rgba(136, 27, 48, 0.7)",
         Kozi: "rgba(223, 242, 248, 0.7)",
         Involv: "rgba(59, 66, 86, 0.7)",
@@ -575,9 +577,9 @@ export default function Work(props) {
                                                 title={"Able"}
                                                 desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
                                                 caption={"UX Strategy, Consumer Product, Experience Design"}
-                                                img={Placeholder}
+                                                img={AbleCover}
                                                 alt={"Able"}
-                                                bgColor={BgColors.More}
+                                                bgColor={BgColors.Able}
                                                 link={"/Able"}
                                             />
                                         </Grid>
@@ -600,6 +602,7 @@ export default function Work(props) {
                                                 img={AMCCover}
                                                 alt={"AMC World"}
                                                 bgColor={BgColors.AMC}
+                                                color="white"
                                                 link={"/AMC"}
                                             />
                                         </Grid>
@@ -622,6 +625,7 @@ export default function Work(props) {
                                                 img={InvolvCover}
                                                 alt={"Drift"}
                                                 bgColor={BgColors.Involv}
+                                                color="white"
                                                 link={"/Involv"}
                                             />
                                         </Grid>
