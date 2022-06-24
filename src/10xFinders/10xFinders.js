@@ -212,7 +212,6 @@ const useStyles = makeStyles(({
         padding: '0',
     },
     IA: {
-        width: '100%',
         objectFit: 'cover',
         width: '1.5px',
         background: '#C6DFFF',

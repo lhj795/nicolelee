@@ -563,13 +563,13 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={4}>
                                             <Card
-                                                title={"TalentMind"}
+                                                title={"10xFinders"}
                                                 desc={"All Recruiting Workflow on One Platform"}
                                                 caption={"UI/UX, Branding, Frontend Dev"}
                                                 img={TalentMindCover}
-                                                alt={"TalentMind"}
+                                                alt={"10xfinders"}
                                                 bgColor={BgColors.TenEx}
-                                                link={"/TalentMind"}
+                                                link={"/10xfinders"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
