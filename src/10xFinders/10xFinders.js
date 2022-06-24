@@ -1240,16 +1240,53 @@ export default function TenEx(props) {
                                 <Typography variant='h3'>UI Components</Typography>
                                 <Typography variant='body1'>
                                     <br />
-                                    They’re interactive. Try for yourself!
+                                    They’re interactive. Try them yourself!
                                 </Typography>
                             </Grid>
                             <Grid item xs={4} />
                         </GridFormat>
                         <GridFormat>
                             <Grid item xs={8}>
-                                <UILibrary/>
+                                <UILibrary />
                             </Grid>
                         </GridFormat>
+                    </div>
+
+                    {/* user testing */}
+                    <div>
+                        <Heading
+                            header='USER TESTING'
+                            headerXs='3'
+                            caption='After implementing each iteration, I presented the design to my team, reiterated based on feedbacks, then implemented the 
+                            final design on the server. With the final design, I spoke with 6 clients who were active on the platform to receive the first-hand 
+                            experience as the direct user. To share the feedbacks with my team in which all members were in remote locations, I used 
+                            collaboration tools including the Google Suite and Notion.'
+                            captionXs='5'
+                        />
+                        <GridFormat>
+                            <Grid item xs={8}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
+                        </GridFormat>
+                        <GridFormat>
+                            <Grid item xs={8}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
+                        </GridFormat>
+                        <div className={classes.margin} >
+                            <GridFormat>
+                                <Grid item xs={5}>
+                                    <Typography variant='h3'>Redesigns based on Feedback</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        Here is an example of redesigned pages including “Lists” page and “Lists filter” on “People” Page.
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={3} />
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item xs={8}><img src={img['UserTesting03.svg']} className={classes.imgFitContent} alt='redesign 1' /></Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item xs={8}><img src={img['UserTesting04.png']} className={classes.imgFitContent} alt='redesign 2' /></Grid>
+                            </GridFormat>
+                        </div>
                     </div>
 
                 </div>

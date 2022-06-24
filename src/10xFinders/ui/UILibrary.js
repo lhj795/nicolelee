@@ -1,23 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { TypographyTheme } from '../../components/ui/Typography';
 import Typography from '@mui/material/Typography';
 import { StyledTextField, UnderlinedTextField } from './StyledTextField';
 import MultiSelect from './AddToCampaignButton';
+import { StyledSwitch } from './StyledSwitch';
+import { LocationSearch } from './LocationSearch';
+import { Button10x } from './Buttons';
+import { StyledChipInput } from './StyledChipInput';
 
 const useStyles = makeStyles((theme) => ({
     row: {
         display: 'flex',
         flexDirection: 'row',
     },
-    margin: {
+    component: {
         width: '20%',
         margin: '2vmin 2vmin 2vmin 0',
+    },
+    margin: {
+        marginTop: '3vmin'
     }
-}))
-    ;
+}));
 
 export const PaletteTheme = createTheme(adaptV4Theme({
     palette: {
@@ -40,14 +45,51 @@ export function UILibrary(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
-                <div className={classes.wrap}>
-                    <div>
-                        <Typography variant='body2'>Inputs</Typography>
-                        <div className={classes.row}>
-                        <div className={classes.margin}><StyledTextField placeholder='hello world' /></div>
-                        <div className={classes.margin}><MultiSelect /></div>
-                        <div className={classes.margin}><UnderlinedTextField placeholder='hello world' /></div>
+                <div>
+                    <Typography variant='body2'>Inputs</Typography>
+                    <div className={classes.row}>
+                        <div className={classes.component}><StyledTextField placeholder='outlined input' /></div>
+                        <div className={classes.component}><MultiSelect /></div>
+                        <div className={classes.component}><UnderlinedTextField placeholder='underlined input' /></div>
+                    </div>
+                </div>
+                <div className={classes.margin}>
+                    <Typography variant='body2'>Buttons</Typography>
+                    <div className={classes.row}>
+                        <div className={classes.component}>
+                            <Button10x fullWidth variant="contained">
+                                Primary Button
+                            </Button10x>
+                            </div>
+                        <div className={classes.component}>
+                            <Button10x fullWidth variant="outlined">
+                                Secondary Button
+                            </Button10x>
+                            </div>
+                        <div className={classes.component}>
+                            <Button10x fullWidth>
+                                Tertiary Button
+                            </Button10x>
                         </div>
+                    </div>
+                </div>
+                <div className={classes.margin}>
+                    <Typography variant='body2'>Slider</Typography>
+                    <div className={classes.row}>
+                        <div className={classes.component}><LocationSearch /></div>
+                    </div>
+                </div>
+                <div className={classes.margin}>
+                    <Typography variant='body2'>Switch</Typography>
+                    <div className={classes.row}>
+                        <div className={classes.component}><StyledSwitch /></div>
+                    </div>
+                </div>
+                <div className={classes.margin}>
+                    <Typography variant='body2'>Chip</Typography>
+                    <Typography variant='caption'>Try creating chips underneath!</Typography>
+                    <div className={classes.row}>
+                        <div className={classes.component}><StyledChipInput /></div>
                     </div>
                 </div>
             </ThemeProvider>

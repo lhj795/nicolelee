@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { MenuItem, FormControl, ListSubheader, Select, InputBase } from '@mui/material';
 import PropTypes from 'prop-types';
-import triangleAdorment from './img/InputTriangle.svg';
 
 const useStyles = makeStyles((theme) => ({
     selectMenu: {
@@ -19,68 +18,19 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const adornmentStyles = makeStyles((theme) => ({
-    clickableBoundary: {
-        height: '26px',
-        width: '26px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    hover: {
-        width: '16px',
-        height: '8px',
-        zIndex: '1',
-        // transition: '0.2s',
-        cursor: 'pointer',
-    },
-    default: {
-        width: '14px',
-        height: '7px',
-        zIndex: '1',
-        // transition: '0.2s',
-        cursor: 'pointer',
-    },
-    img: {
-        zIndex: '1',
-        position: 'absolute',
-    },
-}));
-
-function TriangleAdornment(props) {
-    const classes = adornmentStyles();
-    const [hover, setHovered] = useState(false);
-    const onHover = (event) => {
-        setHovered(true);
-    };
-    const onLeave = (event) => {
-        setHovered(false)
-    };
-    const hoveredStyle = (hover) ? classes.hover : classes.default
-    return (
-        <div className={classes.clickableBoundary}>
-            <img
-                src={triangleAdorment}
-                className={hoveredStyle}
-                onMouseEnter={onHover}
-                onMouseLeave={onLeave}
-                alt='expand'
-            />
-        </div>
-    )
-}
-
 const SelectInput = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         borderRadius: 5,
+        maxHeight: '41px',
+        minHeight: '41px',
         backgroundColor: 'white',
         border: '1px solid #8DB0E3',
-        padding: '8px 32px 8px 12px',
+        padding: '0 32px 0 12px',
         alignItems: 'center',
         display: 'flex',
         transition: theme.transitions.create(['border-color']),
         fontFamily: 'GTWalsheimPro-Regular',
-        fontSize: 16,
+        fontSize: '.875rem',
         '&:hover': {
             border: '2px solid #356BBA',
             outline: 'none',
@@ -130,7 +80,7 @@ export default function MultiSelect(props) {
                 renderValue={(value) => {
                     return <p
                         className={classes.placeholderText}
-                    >Add to...</p>
+                    >list input</p>
                 }}
                 onChange={(event) => {
                     const value = event.target.value;

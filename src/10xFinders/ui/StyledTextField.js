@@ -34,18 +34,18 @@ const useStyles = makeStyles((theme) => ({
         },
         input: {
             "&::placeholder": {
-                color: '#8DB0E3',
-                opacity: '1',
+                color: '#8DB0E3 !important',
+                opacity: '1 !important',
             },
             "&&& $input": {
                 padding: "5px"
             },
-            color: '#152845',
-            fontSize: 'clamp(12px, .75rem, 18px)',
+            color: '#152845 !important',
+            fontSize: 'clamp(12px, .75rem, 18px) !important',
         },
         textfield_label: {
-            color: '#8DB0E3',
-            fontSize: 'clamp(12px, .75rem, 18px)',
+            color: '#8DB0E3 !important',
+            fontSize: 'clamp(12px, .75rem, 18px) !important',
             fontFamily: 'GTWalsheimPro-Medium',
         },
     }))
@@ -98,26 +98,27 @@ const underlinedStyles = makeStyles((theme) => ({
                 borderWidth: '0 0 2px 0',
             },
             "& $input": {
-                padding: "0 0 4px 0",
+                padding: "0 0 8px 0",
             },
             alignItems: "end",
         },
-        borderRadius: '0',
-        fontFamily: 'GTWalsheimPro-Medium',
+        borderRadius: '0 !important',
+        fontFamily: 'GTWalsheimPro-Medium !important',
+        fontSize: 'clamp(12px, .75rem, 18px) !important',
         height: '42px',
         marginTop: '0',
     },
     input: {
         "&::placeholder": {
-            color: '#8DB0E3',
-            opacity: '1',
+            color: '#8DB0E3 !important',
+            opacity: '1 !important',
         },
-        color: '#152845',
-        fontSize: 'clamp(12px, .75rem, 18px)',
+        color: '#152845 !important',
+        fontSize: 'clamp(12px, .75rem, 18px) !important',
     },
     textfield_label: {
-        color: '#8DB0E3',
-        fontSize: 'clamp(12px, .75rem, 18px)',
+        color: '#8DB0E3 !important',
+        fontSize: 'clamp(12px, .75rem, 18px) !important',
         fontFamily: 'GTWalsheimPro-Medium',
     },
 }));

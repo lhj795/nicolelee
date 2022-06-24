@@ -7,14 +7,15 @@ import IconButton from '@mui/material/IconButton';
 import BlockRoundedIcon from '@mui/icons-material/BlockRounded';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import Icon from '@mui/material/Icon';
-import EllipsisDefault from '../../img/EllipsisDefaultImage.svg'
-import EllipsisHover from '../../img/EllipsisHoverImage.svg'
+import EllipsisDefault from './img/EllipsisDefaultImage.svg'
+import EllipsisHover from './img/EllipsisHoverImage.svg'
 
 
 const Button10x = withStyles((theme) => ({
     root: {
-        fontFamily: "GTWalsheimPro-Bold",
-        fontSize: 'clamp(14px, .875rem, 20px)',
+        fontFamily: "GTWalsheimPro-Medium",
+        fontSize: 'clamp(14px, .875rem, 20px) !important',
+        height: '42px',
     },
     text: {
         color: "#356BBA !important",
@@ -77,7 +78,7 @@ const ProtoChip = withStyles((theme) => ({
         fontFamily: "GTWalsheimPro-Medium !important",
         textTransform: "inherit !important",
         fontSize:"clamp(12px, .75rem, 18px) !important",
-        padding: "3px .625vw 3px .625vw !important",
+        padding: "5px .625vw 5px .625vw !important",
         marginRight: ".78125vmin !important",
         backgroundColor: '#356BBA !important',
         '&:hover': {
@@ -100,7 +101,7 @@ const RedChip = withStyles((theme) => ({
         fontFamily: "GTWalsheimPro-Medium !important",
         textTransform: "inherit !important",
         fontSize:"clamp(12px, .75rem, 18px) !important",
-        padding: "3px .625vw 3px .625vw !important",
+        padding: "5px .625vw 5px .625vw !important",
         marginRight: ".78125vmin !important",
         "&:hover" :{
             backgroundColor: "#B71208 !important",
