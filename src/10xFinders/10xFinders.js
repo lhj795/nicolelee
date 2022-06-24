@@ -347,7 +347,7 @@ export default function TenEx(props) {
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <Typography variant='body1'>
-                                    <span className={classes.boldText}>Role</span>: Research, UI/UX Design, Frontend Develeopment
+                                    <span className={classes.boldText}>Role</span>: Research, UI/UX Design, Frontend Develepment
                                 </Typography>
                             </Grid>
                             <Grid item xs={4}>

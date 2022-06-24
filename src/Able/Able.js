@@ -272,6 +272,8 @@ function importAll(r) {
     return images;
 }
 
+const img = importAll(require.context('./img', false, /\.(png|jpg|svg|mp4)$/));
+
 function Cover(props) {
     const classes = useStyles(props);
 
@@ -283,8 +285,6 @@ function Cover(props) {
     )
 }
 
-const img = importAll(require.context('./img', false, /\.(png|jpg|svg|mp4)$/));
-
 export default function Able(props) {
     const classes = useStyles(props);
 
@@ -295,7 +295,7 @@ export default function Able(props) {
                 <div className={classes.wrap}>
 
                     <Base color='black' />
-                    <img src={img['AbleStore02.png']} className={clsx(classes.imgMixBlendMode, classes.cover)} alt='' />
+                    <img src={img['AbleStore02.png']} className={clsx(classes.imgMixBlendMode, classes.cover)} alt='able store' />
 
                     {/* cover */}
                     <div className={classes.coverContainer}>

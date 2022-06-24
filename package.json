@@ -2,8 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "homepage": "https://nicolelee.vercel.app/",
-  
-  "private": true,
+  "private": false,
   "dependencies": {
     "@babel/core": "^7.18.5",
     "@babel/plugin-syntax-flow": "^7.14.5",
@@ -26,7 +25,7 @@
     "postcss": "^8.1.0",
     "react": "^18.2.0",
     "react-animate-on-scroll": "^2.1.5",
-    "react-dom": "^17.0.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "react-text-fun": "^1.0.0",

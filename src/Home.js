@@ -17,8 +17,7 @@ import Placeholder from './img/Placeholder.png';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
-import lottie from "lottie-web";
-import EngineerAnim from "./img/engineer.json";
+import Engineer from './img/Engineer.mp4';
 
 const cardStyles = makeStyles(({
     textDecoration: {
@@ -483,7 +482,8 @@ export default function Work(props) {
 
     const scrollYPosition = window.pageYOffset
     const windowHeight = window.innerHeight*0.8
-    const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#222222" : "";
+    const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#252525" : "";
+    const vidOpacity = (scrollYPosition >= workHeight - windowHeight) ? "1" : "0";
     const scrollColor = (scrollYPosition >= workHeight - windowHeight) ? "white" : "#222222";
     const borderAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.border : classes.borderPreAnim;
     const fillAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.fill : classes.fillPreAnim;
@@ -512,17 +512,6 @@ export default function Work(props) {
         Localyze: "rgba(132, 215, 183, 0.7)",
         More: "#EDF1FA",
     }
-
-    let engineerAnimContainer = React.createRef()
-    useEffect(() => {
-        lottie.loadAnimation({
-            container: engineerAnimContainer.current,
-            animationData: EngineerAnim,
-            naame: "engineer",
-            renderer: "svg",
-            count: 1
-        })
-    }, [engineerAnimContainer]);
 
     return (
         <StyledEngineProvider injectFirst>
@@ -703,8 +692,7 @@ export default function Work(props) {
                     />
                 </div>
                 <div className={classes.engineerAnimContainer}>
-                    {/* TO DO fix the multiplying bug */}
-                    <div ref={engineerAnimContainer}/>
+                    <video style={{opacity: vidOpacity, transition: "1s",}} src={Engineer} autoPlay muted loop id="video" />
                     <div variant="h4" className={classes.engineerText}>ENGINEER</div>
                 </div>
             </div>
