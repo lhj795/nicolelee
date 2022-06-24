@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './Home';
-import Distortion from './components/Distortion';
+// import Distortion from './components/Distortion';
 import Able from './Able/Able';
 import TenEx from './10xFinders/10xFinders';
 

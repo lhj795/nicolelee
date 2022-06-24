@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import { Typography, Grid } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
 
 const useStyles = makeStyles(({
@@ -133,6 +132,78 @@ const useStyles = makeStyles(({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+    },
+    alignCenter: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    competitor: {
+        borderTop: '1.5px solid #C6DFFF',
+        borderRight: '1.5px solid #C6DFFF',
+        padding: '1vmin',
+    },
+    competitorLast: {
+        border: '1.5px solid #C6DFFF',
+        borderLeft: 'none',
+        padding: '1vmin',
+    },
+    competitorLogo: {
+        padding: '1vmin 0',
+        margin: 'auto',
+        height: '2.5vh',
+    },
+    borders: {
+        borderTop: '1.5px solid #C6DFFF',
+        padding: '1vmin',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    bordersLast: {
+        border: '1.5px solid #C6DFFF',
+        borderLeft: 'none',
+        borderRight: 'none',
+        padding: '1vmin',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    circleOpen: {
+        height: '10px',
+        width: '10px',
+        borderRadius: '50%',
+        border: '2px solid #356BBA'
+    },
+    circleClosed: {
+        height: '10px',
+        width: '10px',
+        borderRadius: '50%',
+        border: '2px solid #356BBA',
+        background: '#356BBA',
+    },
+    negMargin: {
+        marginTop: '-5vh',
+    },
+    IABox: {
+        border: '1.5px solid #C6DFFF',
+        borderTop: '10px solid #356BBA',
+        padding: '1vmin',
+    },
+    IALine: {
+        width: '1.5px',
+        background: '#C6DFFF',
+        height: '2.5vmin',
+    },
+    textAlign: {
+        textAlign: 'center',
+        textTransform: 'uppercase',
+    },
+    caption: {
+        lineHeight: '1.5',
+    },
+    pZ: {
+        paddingTop: '0 !important',
     }
 }));
 
@@ -142,16 +213,16 @@ function importAll(r) {
     return images;
 }
 
-function Cover(props) {
-    const classes = useStyles(props);
+// function Cover(props) {
+//     const classes = useStyles(props);
 
-    return (
-        <div style={{ height: props.customHeight, flexDirection: props.textBottom }} className={clsx(classes.margin, classes.maxHeight)}>
-            <img src={img[props.img]} className={clsx(classes.imgMixBlendMode, classes.imgFitContent, classes.positionAbsolute)} alt='' />
-            <Typography style={{ color: props.color, lineHeight: props.lineHeight, textAlign: props.textAlign, zIndex: props.zIndex, padding: '0 24px' }} variant='h1'>{props.title}</Typography>
-        </div>
-    )
-}
+//     return (
+//         <div style={{ height: props.customHeight, flexDirection: props.textBottom }} className={clsx(classes.margin, classes.maxHeight)}>
+//             <img src={img[props.img]} className={clsx(classes.imgMixBlendMode, classes.imgFitContent, classes.positionAbsolute)} alt='' />
+//             <Typography style={{ color: props.color, lineHeight: props.lineHeight, textAlign: props.textAlign, zIndex: props.zIndex, padding: '0 24px' }} variant='h1'>{props.title}</Typography>
+//         </div>
+//     )
+// }
 
 const img = importAll(require.context('./img', false, /\.(png|jpg|svg|mp4)$/));
 
@@ -583,6 +654,147 @@ export default function TenEx(props) {
                             experience, which I later referenced to structure the 10xFinders information architecture.'
                             captionXs='5'
                         />
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Grid container spacing={0}>
+                                    <Grid item xs={2} />
+                                    <Grid className={classes.alignCenter} item xs={2}>
+                                        <img src={img['Market02.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                    </Grid>
+                                    <Grid className={classes.alignCenter} item xs={2}>
+                                        <img src={img['Competitor02.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                    </Grid>
+                                    <Grid className={classes.alignCenter} item xs={2}>
+                                        <img src={img['Competitor03.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                    </Grid>
+                                    <Grid className={classes.alignCenter} item xs={2}>
+                                        <img src={img['Competitor04.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                    </Grid>
+                                    <Grid className={classes.alignCenter} item xs={2}>
+                                        <img src={img['Competitor05.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                    </Grid>
+                                    <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Business Insights</Typography></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Engagement Metrics</Typography></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Company Information</Typography></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Email Campaigns</Typography></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Automated Sourcing</Typography></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
+                                    <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.competitorLast} item xs={2}><Typography variant='body1'>Internal/Integrated ATS</Typography></Grid>
+                                    <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                    <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
+                                </Grid>
+                            </Grid>
+                        </GridFormat>
+                    </div>
+
+                    {/* solution */}
+                    <div>
+                        <Heading
+                            header='SOLUTION'
+                            headerXs='3'
+                            caption='10xFinders is the first recruiting platform to provide a comprehensive view of the market. Recruiters may run 
+                            multi-dimensional searches, encompassing a database of over 1 million people, companies, technology stack, jobs, turnovers and 
+                            recent press on company acquires, fundraisings, etc.'
+                            caption3='With 10xFinders, recruiters can easily search for candidates by experience and company attributes like stack, stage, and 
+                            industry, identify candidates with hidden availability, research ideal companies to recruit from, identify potential referral 
+                            targets and detect turnover at target companies.'
+                            caption5='My role with the product was understanding the problem, looking into the users for their needs and pain points, 
+                            researching the market, then designing the most ideal user experience on the platform. I was responsible for the design process 
+                            starting from ideation to execution including information architecture, wire framing, designing the brand guidelines, creating 
+                            mockups, and frontend implementation.'
+                            captionXs='5'
+                        />
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Typography variant='h3'>Targeted search using advanced smart filters</Typography>
+                            </Grid>
+                        </GridFormat>
+                        <img src={img['Solution01.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='people search' />
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Typography variant='h3'>Detail candidate profile page with experience details, career events and hire engagments</Typography>
+                            </Grid>
+                        </GridFormat>
+                        <img src={img['Solution02.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='candidate profile' />
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Typography variant='h3'>Automated email campaigns with personalized variables sent to candidates on a set schedule</Typography>
+                            </Grid>
+                        </GridFormat>
+                        <img src={img['Solution03.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='campaign' />
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Typography variant='h3'>Overview of Job Market</Typography>
+                            </Grid>
+                        </GridFormat>
+                        <img src={img['Solution04.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='job search' />
+                    </div>
+
+                    {/* IA */}
+                    <div>
+                        <GridFormat>
+                            <Grid item xs={4}>
+                                <Typography variant='h3'>Information Architecture</Typography>
+                                <Typography variant='body1'>
+                                    <br />
+                                    Based on the MVP identified during all hands discussion and references gathered from competitor analysis, I created the
+                                    10xFinders information architecture to construct the navigation structure of the application.
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4} />
+                        </GridFormat>
+                        <GridFormat>
+                            <Grid item xs={8}>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={2}>
+                                        <div className={classes.IABox}>
+                                            <Typography className={classes.textAlign} variant='body1'>Onboarding</Typography>
+                                            <Typography className={classes.caption} variant='caption'>
+                                                <br/>
+                                                • Sign up with Gmail <br/>
+                                                • Create a workspace <br/>
+                                                • Invite members
+                                            </Typography>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={10}/>
+                                    <Grid className={clsx(classes.alignCenter, classes.pZ)} item xs={2}><div className={classes.IALine}/></Grid>
+                                    <Grid item xs={10}/>
+                                    <Grid className={classes.pZ} item xs={2}>
+                                        <div className={classes.IABox}>
+                                            <Typography className={classes.textAlign} variant='body1'>Dashboard</Typography>
+                                        </div>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </GridFormat>
                     </div>
 
                 </div>
