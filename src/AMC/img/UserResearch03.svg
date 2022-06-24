@@ -1,0 +1,11 @@
+<svg id="UserResearch03" xmlns="http://www.w3.org/2000/svg" width="1920.151" height="794.755" viewBox="0 0 1920.151 794.755">
+  <rect id="Rectangle_3156" data-name="Rectangle 3156" width="1920.151" height="793.695" transform="translate(0 0)" fill="#fff"/>
+  <g id="Group_1511" data-name="Group 1511" transform="translate(562.886 0.238)">
+    <path id="Path_2873" data-name="Path 2873" d="M15.086,210.677,365.861,397.258V0C213.906,0,81.9,85.331,15.086,210.677" transform="translate(31.397)" fill="#881b32"/>
+    <path id="Path_2874" data-name="Path 2874" d="M397.258,0V397.258L46.483,210.677A395.473,395.473,0,0,0,0,397.258c0,219.4,177.859,397.258,397.258,397.258S794.516,616.658,794.516,397.258,616.658,0,397.258,0" transform="translate(0)" fill="#c4c4c4"/>
+  </g>
+  <text id="Yes" transform="translate(762 174.505)" fill="#fff" font-size="60" font-family="NHaasGroteskDSPro-45Lt, Neue Haas Grotesk Display Pro" opacity="0.7"><tspan x="0" y="0">Yes</tspan></text>
+  <text id="No" transform="translate(1049 531.812)" fill="#333" font-size="62" font-family="NHaasGroteskDSPro-75Bd, Neue Haas Grotesk Display Pro"><tspan x="-39.959" y="0">No</tspan></text>
+  <text id="_75.8_" data-name="75.8%" transform="translate(1009 598.964)" fill="#333" font-size="48" font-family="NHaasGroteskDSPro-75Bd, Neue Haas Grotesk Display Pro"><tspan x="0" y="0">75.8%</tspan></text>
+  <text id="_24.2_" data-name="24.2%" transform="translate(762 233.522)" fill="#fff" font-size="49" font-family="NHaasGroteskDSPro-45Lt, Neue Haas Grotesk Display Pro" opacity="0.7"><tspan x="0" y="0">24.2%</tspan></text>
+</svg>

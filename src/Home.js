@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { TypographyTheme } from './components/ui/Typography';
 import Base from "./Base";
 import TalentMindCover from './10xFinders/img/TalentMindCover.png';
-import AMCCover from './img/AMC/AMCCover.jpg';
+import AMCCover from './AMC/img/AMCCover.jpg';
 import CraigslistCover from './img/CRAIGSLIST/CraigslistCover.jpg';
 import DriftCover from './img/DRIFT/DriftCover.jpg';
 import InvolvCover from './img/INVOLV/InvolvCover.jpg';
