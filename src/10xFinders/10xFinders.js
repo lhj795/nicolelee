@@ -214,6 +214,9 @@ const useStyles = makeStyles(({
     IA: {
         width: '100%',
         objectFit: 'cover',
+        width: '1.5px',
+        background: '#C6DFFF',
+        height: '2.5vmin',
     },
     textAlign: {
         textAlign: 'center',
@@ -311,17 +314,6 @@ function importAll(r) {
     r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
     return images;
 }
-
-// function Cover(props) {
-//     const classes = useStyles(props);
-
-//     return (
-//         <div style={{ height: props.customHeight, flexDirection: props.textBottom }} className={clsx(classes.margin, classes.maxHeight)}>
-//             <img src={img[props.img]} className={clsx(classes.imgMixBlendMode, classes.imgFitContent, classes.positionAbsolute)} alt='' />
-//             <Typography style={{ color: props.color, lineHeight: props.lineHeight, textAlign: props.textAlign, zIndex: props.zIndex, padding: '0 24px' }} variant='h1'>{props.title}</Typography>
-//         </div>
-//     )
-// }
 
 const img = importAll(require.context('./img', false, /\.(png|jpg|svg|mp4)$/));
 
@@ -858,6 +850,7 @@ export default function TenEx(props) {
 
                     {/* IA */}
                     <div className={classes.margin2}>
+                    <div>
                         <GridFormat>
                             <Grid item xs={4}>
                                 <Typography variant='h3'>Information Architecture</Typography>
@@ -1229,6 +1222,28 @@ export default function TenEx(props) {
                             <Grid item xs={3}>
                                 <img src={img['Logo03.svg']} className={classes.marketImg} alt='Wireframes' />
                                 <Typography variant='caption'><br />Full Character</Typography>
+=======
+                                <Grid container spacing={3}>
+                                    <Grid item xs={2}>
+                                        <div className={classes.IABox}>
+                                            <Typography className={classes.textAlign} variant='body1'>Onboarding</Typography>
+                                            <Typography className={classes.caption} variant='caption'>
+                                                <br/>
+                                                • Sign up with Gmail <br/>
+                                                • Create a workspace <br/>
+                                                • Invite members
+                                            </Typography>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={10}/>
+                                    <Grid className={clsx(classes.alignCenter, classes.pZ)} item xs={2}><div className={classes.IALine}/></Grid>
+                                    <Grid item xs={10}/>
+                                    <Grid className={classes.pZ} item xs={2}>
+                                        <div className={classes.IABox}>
+                                            <Typography className={classes.textAlign} variant='body1'>Dashboard</Typography>
+                                        </div>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </GridFormat>
                     </div>
@@ -1288,7 +1303,6 @@ export default function TenEx(props) {
                             </GridFormat>
                         </div>
                     </div>
-
                 </div>
             </ThemeProvider>
         </StyledEngineProvider >
