@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
 const SelectInput = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         borderRadius: 5,
-        maxHeight: '41px',
-        minHeight: '41px',
+        maxHeight: '39px !important',
+        minHeight: '39px !important',
         backgroundColor: 'white',
         border: '1px solid #8DB0E3',
-        padding: '0 32px 0 12px',
+        padding: '1px 32px 1px 12px',
         alignItems: 'center',
         display: 'flex',
         transition: theme.transitions.create(['border-color']),
@@ -34,11 +34,11 @@ const SelectInput = styled(InputBase)(({ theme }) => ({
         '&:hover': {
             border: '2px solid #356BBA',
             outline: 'none',
-            padding: '7px 31px 7px 11px',
+            padding: '0px 31px 0px 11px',
         },
         '&:focus': {
             border: '2px solid #356BBA',
-            padding: '7px 31px 7px 11px',
+            padding: '0px 31px 0px 11px',
         },
     },
 }));
@@ -67,7 +67,7 @@ export default function MultiSelect(props) {
     return (
         <FormControl fullWidth={true}>
             <Select
-                value={''}
+                value={opts}
                 input={<SelectInput />}
                 style={{minHeight: '42px'}}
                 MenuProps={{
@@ -80,7 +80,7 @@ export default function MultiSelect(props) {
                 renderValue={(value) => {
                     return <p
                         className={classes.placeholderText}
-                    >list input</p>
+                    >select component</p>
                 }}
                 onChange={(event) => {
                     const value = event.target.value;

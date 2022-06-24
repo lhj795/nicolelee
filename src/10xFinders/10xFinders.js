@@ -1106,7 +1106,7 @@ export default function TenEx(props) {
                             <Grid item xs={2} />
                             <Grid item xs={2} />
                             <Grid item xs={8}>
-                                <img src={img['Responsive03.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
+                                <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
                             </Grid>
                         </GridFormat>
                         <GridFormat>
@@ -1117,7 +1117,7 @@ export default function TenEx(props) {
                             <Grid item xs={1} />
                             <Grid item xs={3} />
                             <Grid item xs={6}>
-                                <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1336 * 768' />
+                                <img src={img['Responsive03.svg']} className={classes.imgFitContent} alt='1336 * 768' />
                                 <Grid item xs={1} />
                             </Grid>
                         </GridFormat>
@@ -1219,8 +1219,7 @@ export default function TenEx(props) {
                             <Grid item xs={3}>
                                 <img src={img['Logo03.svg']} className={classes.marketImg} alt='Wireframes' />
                                 <Typography variant='caption'><br />Full Character</Typography>
-=======
-                                <Grid container spacing={3}>
+                                {/* <Grid container spacing={3}>
                                     <Grid item xs={2}>
                                         <div className={classes.IABox}>
                                             <Typography className={classes.textAlign} variant='body1'>Onboarding</Typography>
@@ -1240,7 +1239,7 @@ export default function TenEx(props) {
                                             <Typography className={classes.textAlign} variant='body1'>Dashboard</Typography>
                                         </div>
                                     </Grid>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </GridFormat>
                     </div>
