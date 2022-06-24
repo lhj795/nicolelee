@@ -13,7 +13,6 @@ import InvolvCover from './img/INVOLV/InvolvCover.jpg';
 import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import AbleCover from './Able/img/AssistiveHanger01.png';
-import Placeholder from './img/Placeholder.png';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
@@ -572,7 +571,7 @@ export default function Work(props) {
                                                 link={"/Able"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        {/* <Grid item xs={4}>
                                             <Card
                                                 title={"Lightly"}
                                                 desc={"Bringing Back Casual Moments in Hybrid Workspace"}
@@ -582,7 +581,7 @@ export default function Work(props) {
                                                 bgColor={BgColors.More}
                                                 link={"/Lightly"}
                                             />
-                                        </Grid>
+                                        </Grid> */}
                                         <Grid item xs={4}>
                                             <Card
                                                 title={"AMC World"}

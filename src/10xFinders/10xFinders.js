@@ -213,9 +213,7 @@ const useStyles = makeStyles(({
     },
     IA: {
         objectFit: 'cover',
-        width: '1.5px',
-        background: '#C6DFFF',
-        height: '2.5vmin',
+        width: '100%',
     },
     textAlign: {
         textAlign: 'center',
