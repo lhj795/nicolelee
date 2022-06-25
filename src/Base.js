@@ -71,7 +71,7 @@ export default function Base(props) {
     const classes = useStyles(props);
     
     return (
-        <div className={classes.wrap} style={{filter: props.filter}}>
+        <div className={classes.wrap} style={{filter: props.filter, zIndex: props.zIndex, mixBlendMode: props.mixBlendMode}}>
             <Link className={classes.home} style={{color: props.color}} to='/'>
                 Nicole Lee
             </Link>

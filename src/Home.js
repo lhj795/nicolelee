@@ -13,6 +13,7 @@ import InvolvCover from './img/INVOLV/InvolvCover.jpg';
 import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import AbleCover from './Able/img/AssistiveHanger01.png';
+import LightlyCover from './Lightly/img/LightlyCover.png';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
@@ -79,11 +80,11 @@ const homepageStyles = makeStyles(({
         alignItems: "center",
     },
     variableTitle: {
-        fontFamily: "ABCArizonaPlusVariable",
+        // fontFamily: "ABCArizonaPlusVariable",
         fontSize: "clamp(25px, 3.052rem, 48.83px)",
     },
     animatedItem: {
-        animation: `$myEffect 10s`
+        animation: `$myEffect 12s infinite`
     },
     "@keyframes myEffect": {
         "0%": {
@@ -91,24 +92,29 @@ const homepageStyles = makeStyles(({
             fontVariationSettings: "'wght' 700, 'ital' 0, 'SRFF' 100",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
-        "25%": {
+        "20%": {
             fontFamily: "ABCArizonaPlusVariable",
             fontVariationSettings: "'wght' 400, 'ital' 0, 'SRFF' 100",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
-        "50%": {
+        "40%": {
             fontFamily: "ABCArizonaPlusVariable",
             fontVariationSettings: "'wght' 700, 'ital' 0, 'SRFF' 0",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
-        "75%": {
+        "60%": {
             fontFamily: "ABCArizonaPlusVariable",
             fontVariationSettings: "'wght' 100, 'ital' 0, 'SRFF' 0",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
-        "100%": {
+        "80%": {
             fontFamily: "ABCArizonaPlusVariable",
             fontVariationSettings: "'wght' 100, 'ital' 100, 'SRFF' 0",
+            fontSize: "clamp(25px, 3.052rem, 48.83px)",
+        },
+        "100%": {
+            fontFamily: "ABCArizonaPlusVariable",
+            fontVariationSettings: "'wght' 700, 'ital' 0, 'SRFF' 100",
             fontSize: "clamp(25px, 3.052rem, 48.83px)",
         },
     },
@@ -504,6 +510,7 @@ export default function Work(props) {
         TenEx: "rgba(198, 215, 236, 0.5)",
         Able: "rgba(255, 255, 255, 0.5)",
         AMC: "rgba(136, 27, 48, 0.7)",
+        Lightly: "rgba(255, 255, 255, 0.5)",
         Kozi: "rgba(223, 242, 248, 0.7)",
         Involv: "rgba(59, 66, 86, 0.7)",
         Drift: "rgba(153, 196, 202, 0.7)",
@@ -571,27 +578,27 @@ export default function Work(props) {
                                                 link={"/Able"}
                                             />
                                         </Grid>
-                                        {/* <Grid item xs={4}>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"AMC"}
+                                                desc={"A Reimagined Movie-Watching Experience"}
+                                                caption={"Experience Design, Service Design"}
+                                                img={AMCCover}
+                                                alt={"AMCs"}
+                                                bgColor={BgColors.AMC}
+                                                color="white"
+                                                link={"/AMC"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
                                             <Card
                                                 title={"Lightly"}
                                                 desc={"Bringing Back Casual Moments in Hybrid Workspace"}
                                                 caption={"Product Design, UI/UX"}
-                                                img={Placeholder}
+                                                img={LightlyCover}
                                                 alt={"Lightly"}
-                                                bgColor={BgColors.More}
-                                                link={"/Lightly"}
-                                            />
-                                        </Grid> */}
-                                        <Grid item xs={4}>
-                                            <Card
-                                                title={"AMC World"}
-                                                desc={"A Reimagined Movie-Watching Experience"}
-                                                caption={"Experience Design, Service Design"}
-                                                img={AMCCover}
-                                                alt={"AMC World"}
-                                                bgColor={BgColors.AMC}
-                                                color="white"
-                                                link={"/AMC"}
+                                                bgColor={BgColors.Lightly}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -602,7 +609,7 @@ export default function Work(props) {
                                                 img={KoziCover}
                                                 alt={"Kozi"}
                                                 bgColor={BgColors.Kozi}
-                                                link={"/Kozi"}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -614,7 +621,7 @@ export default function Work(props) {
                                                 alt={"Drift"}
                                                 bgColor={BgColors.Involv}
                                                 color="white"
-                                                link={"/Involv"}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -625,7 +632,7 @@ export default function Work(props) {
                                                 img={DriftCover}
                                                 alt={"Drift"}
                                                 bgColor={BgColors.Drift}
-                                                link={"/Drift"}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -636,7 +643,7 @@ export default function Work(props) {
                                                 img={CraigslistCover}
                                                 alt={"Drift"}
                                                 bgColor={BgColors.Craigslist}
-                                                link={"/Craigslist"}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -647,7 +654,7 @@ export default function Work(props) {
                                                 img={LocalyzeCover}
                                                 alt={"Localyze"}
                                                 bgColor={BgColors.Localyze}
-                                                link={"/TalentMind"}
+                                                link={"/project"}
                                             />
                                         </Grid>
                                     </Grid>
