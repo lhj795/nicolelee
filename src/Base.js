@@ -16,6 +16,7 @@ const useStyles = makeStyles(({
         textDecoration: 'none',
         fontFamily: 'NeueHaasDisplayRoman',
         fontSize: 'clamp(20px, 1.563rem, 25px)',
+        cursor: 'pointer',
     },
     navBarItem: {
         fontFamily: 'NeueHaasDisplayRoman',

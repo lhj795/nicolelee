@@ -11,6 +11,7 @@ import { GridFormat, Heading } from '../components/ui/UIComponents';
 const useStyles = makeStyles(({
     wrap: {
         color: '#333333',
+        minWidth: '320px',
         maxWidth: '100vw',
         overflowX: 'hidden',
     },
@@ -85,14 +86,13 @@ const useStyles = makeStyles(({
     },
     designProcesses: {
         border: '1px solid #333333',
-        display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'row',
         display: (props) => {
             if (window.innerWidth < 1200) {
                 return 'none'
             } else {
-                return '';
+                return 'flex';
             }
         },
     },
@@ -139,7 +139,6 @@ const useStyles = makeStyles(({
     },
     lightlyLogo: {
         fontFamily: 'DMSans-Bold',
-        fontSize: 'clamp(61.04px, 3.815rem, 76.29px)',
         paddingTop: '28vh',
         fontSize: (props) => {
             if (window.innerWidth < 1200) {
@@ -156,6 +155,58 @@ const useStyles = makeStyles(({
     },
     pZ: {
         paddingLeft: '0 !important',
+    },
+    arrow: {
+        height: '10px',
+        width: '10px',
+        borderBottom: '2px solid #333333',
+        borderRight: '2px solid #333333',
+        position: 'absolute',
+        right: 'calc(8.33333% + 4px)',
+        marginTop: 'calc(-1rem - 2px)',
+        display: () => {
+            if (window.innerWidth > 1200) {
+                return 'none'
+            } else {
+                return '';
+            }
+        },
+        transform: 'rotate(225deg)',
+        transition: '.3s',
+    },
+    arrowHide: {
+        height: '10px',
+        width: '10px',
+        borderBottom: '2px solid #333333',
+        borderRight: '2px solid #333333',
+        position: 'absolute',
+        right: 'calc(8.33333% + 4px)',
+        marginTop: 'calc(-1rem - 2px)',
+        display: () => {
+            if (window.innerWidth > 1200) {
+                return 'none'
+            } else {
+                return '';
+            }
+        },
+        transform: 'rotate(45deg)',
+        transition: '.3s',
+    },
+    displayNone: {
+        display: () => {
+            if (window.innerWidth < 1200) {
+                return 'none'
+            } else {
+                return '';
+            }
+        },
+        padding: () => {
+            if (window.innerWidth < 1200) {
+                return '0 !important'
+            } else {
+                return '';
+            }
+        },
     },
 }));
 
@@ -178,8 +229,11 @@ export default function Lightly(props) {
             setMobile(false);
         }
     }, []);
-    console.log(mobile);
-    console.log(window.innerWidth);
+
+    const [showDesc, setShowDesc] = useState(false);
+    const [showDesc2, setShowDesc2] = useState(false);
+
+    const pZElem = (mobile) ? '' : classes.pZ;
 
     return (
         <StyledEngineProvider injectFirst>
@@ -196,7 +250,7 @@ export default function Lightly(props) {
                             <Grid item lg={3} xs={10}>
                                 <div className={classes.lightlyLogo}>Lightly</div>
                             </Grid>
-                            <Grid item lg={7} xs={1}/>
+                            <Grid item lg={7} xs={1} />
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='h4'>
@@ -207,38 +261,43 @@ export default function Lightly(props) {
                             <Grid item lg={4} xs={1} />
                         </Grid>
                         <Grid container spacing={3} className={classes.coverDetails}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item lg={4} xs={10}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Project</span>: Brown Risd Master of Arts in Design Engineering (MADE) Module
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
+                            <Grid item lg={2} xs={10}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: UX Design
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
+                            <Grid item lg={2} xs={10}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Figma, Illustrator, After Effects
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
                         </Grid>
                     </div>
 
                     {/* abstract */}
                     <div className={classes.abstractContainer}>
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} direction="row">
                             <Grid item xs={12} />
                             <Grid item lg={2} xs={1} />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='body2'>
                                     Abstract
+                                    <div onClick={() => setShowDesc(!showDesc)} className={(showDesc) ? classes.arrow : classes.arrowHide} />
                                 </Typography>
-                                <Typography variant='body1'>
-                                    <br/>
+                                <Typography className={(showDesc) ? '' : classes.displayNone} variant='body1'>
+                                    <br />
                                     With offices going hybrid, many of us lost interpersonal connections with our colleagues. While there's no way to fully
                                     reproduce the real life dynamics that happen in the office, Lightly seeks to compensate for those lost connections. Lightly
                                     is a lighting system that creates similar atmosphere for co-workers in different areas and time-zones. Through lighting
@@ -246,16 +305,15 @@ export default function Lightly(props) {
                                     break together.
                                 </Typography>
                             </Grid>
-                            {/* <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto'/> */}
-                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto'/>
-                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto'/>
-                            {/* {(mobile) ? <div>hello world</div> : []} */}
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
+                            <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='body2'>
                                     Involvement
+                                    <div onClick={() => setShowDesc2(!showDesc2)} className={(showDesc2) ? classes.arrow : classes.arrowHide} />
                                 </Typography>
-                                <Typography variant='body1'>
-                                    <br/>
+                                <Typography className={(showDesc2) ? '' : classes.displayNone} variant='body1'>
+                                    <br />
                                     I was a part of a team with a UX Researcher, a Product Technologist, and me as the UX Designer. I was responsible for
                                     concept generation and interaction design. I used Figma and Adobe CC softwares primarily to generate UI assets, mockups,
                                     and demons. I worked closely with the researcher to generate concepts from data-driven insights, then translate those into
@@ -263,7 +321,7 @@ export default function Lightly(props) {
                                     in sync with the interface.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
                         </Grid>
                     </div>
@@ -271,16 +329,17 @@ export default function Lightly(props) {
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
                         <Grid container>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={8}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} />
-                                <Grid item xs={2} />
+                                <Grid item className={(mobile) ? classes.displayNone : ''} xs={12} />
+                                <Grid item className={(mobile) ? classes.displayNone : ''} xs={12} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={2}>
                                     <div className={classes.designProcesses}>
                                         <div className={classes.designProcess}>
@@ -317,47 +376,54 @@ export default function Lightly(props) {
                                         </div>
                                     </div>
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={12} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
+                                <Grid item xs={3} lg={2} />
+                                <Grid item className={(mobile) ? classes.displayNone : ''} lg={12} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item lg={2} xs={10}>
                                     <Typography variant='body2'>Learning</Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid className={classes.pZ} item xs={2}>
-                                    <Typography variant='body2'>Concept</Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid className={classes.pZ} item xs={2}>
-                                    <Typography variant='body2'>Prototype</Typography>
-                                </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Qualitative interviews with employees from diverse work environments, market research of existing products and tech.
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
+                                <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
                                 <Grid item xs={1} />
-                                <Grid className={classes.pZ} item xs={2}>
+                                <Grid className={pZElem} item lg={2} xs={10}>
+                                    <Typography variant='body2'>Concept</Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Using data-driven insights to formulate potential directions, co-creation and concept testing with users
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
+                                <Grid item zeroMinWidth className={classes.pZ} xs={1} lg='auto' />
                                 <Grid item xs={1} />
-                                <Grid className={classes.pZ} item xs={2}>
+                                <Grid className={pZElem} item lg={2} xs={10}>
+                                    <Typography variant='body2'>Prototype</Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Prototyping MVP based on research, testing for usability and effectiveness, then reiteration until final prototype
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={12} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={12} />
                             </Grid>
                         </div>
                     </div>
 
                     {/* the problem */}
-                    <div></div>
+                    <div>
+                        <Heading
+                            header='THE PROBLEM'
+                            headerXs='4'
+                            caption='Many workers and offices around the world have experienced an impact from the pandemic. Teams adapted to hybrid and remote 
+                            working, onboarding remote collaboration tools such as Slack, Miro, or Zoom to make up for their workflow. What couldn’t be made up 
+                            for are those interpersonal connection one shared with a co-worker. '
+                            captionXs='4'
+                        />
+                    </div>
 
                 </div>
             </ThemeProvider>

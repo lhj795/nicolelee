@@ -27,6 +27,14 @@
 }
 
 @font-face {
+  font-family:"NeueHaasDisplayLight";
+  src:url("fonts/NeueHaasDisplayLight.ttf") format("truetype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:100;
+}
+
+@font-face {
   font-family:"NeueHaasDisplayRoman";
   src:url("fonts/NeueHaasDisplayRoman.ttf") format("truetype");
   font-display:auto;

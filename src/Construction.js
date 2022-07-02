@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { Typography, Grid } from '@mui/material';
@@ -94,19 +94,6 @@ function Card(props) {
         setHovered(false);
         setZoomed(false);
     };
-
-    var BgColors = {
-        TenEx: "rgba(198, 215, 236, 0.5)",
-        Able: "rgba(255, 255, 255, 0.5)",
-        AMC: "rgba(136, 27, 48, 0.7)",
-        Lightly: "rgba(255, 255, 255, 0.5)",
-        Kozi: "rgba(223, 242, 248, 0.7)",
-        Involv: "rgba(59, 66, 86, 0.7)",
-        Drift: "rgba(153, 196, 202, 0.7)",
-        Craigslist: "rgba(226, 213, 252, 0.7)",
-        Localyze: "rgba(132, 215, 183, 0.7)",
-        More: "#EDF1FA",
-    }
 
     const hoveredStyle = (hover) ? classes.default : classes.hover
     const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;
