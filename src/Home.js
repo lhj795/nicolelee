@@ -537,7 +537,7 @@ export default function Work(props) {
                             </div>
                             <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
                                     <Grid container className={classes.about}>
-                                        <Grid item lg={2} xs={1} />
+                                        <Grid item xs={2} />
                                         <Grid item xs={3}>
                                             <div
                                                 className={classes.animatedItem}
@@ -604,7 +604,7 @@ export default function Work(props) {
                                                 img={LightlyCover}
                                                 alt={"Lightly"}
                                                 bgColor={BgColors.Lightly}
-                                                link={"/Lightly"}
+                                                link={"/Project"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
