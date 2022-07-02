@@ -212,7 +212,7 @@ export default function AMC(props) {
                     {/* cover */}
                     <div className={classes.coverContainer}>
                         <img src={img['AMCCover.png']} className={classes.cover} alt='10xFinders' />
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={3}>
                                 <img className={classes.coverLogo} src={img['AMCLogo.svg']} alt='10xFinders' />
@@ -226,7 +226,7 @@ export default function AMC(props) {
                             </Grid>
                             <Grid item xs={4} />
                         </Grid>
-                        <Grid container xs={12} spacing={3} className={classes.coverDetails}>
+                        <Grid container spacing={3} className={classes.coverDetails}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <Typography variant='body1'>
@@ -250,7 +250,7 @@ export default function AMC(props) {
 
                     {/* abstract */}
                     <div className={classes.abstractContainer}>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={12} />
                             <Grid item xs={2} />
                             <Grid item xs={4}>
@@ -266,7 +266,7 @@ export default function AMC(props) {
                             <Grid item xs={2} />
                             <Grid item xs={12} />
                         </Grid>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <Typography variant='body1'>
@@ -292,18 +292,18 @@ export default function AMC(props) {
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
-                        <Grid container xs={12}>
+                        <Grid container>
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
                             <Grid item xs={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Grid container xs={12} spacing={2}>
+                            <Grid container spacing={2}>
                                 <Grid item xs={12} />
                                 <Grid item xs={2} />
-                                <Grid item xs={8}>
+                                <Grid item lg={8} xs={10}>
                                     <div className={classes.arrow} />
                                 </Grid>
                                 <Grid item xs={2} />

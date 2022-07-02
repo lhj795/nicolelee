@@ -1,5 +1,5 @@
 import React from 'react';
-import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from '@mui/material/styles';
+import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { TypographyTheme } from '../../components/ui/Typography';
 import Typography from '@mui/material/Typography';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const PaletteTheme = createTheme(adaptV4Theme({
+export const PaletteTheme = createTheme(({
     palette: {
         primary: {
             main: '#356BBA',
@@ -32,11 +32,11 @@ export const PaletteTheme = createTheme(adaptV4Theme({
     },
 }));
 
-export const SmallSpacingTheme = createTheme(adaptV4Theme({
+export const SmallSpacingTheme = createTheme(({
     spacing: (factor) => `${.520833333 * factor}vw`,
 }));
 
-export const RegularSpacingTheme = createTheme(adaptV4Theme({
+export const RegularSpacingTheme = createTheme(({
     spacing: (factor) => `${1.04166666 * factor}vw`,
 }));
 

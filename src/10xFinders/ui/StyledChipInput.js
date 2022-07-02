@@ -1,12 +1,11 @@
 import React from "react";
 import Chip from "@mui/material/Chip";
 import ChipInput from "material-ui-chip-input";
-import { adaptV4Theme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import ClearIcon from '@mui/icons-material/Clear';
 import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 
-const theme = createTheme(adaptV4Theme({
+const theme = createTheme(({
     overrides: {
         MuiOutlinedInput: {
             root: {

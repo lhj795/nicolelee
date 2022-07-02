@@ -7,6 +7,7 @@ import TenEx from './10xFinders/10xFinders';
 import AMC from './AMC/AMC';
 import About from './About';
 import Construction from './Construction';
+import Lightly from './Lightly/Lightly';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/able' element={<Able/>} />
         <Route path='/10xfinders' element={<TenEx/>} />
         <Route path='/AMC' element={<AMC/>} />
+        <Route path='/Lightly' element={<Lightly/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/project' element={<Construction/>} />
       </Routes>

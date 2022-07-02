@@ -18,6 +18,7 @@ import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
 import Engineer from './img/Engineer.mp4';
+import LovePop from './img/LovePop.jpg'
 
 const cardStyles = makeStyles(({
     textDecoration: {
@@ -59,11 +60,16 @@ const cardStyles = makeStyles(({
     },
     cardImg: {
         width: "100%",
+        minWidth: "100%",
+        minHeight: "100%",
+        objectFit: 'contain',
         position: "absolute",
         transition: "0.6s",
     },
     cardImgZoomed: {
-        width: "110%",
+        width: '110%',
+        minHeight: "100%",
+        objectFit: 'contain',
         position: "absolute",
         transition: "0.6s",
     },
@@ -531,7 +537,7 @@ export default function Work(props) {
                             </div>
                             <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
                                     <Grid container className={classes.about}>
-                                        <Grid item xs={2} />
+                                        <Grid item lg={2} xs={1} />
                                         <Grid item xs={3}>
                                             <div
                                                 className={classes.animatedItem}
@@ -598,7 +604,7 @@ export default function Work(props) {
                                                 img={LightlyCover}
                                                 alt={"Lightly"}
                                                 bgColor={BgColors.Lightly}
-                                                link={"/project"}
+                                                link={"/Lightly"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>
@@ -621,6 +627,18 @@ export default function Work(props) {
                                                 alt={"Drift"}
                                                 bgColor={BgColors.Involv}
                                                 color="white"
+                                                link={"/project"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Card
+                                                title={"LovePop"}
+                                                desc={"Work from Summer Internship 2019"}
+                                                caption={"Consumer Product, CAD Design"}
+                                                img={LovePop}
+                                                alt={"LovePop"}
+                                                bgColor={BgColors.Able}
+                                                color="black"
                                                 link={"/project"}
                                             />
                                         </Grid>

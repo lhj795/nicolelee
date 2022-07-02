@@ -1,7 +1,7 @@
-import { createTheme, adaptV4Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import './../../App.css';
 
-export const TypographyTheme = createTheme(adaptV4Theme({
+export const TypographyTheme = createTheme(({
     typography:{
         h1: {
             fontFamily: 'NeueHaasDisplayXXThin',
@@ -36,7 +36,7 @@ export const TypographyTheme = createTheme(adaptV4Theme({
         },
         body1: {
             fontFamily: 'NeueHaasDisplayRoman',
-            fontSize: 'clamp(16px, 1rem, 20px)',
+            fontSize: 'clamp(12px, 1rem, 20px)',
             lineHeight: '1.5',
             textDecoration: 'none',
         },
@@ -55,8 +55,8 @@ export const TypographyTheme = createTheme(adaptV4Theme({
         },
         subtitle1: {
             fontFamily: 'NeueHaasDisplayRoman',
-            fontSize: 'clamp(12px, 1rem, 16px)',
-            lineHeight: '1.125',
+            fontSize: 'clamp(12px, .8rem, 16px)',
+            // lineHeight: '1.125',
             textDecoration: 'none',
         },
         button: {

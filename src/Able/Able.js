@@ -299,7 +299,7 @@ export default function Able(props) {
 
                     {/* cover */}
                     <div className={classes.coverContainer}>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={5} />
                             <Grid item xs={2}>
                                 <img className={classes.coverLogo} src={img['AbleLogo.svg']} alt='able' />
@@ -313,7 +313,7 @@ export default function Able(props) {
                             </Grid>
                             <Grid item xs={4} />
                         </Grid>
-                        <Grid container xs={12} spacing={3} className={classes.coverDetails}>
+                        <Grid container spacing={3} className={classes.coverDetails}>
                             <Grid item xs={2} />
                             <Grid item xs={3}>
                                 <Typography variant='body1'>
@@ -337,7 +337,7 @@ export default function Able(props) {
 
                     {/* abstract */}
                     <div>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={12} />
                             <Grid item xs={2} />
                             <Grid item xs={5}>
@@ -353,7 +353,7 @@ export default function Able(props) {
                             <Grid item xs={2} />
                             <Grid item xs={12} />
                         </Grid>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={5}>
                                 <Typography variant='body1'>
@@ -383,21 +383,21 @@ export default function Able(props) {
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
-                        <Grid container xs={12}>
+                        <Grid container>
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
                             <Grid item xs={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Grid container xs={12} spacing={2}>
+                            <Grid container spacing={2}>
                                 <Grid item xs={12} />
                                 <Grid item xs={2} />
                                 <Grid item xs={2}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Networking</Typography>
                                 </Grid>
-                                <Grid item xs={8} />
+                                <Grid item lg={8} xs={10} />
                                 <Grid item xs={3} />
                                 <Grid item xs={3}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>User Interviews</Typography>
@@ -414,7 +414,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={5} />
                             </Grid>
-                            <Grid container className={classes.arrows} xs={12} spacing={0}>
+                            <Grid container className={classes.arrows} spacing={0}>
                                 <Grid item xs={7} />
                                 <Grid item xs={2}>
                                     <div className={classes.arrowUp} />
@@ -422,7 +422,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={3} />
                             </Grid>
-                            <Grid container xs={12} spacing={3}>
+                            <Grid container spacing={3}>
                                 <Grid item xs={7} />
                                 <Grid item xs={1}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Prototyping</Typography>
@@ -431,7 +431,7 @@ export default function Able(props) {
                                     <Typography className={classes.designProcess} variant='subtitle1'>User Testing</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid container xs={12} spacing={0}>
+                            <Grid container spacing={0}>
                                 <Grid item xs={7} />
                                 <Grid item xs={2}>
                                     <div className={classes.arrowDown} />
@@ -439,7 +439,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={3} />
                             </Grid>
-                            <Grid container xs={12} spacing={3}>
+                            <Grid container spacing={3}>
                                 <Grid item xs={9} />
                                 <Grid item xs={1}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Final Iteration</Typography>
@@ -493,7 +493,7 @@ export default function Able(props) {
                             captionXs='4'
                         />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['Problem01.png']} className={classes.imgFitContent} alt='google search of clothing stores' />
                             </Grid>
                         </GridFormat>
@@ -559,7 +559,7 @@ export default function Able(props) {
                             captionXs='4'
                         />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['UserResearch01.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
@@ -573,7 +573,7 @@ export default function Able(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['UserResearch02.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
@@ -585,7 +585,7 @@ export default function Able(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['UserResearch03.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
@@ -616,10 +616,10 @@ export default function Able(props) {
                                 captionXs='5'
                             />
                         </div>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
-                                <Grid container xs={12} spacing={3}>
+                                <Grid container spacing={3}>
                                     <Grid item xs={3}>
                                         <img src={img['Amanda.png']} className={classes.imgFitContent} alt='meeting with users' />
                                     </Grid>
@@ -681,7 +681,7 @@ export default function Able(props) {
                                 </div>
                             </Grid>
                         </Grid>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <p>
@@ -718,7 +718,7 @@ export default function Able(props) {
                         accessibility.'
                             captionXs='4'
                         />
-                        <Grid container xs={12}>
+                        <Grid container>
                             <Grid item xs={2} />
                             <Grid item xs={5}>
                                 <img src={img['MarketResearch01.png']} className={classes.imgFitContent} alt='market research' />
@@ -729,7 +729,7 @@ export default function Able(props) {
                             </Grid>
                         </Grid>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='body1'>
                                     <p>
                                         The agency provides a
@@ -779,7 +779,7 @@ export default function Able(props) {
                             </Grid>
                             <Grid item xs={2} />
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <div className={classes.mRBar} />
                             </Grid>
                             <Grid item xs={2} />
@@ -806,7 +806,7 @@ export default function Able(props) {
                             </Grid>
                             <Grid item xs={2} />
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <div className={classes.mRDollar}>
                                     <div><Typography variant='h3'>$</Typography></div>
                                     <div><Typography variant='h3'>$$</Typography></div>
@@ -854,7 +854,7 @@ export default function Able(props) {
 
                         {/* App */}
                         <div>
-                            <Grid container xs={12} spacing={3} className={classes.appCover}>
+                            <Grid container spacing={3} className={classes.appCover}>
                                 <Grid item xs={6}>
                                     <Typography className={classes.appCoverTitle} variant='h1'>Mobile App</Typography>
                                 </Grid>
@@ -1011,12 +1011,12 @@ export default function Able(props) {
                                 </Grid>
                             </Grid>
                             <GridFormat>
-                                <Grid item xs={8}>
+                                <Grid item lg={8} xs={10}>
                                     <img src={img['AbleStore04.png']} className={classes.imgFitContent} alt='ADA Guideleines' />
                                 </Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={8}>
+                                <Grid item lg={8} xs={10}>
                                     <img src={img['AbleStore05.png']} className={classes.layout} alt='final layout design' />
                                 </Grid>
                             </GridFormat>
@@ -1103,7 +1103,7 @@ export default function Able(props) {
                                 zIndex='1'
                             />
                             <GridFormat>
-                                <Grid item xs={8}>
+                                <Grid item lg={8} xs={10}>
                                     <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['AssistiveHangerDemo.mp4']} autoPlay muted loop id="video" />
                                 </Grid>
                             </GridFormat>
@@ -1150,7 +1150,7 @@ export default function Able(props) {
                                 <Grid item xs={1} />
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={8}>
+                                <Grid item lg={8} xs={10}>
                                     <img src={img['Pricetag02.png']} className={classes.imgFitContent} alt='Price Tag' />
                                 </Grid>
                                 <Grid item xs={2} />

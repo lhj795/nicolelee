@@ -327,7 +327,7 @@ export default function TenEx(props) {
                     {/* cover */}
                     <div className={classes.coverContainer}>
                         <img src={img['Cover.svg']} className={classes.cover} alt='10xFinders' />
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={3}>
                                 <img className={classes.coverLogo} src={img['TenExLogo.svg']} alt='10xFinders' />
@@ -341,7 +341,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item xs={4} />
                         </Grid>
-                        <Grid container xs={12} spacing={3} className={classes.coverDetails}>
+                        <Grid container spacing={3} className={classes.coverDetails}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <Typography variant='body1'>
@@ -360,7 +360,7 @@ export default function TenEx(props) {
 
                     {/* abstract */}
                     <div className={classes.abstractContainer}>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={12} />
                             <Grid item xs={2} />
                             <Grid item xs={4}>
@@ -376,7 +376,7 @@ export default function TenEx(props) {
                             <Grid item xs={2} />
                             <Grid item xs={12} />
                         </Grid>
-                        <Grid container xs={12} spacing={3}>
+                        <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
                                 <Typography variant='body1'>
@@ -400,15 +400,15 @@ export default function TenEx(props) {
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
-                        <Grid container xs={12}>
+                        <Grid container>
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
                             <Grid item xs={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Grid container xs={12} spacing={2}>
+                            <Grid container spacing={2}>
                                 <Grid item xs={12} />
                                 <Grid item xs={4} />
                                 <Grid item xs={6}>
@@ -743,7 +743,7 @@ export default function TenEx(props) {
                             captionXs='5'
                         />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Grid container spacing={0}>
                                     <Grid item xs={2} />
                                     <Grid className={classes.alignCenter} item xs={2}>
@@ -820,25 +820,25 @@ export default function TenEx(props) {
                             captionXs='5'
                         />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h3'>Targeted search using advanced smart filters</Typography>
                             </Grid>
                         </GridFormat>
                         <img src={img['Solution01.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='people search' />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h3'>Detail candidate profile page with experience details, career events and hire engagments</Typography>
                             </Grid>
                         </GridFormat>
                         <img src={img['Solution02.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='candidate profile' />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h3'>Automated email campaigns with personalized variables sent to candidates on a set schedule</Typography>
                             </Grid>
                         </GridFormat>
                         <img src={img['Solution03.svg']} className={clsx(classes.imgFitContent, classes.negMargin)} alt='campaign' />
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='h3'>Overview of Job Market</Typography>
                             </Grid>
                         </GridFormat>
@@ -860,7 +860,7 @@ export default function TenEx(props) {
                             <Grid item xs={4} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['IA.svg']} className={classes.IA} alt='Information Architecture' />
                                 {/* <Grid className={classes.alignBottom} container spacing={3}>
                                 <Grid item xs={2}>
@@ -988,7 +988,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item xs={2} />
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['Wireframes.svg']} className={classes.imgFitContent} alt='Wireframes' />
                             </Grid>
                         </GridFormat>
@@ -1094,18 +1094,18 @@ export default function TenEx(props) {
                             <Grid item xs={4} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='body2'>4k Screen<br /><br /></Typography>
                             </Grid>
                             <img src={img['Responsive01.svg']} className={classes.imgFitContent2} alt='4k' />
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <Typography variant='body2'>1920 * 1080<br /></Typography>
                             </Grid>
                             <Grid item xs={2} />
                             <Grid item xs={2} />
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
                             </Grid>
                         </GridFormat>
@@ -1137,7 +1137,7 @@ export default function TenEx(props) {
                             <Grid item xs={4} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}><Typography variant='body2'>10xFinders Palette</Typography></Grid>
+                            <Grid item lg={8} xs={10}><Typography variant='body2'>10xFinders Palette</Typography></Grid>
                             <Grid item xs={2} />
                             <Grid item xs={2} />
                             <Grid item xs={2}>
@@ -1213,7 +1213,7 @@ export default function TenEx(props) {
                                 <img src={img['Logo02.svg']} className={classes.marketImg} alt='Wireframes' />
                                 <Typography variant='caption'><br />Solid</Typography>
                             </Grid>
-                            <Grid item xs={8} />
+                            <Grid item lg={8} xs={10} />
                             <Grid item xs={12} />
                             <Grid item xs={2} />
                             <Grid item xs={3}>
@@ -1257,7 +1257,7 @@ export default function TenEx(props) {
                             <Grid item xs={4} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}>
+                            <Grid item lg={8} xs={10}>
                                 <UILibrary />
                             </Grid>
                         </GridFormat>
@@ -1275,10 +1275,10 @@ export default function TenEx(props) {
                             captionXs='5'
                         />
                         <GridFormat>
-                            <Grid item xs={8}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
+                            <Grid item lg={8} xs={10}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={8}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
+                            <Grid item lg={8} xs={10}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
                         </GridFormat>
                         <div className={classes.margin} >
                             <GridFormat>
@@ -1292,10 +1292,10 @@ export default function TenEx(props) {
                                 <Grid item xs={3} />
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={8}><img src={img['UserTesting03.svg']} className={classes.imgFitContent} alt='redesign 1' /></Grid>
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting03.svg']} className={classes.imgFitContent} alt='redesign 1' /></Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={8}><img src={img['UserTesting04.png']} className={classes.imgFitContent} alt='redesign 2' /></Grid>
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting04.png']} className={classes.imgFitContent} alt='redesign 2' /></Grid>
                             </GridFormat>
                         </div>
                     </div>

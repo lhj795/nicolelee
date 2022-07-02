@@ -34,7 +34,7 @@ export default function About(props) {
             <ThemeProvider theme={TypographyTheme}>
 
                 <Base className={classes.base} color='black' zIndex='1' mixBlendMode='darken'/>
-                <Grid container spaacing={3}>
+                <Grid container spacing={3}>
                     <Grid item xs={2} />
                     <Grid className={classes.justifyCenter} item xs={4}>
                         <Typography variant='h2'>반가워요! Get to know me</Typography>

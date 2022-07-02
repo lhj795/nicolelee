@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { adaptV4Theme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
@@ -7,7 +6,7 @@ import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/
 import { Typography } from '@mui/material';
 import { TypographyTheme } from '../../components/ui/Typography';
 
-const ValueLabelTextTheme = createTheme(adaptV4Theme({
+const ValueLabelTextTheme = createTheme(({
     palette: {
         primary: {
             main: "rgba(0,0,0,0)",

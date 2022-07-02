@@ -276,7 +276,7 @@ function Heading(props) {
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
                 <div style={{ marginTop: '30vh' }} />
-                <Grid container xs={12} spacing={3}>
+                <Grid container spacing={3}>
                     <Grid item xs={2} />
                     <Grid item xs={props.headerXs}>
                         <Typography variant='h5'>
@@ -309,7 +309,7 @@ function Heading(props) {
 function GridFormat(props) {
     return (
         <div style={{ margin: '5vh 0' }} >
-        <Grid container xs={12} spacing={3}>
+        <Grid container spacing={3}>
             <Grid item xs={2} />
             {props.children}
             <Grid item xs={2} />
