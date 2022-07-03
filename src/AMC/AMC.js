@@ -361,12 +361,12 @@ export default function AMC(props) {
                     <div>
                         <Heading
                             header='USER RESEARCH'
-                            headerXs='4'
+                            headerLg={4}
                             caption='To identify business opportunities, my team deeply investigated the brand to understand its consumer basis, successes, and 
                             challenges. We visited sites with high visitors as well as low; visited competitor’s sites; conducted surveys and interviews on 
                             movie-goers. In this process we discovered that movie brands generally have similar to almost identical experience, which makes 
                             consumers not prioritize the theater brand when deciding to go to one.'
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <GridFormat>
                             <Grid item xs={4}>
@@ -422,7 +422,7 @@ export default function AMC(props) {
                     <div>
                         <Heading
                             header='DESIGN OPPORTUNITY'
-                            headerXs='4'
+                            headerLg={4}
                             caption='In research, it was found that AMC Theatre offers various loyalty programs which differentiates the brand from competitors. 
                             AMC Theatres’ main consumers are frequent movie-goers. In other words, they are movie fanatics. Given this fact, the redesigned 
                             AMC experience focuses on their needs and demands. Our key values were to make the start-to-end journey memorable. Our mission is to offer a 
@@ -430,7 +430,7 @@ export default function AMC(props) {
                             caption3='The opportunity area is increasing the time spent by customers by expanding the entertainment experience for the movie 
                             fanatics. The redesigns refines key attributes of the current services and products, and introduces new experiences. The main 
                             goal is to elevate the outcome of each experience and products’ effectiveness from the customers’ usual expectation. '
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <GridFormat>
                             <Grid item xs={1}>
@@ -486,13 +486,13 @@ export default function AMC(props) {
                     <div>
                         <Heading
                             header='SOLUTION'
-                            headerXs='4'
+                            headerLg={4}
                             caption='How was the goal of the project, 20% growth in the business, achieved? The proposal is increasing customer traction by 
                             lengthening the duration of an AMC visit. The experience comprises a wholistic service experience that focuses on convenience, 
                             comfort, and attraction for the movie fanatics. Designs include redesigns of existing experiences at the theater such as the arcade 
                             to increase engagement, redesigns of products including tickets, concession packaging themed after mainstream movies and added 
                             experiences including sky lounge, sofa seats and gift shop to attract the target consumer group.'
-                            captionXs='4'
+                            captionLg={4}
                         />
 
                         {/* app */}

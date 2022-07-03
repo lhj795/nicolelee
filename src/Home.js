@@ -604,7 +604,7 @@ export default function Work(props) {
                                                 img={LightlyCover}
                                                 alt={"Lightly"}
                                                 bgColor={BgColors.Lightly}
-                                                link={"/Project"}
+                                                link={"/Lightly"}
                                             />
                                         </Grid>
                                         <Grid item xs={4}>

@@ -503,8 +503,8 @@ export default function TenEx(props) {
                     <div>
                         <Heading
                             header='THE PROBLEM'
-                            headerXs='3'
-                            captionXs='5'
+                            headerLg={3}
+                            captionLg={5}
                             caption='As an individual with no prior knowledge in the recruiting industry, I was required to understand the workflow of recruiters and especially their pain points. In every step of the design process, I consistently studied the target audience by working alongside company recruiters and participating in client meetings. '
                             caption3='I found that a lot of the recruiting tasks are repetitive and tedious. Recruiters are faced with hundreds of tasks everyday. They use multiple softwares to keep track of projects and candidates such as an ATS (Applicant Tracking System). Even after candidates are sourced through the ATS algorithm, recruiters still feel the need to check each resume to validate the candidate’s fitting. This is because existing platforms fall short in targeting and the ATS database become obsolete over time. Let’s walk through Daniel’s recruiting workflow to take a deeper look.'
                         />
@@ -605,12 +605,12 @@ export default function TenEx(props) {
                     <div>
                         <Heading
                             header='MARKET RESEARCH'
-                            headerXs='4'
+                            headerLg={4}
                             caption='After learning about the recruiting workflow, I observed what resources my company recruiters use, as well as research 
                             other widely used recruitment-assistant platforms. '
                             caption3='In this process I identified the advantages and challenges of each product in order to find design opportunities to 
                             fulfill areas that leading platforms are not reaching, and learn which experiences are the most convenient for recruiters.'
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <GridFormat>
                             <Grid item xs={2} />
@@ -730,7 +730,7 @@ export default function TenEx(props) {
                     <div>
                         <Heading
                             header='COMPETITOR ANALYSIS'
-                            headerXs='3'
+                            headerLg={3}
                             caption='Whereas in market research I looked into products that focuses on one specific feature such as applicant tracking, 
                             customer management, and recruiting strategies, in competitor analysis I looked into products that has similar features to 
                             10xFinders. '
@@ -740,7 +740,7 @@ export default function TenEx(props) {
                             companies.'
                             caption5='Aside from learning successful and challenging features, I was also able to see how each product structured their user 
                             experience, which I later referenced to structure the 10xFinders information architecture.'
-                            captionXs='5'
+                            captionLg={5}
                         />
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
@@ -806,7 +806,7 @@ export default function TenEx(props) {
                     <div>
                         <Heading
                             header='SOLUTION'
-                            headerXs='3'
+                            headerLg={3}
                             caption='10xFinders is the first recruiting platform to provide a comprehensive view of the market. Recruiters may run 
                             multi-dimensional searches, encompassing a database of over 1 million people, companies, technology stack, jobs, turnovers and 
                             recent press on company acquires, fundraisings, etc.'
@@ -817,7 +817,7 @@ export default function TenEx(props) {
                             researching the market, then designing the most ideal user experience on the platform. I was responsible for the design process 
                             starting from ideation to execution including information architecture, wire framing, designing the brand guidelines, creating 
                             mockups, and frontend implementation.'
-                            captionXs='5'
+                            captionLg={5}
                         />
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
@@ -1267,12 +1267,12 @@ export default function TenEx(props) {
                     <div>
                         <Heading
                             header='USER TESTING'
-                            headerXs='3'
+                            headerLg={3}
                             caption='After implementing each iteration, I presented the design to my team, reiterated based on feedbacks, then implemented the 
                             final design on the server. With the final design, I spoke with 6 clients who were active on the platform to receive the first-hand 
                             experience as the direct user. To share the feedbacks with my team in which all members were in remote locations, I used 
                             collaboration tools including the Google Suite and Notion.'
-                            captionXs='5'
+                            captionLg={5}
                         />
                         <GridFormat>
                             <Grid item lg={8} xs={10}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>

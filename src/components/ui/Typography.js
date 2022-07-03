@@ -19,6 +19,9 @@ export const TypographyTheme = createTheme(({
         h3: {
             fontFamily: 'NeueHaasDisplayMedium',
             fontSize: 'clamp(20px, 1.563rem, 25px)',
+            '@media (max-width:1200px)': {
+                fontSize: '1.25rem',
+            },
             lineHeight: '1.125',
             textDecoration: 'none',
         },

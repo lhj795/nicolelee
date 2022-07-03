@@ -484,13 +484,13 @@ export default function Able(props) {
                     <div>
                         <Heading
                             header='THE PROBLEM'
-                            headerXs='4'
+                            headerLg={4}
                             caption='Picture apparel shopping. While many may consider it to be effortless and even stress relieving, those with vision loss 
                         can find it daunting. An activity such as apparel shopping — in which vision is imperative to the experience — is often a very 
                         difficult task for those who rely on other senses. In a setting that is meant to promote convenience and stress-relief, visually 
                         impaired individuals become dependent, stressed and intimidated because the environment and the service is negligent of their 
                         needs. '
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
@@ -549,26 +549,24 @@ export default function Able(props) {
                     <div>
                         <Heading
                             header='USER RESEARCH'
-                            headerXs='4'
+                            headerLg={4}
                             caption='To fully understand the first hand experiences of the visually impaired shoppers, we interviewed 10 people with varying 
                             conditions, where most had severe loss in vision with little to no perception of light and color. In the interviews we aimed to 
                             answer the following questions:'
                             caption2='What are the existing entry barriers?'
                             caption3='What are the important decision making factors in shopping?'
                             caption4='What are the common pain points, needs and wants?'
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
                                 <img src={img['UserResearch01.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
-                                    <p>
-                                        <br />
-                                        left: remote user interview with an individual who fits target audience
-                                        <br />
-                                        right: meeting at the INSIGH Vision Rehabilitation with Director of Assistive Technology and Vision Rehabilitation Teacher
-                                    </p>
+                                    <br />
+                                    left: remote user interview with an individual who fits target audience
+                                    <br />
+                                    right: meeting at the INSIGH Vision Rehabilitation with Director of Assistive Technology and Vision Rehabilitation Teacher
                                 </Typography>
                             </Grid>
                         </GridFormat>
@@ -577,10 +575,8 @@ export default function Able(props) {
                                 <img src={img['UserResearch02.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
-                                    <p>
-                                        <br />
-                                        Discussion Guide for Interview Questions
-                                    </p>
+                                    <br />
+                                    Discussion Guide for Interview Questions
                                 </Typography>
                             </Grid>
                         </GridFormat>
@@ -589,10 +585,8 @@ export default function Able(props) {
                                 <img src={img['UserResearch03.png']} className={classes.imgFitContent} alt='meeting with users' />
                                 <br />
                                 <Typography variant='caption' className={classes.textAlignRight}>
-                                    <p>
-                                        <br />
-                                        Interview documentation from 10 participants
-                                    </p>
+                                    <br />
+                                    Interview documentation from 10 participants
                                 </Typography>
                             </Grid>
                         </GridFormat>
@@ -603,7 +597,7 @@ export default function Able(props) {
                         <div>
                             <Heading
                                 header='PERSONA'
-                                headerXs='3'
+                                headerLg={3}
                                 caption='From interviews we extracted insight from trending comments. First, shopping becomes a chore to rely on others, asking 
                                 for descriptions and opinions per item, which is time consuming and inconvenient. Second, regardless of past familiarity, stores 
                                 change category layout so frequently that she has to relearn the structure every visit. Third, store interior is often cluttered 
@@ -613,7 +607,7 @@ export default function Able(props) {
                                 visually impaired groups, which could end up solving for nobody. We then proceeded to expand the user base by testing with people 
                                 who were both within and out of the persona including the sighted, the male and the elderly, measure the successes and failures, 
                                 and make reiterations. '
-                                captionXs='5'
+                                captionLg={5}
                             />
                         </div>
                         <Grid container spacing={3}>
@@ -642,7 +636,7 @@ export default function Able(props) {
                                     </Grid>
                                     <Grid item xs={3} />
                                 </Grid>
-                                <Typography variant='body2'><p><br />Bio</p></Typography>
+                                <Typography variant='body2'><br />Bio</Typography>
                                 <Typography variant='body1'>
                                     Meet Amanda. She lost her vision at a young age but that didn’t stop her passion for fashion. She needs to buy a set of spring
                                     clothes for the upcoming season, but finds it difficult to do so because of inaccessible and pricey stores that are immediately
@@ -684,24 +678,20 @@ export default function Able(props) {
                         <Grid container spacing={3}>
                             <Grid item xs={2} />
                             <Grid item xs={4}>
-                                <p>
-                                    <Typography variant='body2'><br />Frustrations</Typography>
-                                    <Typography variant='body1'>
-                                        <br />
-                                        • Malls are overstimulating with cluttered and crowded environment.<br />
-                                        • Risk of injuries from protruding objects in stores.
-                                    </Typography>
-                                </p>
+                                <Typography variant='body2'><br />Frustrations</Typography>
+                                <Typography variant='body1'>
+                                    <br />
+                                    • Malls are overstimulating with cluttered and crowded environment.<br />
+                                    • Risk of injuries from protruding objects in stores.
+                                </Typography>
                             </Grid>
                             <Grid item xs={4}>
-                                <p>
-                                    <Typography variant='body2'><br />Goal</Typography>
-                                    <Typography variant='body1'>
-                                        <br />
-                                        • Buy spring clothes for the upcoming season.<br />
-                                        • Be able to do so  without family or store associate assistance.
-                                    </Typography>
-                                </p>
+                                <Typography variant='body2'><br />Goal</Typography>
+                                <Typography variant='body1'>
+                                    <br />
+                                    • Buy spring clothes for the upcoming season.<br />
+                                    • Be able to do so  without family or store associate assistance.
+                                </Typography>
                             </Grid>
                             <Grid item xs={2} />
                         </Grid>
@@ -711,12 +701,12 @@ export default function Able(props) {
                     <div>
                         <Heading
                             header='MARKET RESEARCH'
-                            headerXs='4'
+                            headerLg={4}
                             caption='As mentioned, Able is an agency concept providing B2B services that designs an accessible shopping experience for brands who 
                         share a similar vision. To showcase this business model, we conducted in-depth market research and chose Uniqlo to mockup our designs.'
                             bold=' Uniqlo was found to be within our persona’s budget, preferred style and age group as well as to be an advocate of inclusivity and 
                         accessibility.'
-                            captionXs='4'
+                            captionLg={4}
                         />
                         <Grid container>
                             <Grid item xs={2} />
@@ -731,13 +721,11 @@ export default function Able(props) {
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
                                 <Typography variant='body1'>
-                                    <p>
-                                        The agency provides a
-                                        <span className={classes.boldText}> versatile scope of products and services to give partnering brands easier approaches
-                                            to incorporate and invest</span>. For customers to revisit, shopping has to be enjoyable before, throughout, and after
-                                        visiting the store. Therefore we offer a range of choices across our products, based on different purposes and budgets,
-                                        all designed to addressing our users and make the experience also better for existing shoppers.
-                                    </p>
+                                    The agency provides a
+                                    <span className={classes.boldText}> versatile scope of products and services to give partnering brands easier approaches
+                                        to incorporate and invest</span>. For customers to revisit, shopping has to be enjoyable before, throughout, and after
+                                    visiting the store. Therefore we offer a range of choices across our products, based on different purposes and budgets,
+                                    all designed to addressing our users and make the experience also better for existing shoppers.
                                 </Typography>
                             </Grid>
                         </GridFormat>
@@ -843,13 +831,13 @@ export default function Able(props) {
                     <div>
                         <Heading
                             header='SOLUTION'
-                            headerXs='3'
+                            headerLg={3}
                             caption='Able is a design agency concept that provides solutions to address the needs of visually impaired shoppers foremost, and also 
                         to appeal to the retailers and the sighted. The solution comprises a scope of products including a mobile app, multisensory magazine, 
                         assistive hanger, assistive price tag, multisensory experience and a pop-up store. The driving force behind this project was the team 
                         members’ enduring empathy in people. It was the emotional resonance of the members with users and the endeavor to utilize creativity to 
                         formulate a path to a more ideal shopping experience.'
-                            captionXs='5'
+                            captionLg={5}
                         />
 
                         {/* App */}
@@ -879,8 +867,8 @@ export default function Able(props) {
                                 <Grid item xs={1} />
                                 <Grid item xs={6} />
                                 <Grid item xs={5} className={clsx(classes.textAlignCenter, classes.appCaptions)}>
-                                    <Typography className={classes.appCaption} variant='caption'><p>onboarding</p></Typography>
-                                    <Typography className={classes.appCaption} variant='caption'><p>browsing</p></Typography>
+                                    <Typography className={classes.appCaption} variant='caption'>onboarding</Typography>
+                                    <Typography className={classes.appCaption} variant='caption'>browsing</Typography>
                                 </Grid>
                             </Grid>
                             <GridFormat>
@@ -936,20 +924,18 @@ export default function Able(props) {
                                 <Grid item xs={1} />
                                 <Grid item xs={3}>
                                     <Typography variant='body1'>
-                                        <p>
-                                            Taking a further step in providing assistance outside of the store, we created the multisensory magazine in which
-                                            readers can not only view products, but <span className={classes.boldText}> hear, feel and smell the items prior to
-                                                store visit</span>. It has scratch and sniff stickers with curated scents based on the brand identity and style, sample
-                                            fabric to feel the item, and a QR code to the corresponding item details accessible by the Able app. The magazine
-                                            encourages shoppers at home to  book an appointment to visit the store based on sample items, and to explore brands that
-                                            support inclusivity.
-                                            <br /><br />
-                                            During research, we discovered that users tend to stick to a few stores that they are already comfortable with, and to
-                                            counter that we proposed this magazine to evoke curiosity and motivation to visit stores and give new brands a try.
-                                            Able magazine can be requested through the Able app. The magazine was designed and prototyped by my teammate Sarah
-                                            Cheon (MADE ’22) woo hoo!
-                                            <br /><br />
-                                        </p>
+                                        Taking a further step in providing assistance outside of the store, we created the multisensory magazine in which
+                                        readers can not only view products, but <span className={classes.boldText}> hear, feel and smell the items prior to
+                                            store visit</span>. It has scratch and sniff stickers with curated scents based on the brand identity and style, sample
+                                        fabric to feel the item, and a QR code to the corresponding item details accessible by the Able app. The magazine
+                                        encourages shoppers at home to  book an appointment to visit the store based on sample items, and to explore brands that
+                                        support inclusivity.
+                                        <br /><br />
+                                        During research, we discovered that users tend to stick to a few stores that they are already comfortable with, and to
+                                        counter that we proposed this magazine to evoke curiosity and motivation to visit stores and give new brands a try.
+                                        Able magazine can be requested through the Able app. The magazine was designed and prototyped by my teammate Sarah
+                                        Cheon (MADE ’22) woo hoo!
+                                        <br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
                                         left: magazine prototype with sample fabrics and scratch and sniff stickers. <br />
@@ -979,23 +965,21 @@ export default function Able(props) {
                                 <Grid item xs={2} />
                                 <Grid item xs={4}>
                                     <Typography variant='body1'>
-                                        <p>
-                                            Let’s go to the Able Store. The store is a place for partnering brands to showcase not only their products, but also
-                                            their values on accessibility and inclusivity curated by Able’s products. All elements of the store including the item
-                                            displays, pathways, doorways, fitting rooms were designed <span className={classes.boldText}> accessible for visually
-                                                impaired and wheelchair shoppers following the ADA guidelines. </span>
-                                            <br /><br />
-                                            When designing the store, we started off by looking into existing pop-up store designs, accessibility guidelines, then
-                                            created our first draft of the store layout. Then, we applied design elements to remove our users’ pain points. For
-                                            example, the item display is divided into 5 sections - tops, pants, outerwear, intimates and sports - in which
-                                            <span className={classes.boldText}> each section has its distinct flooring material</span>. This speaks to the pain
-                                            point that clothing <span className={classes.boldText}> store layout is often confusing, and it is difficult to locate
-                                                items </span> without assistance. In addition, we added tactile floorings in front of the racks, using different
-                                            patterns for each section. This is an additional touchpoint to <span className={classes.boldText}> remove confusion
-                                                and to prevent injuries</span>. We referenced public infrastructures such as train stations that also use tactile
-                                            pavings to reference the measurements and patterns used, and then to design ours.
-                                            <br /><br />
-                                        </p>
+                                        Let’s go to the Able Store. The store is a place for partnering brands to showcase not only their products, but also
+                                        their values on accessibility and inclusivity curated by Able’s products. All elements of the store including the item
+                                        displays, pathways, doorways, fitting rooms were designed <span className={classes.boldText}> accessible for visually
+                                            impaired and wheelchair shoppers following the ADA guidelines. </span>
+                                        <br /><br />
+                                        When designing the store, we started off by looking into existing pop-up store designs, accessibility guidelines, then
+                                        created our first draft of the store layout. Then, we applied design elements to remove our users’ pain points. For
+                                        example, the item display is divided into 5 sections - tops, pants, outerwear, intimates and sports - in which
+                                        <span className={classes.boldText}> each section has its distinct flooring material</span>. This speaks to the pain
+                                        point that clothing <span className={classes.boldText}> store layout is often confusing, and it is difficult to locate
+                                            items </span> without assistance. In addition, we added tactile floorings in front of the racks, using different
+                                        patterns for each section. This is an additional touchpoint to <span className={classes.boldText}> remove confusion
+                                            and to prevent injuries</span>. We referenced public infrastructures such as train stations that also use tactile
+                                        pavings to reference the measurements and patterns used, and then to design ours.
+                                        <br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
                                         right 1: store interior<br />
@@ -1054,21 +1038,19 @@ export default function Able(props) {
                                 <Grid item xs={2} />
                                 <Grid item xs={4}>
                                     <Typography variant='body1'>
-                                        <p>
-                                            Upon store arrival, shoppers will be instructed on how to browse the store by a store associate. Otherwise,
-                                            shoppers may learn by referencing the map from downloading the app via QR code or the tactile map located at the
-                                            entrance to learn the store layout and method of exploration.
-                                            <br /><br />
-                                            The surplus materials from the pop up store construction will be used to make this map, which indeed will help the
-                                            visually impaired to <span className={classes.boldText}> identify and remember sections according to the flooring
-                                                materials</span>. All sections and the building facade are <span className={classes.boldText}> protruded with
-                                                    braille labels for tactile reading. </span>
-                                            <br /><br />
-                                            My team tested multiple iterations of the map with users and the final design choices from user feedback include:<br />
-                                            • using universal symbols (i.e. 🎵🎶)<br />
-                                            • braille labeling for those who are unfamiliar with symbols<br />
-                                            • using minimal color, yet colors that have strong contrast for individuals with limited vision<br /><br />
-                                        </p>
+                                        Upon store arrival, shoppers will be instructed on how to browse the store by a store associate. Otherwise,
+                                        shoppers may learn by referencing the map from downloading the app via QR code or the tactile map located at the
+                                        entrance to learn the store layout and method of exploration.
+                                        <br /><br />
+                                        The surplus materials from the pop up store construction will be used to make this map, which indeed will help the
+                                        visually impaired to <span className={classes.boldText}> identify and remember sections according to the flooring
+                                            materials</span>. All sections and the building facade are <span className={classes.boldText}> protruded with
+                                                braille labels for tactile reading. </span>
+                                        <br /><br />
+                                        My team tested multiple iterations of the map with users and the final design choices from user feedback include:<br />
+                                        • using universal symbols (i.e. 🎵🎶)<br />
+                                        • braille labeling for those who are unfamiliar with symbols<br />
+                                        • using minimal color, yet colors that have strong contrast for individuals with limited vision<br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
                                         bottom: testing earlier iterations with user
@@ -1111,18 +1093,16 @@ export default function Able(props) {
                                 <Grid item xs={2} />
                                 <Grid item xs={5}>
                                     <Typography variant='body1'>
-                                        <p>
-                                            The hanger has a text cutout at the center to see and/or feel the size quickly. Underneath is a built-in NFC chip in
-                                            which customers can scan the item with their smartphone with or without the Able app to get a detailed text/audio
-                                            description. We also used a color coding system, allowing shoppers to identify size easily even from a distance.
-                                            <br /><br />
-                                            In this project, we were given an opportunity to partner with a local clothing store The Matchbox located in Fox
-                                            Point, Providence. We tested our hangers and app at the store with local shoppers, as well as with our stakeholders at
-                                            INSIGHT Vision Rehabilitation center for usability and effectiveness. The hanger was proven to be
-                                            <span className={classes.boldText}> useful to both visually impaired and sighted shoppers, offering quick capturing of
-                                                size as well as online information that guaranteed efficiency and independence</span>.
-                                            <br /><br />
-                                        </p>
+                                        The hanger has a text cutout at the center to see and/or feel the size quickly. Underneath is a built-in NFC chip in
+                                        which customers can scan the item with their smartphone with or without the Able app to get a detailed text/audio
+                                        description. We also used a color coding system, allowing shoppers to identify size easily even from a distance.
+                                        <br /><br />
+                                        In this project, we were given an opportunity to partner with a local clothing store The Matchbox located in Fox
+                                        Point, Providence. We tested our hangers and app at the store with local shoppers, as well as with our stakeholders at
+                                        INSIGHT Vision Rehabilitation center for usability and effectiveness. The hanger was proven to be
+                                        <span className={classes.boldText}> useful to both visually impaired and sighted shoppers, offering quick capturing of
+                                            size as well as online information that guaranteed efficiency and independence</span>.
+                                        <br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
                                         right: site testing with sighted participants at The Matchbox<br />
@@ -1176,16 +1156,14 @@ export default function Able(props) {
                                 <Grid className={classes.justifyContent} item xs={4}>
                                     <div>
                                         <Typography variant='body1'>
-                                            <p>
-                                                When we go shopping, some of the most important factors to buy an item or even trying one on are price and size.
-                                                The price tag was carefully designed using the contrasting colors and typeface for legibility and quickly acquiring
-                                                these information. Inside the tag, shoppers may scan the QR code that will take them to the according page on our
-                                                app to acquire text/audio description. The size, price, and QR code are embossed and/or written in braille. Our
-                                                test participants indeed appreciated these design choices for they were
-                                                <span className={classes.boldText}> easily able to read all key information, which was before one of the most
-                                                    frustrating parts of shopping</span>.
-                                                <br /><br />
-                                            </p>
+                                            When we go shopping, some of the most important factors to buy an item or even trying one on are price and size.
+                                            The price tag was carefully designed using the contrasting colors and typeface for legibility and quickly acquiring
+                                            these information. Inside the tag, shoppers may scan the QR code that will take them to the according page on our
+                                            app to acquire text/audio description. The size, price, and QR code are embossed and/or written in braille. Our
+                                            test participants indeed appreciated these design choices for they were
+                                            <span className={classes.boldText}> easily able to read all key information, which was before one of the most
+                                                frustrating parts of shopping</span>.
+                                            <br /><br />
                                         </Typography>
                                         <Typography variant='caption'>
                                             top: detail photos of embossing, braille and QR code<br />
@@ -1217,20 +1195,18 @@ export default function Able(props) {
                                 <Grid item xs={1} />
                                 <Grid item xs={3}>
                                     <Typography variant='body1'>
-                                        <p>
-                                            At the center of the store is the multisensory station, where shoppers can bring items regardless of store
-                                            merchandize or their own clothes, place the clothing in front of the sensor, and depending on the item color,
-                                            it will play a designated tune.
-                                            <br /><br />
-                                            For the visually impaired, this experience allows them to <span className={classes.boldText}> feel the joy of
-                                                perceiving color using hearing which is often their dominant receptor</span>. Joy was in fact one of the key
-                                            emotions we aimed to trigger since in-store shopping was seen as a chore and very much not enjoyable.
-                                            <br /><br />
-                                            This experience is really less so about accurately helping one pick out color, which is already achieved by our
-                                            assistive products, but more so about encouraging visually impaired and sighted shoppers to explore and play
-                                            during shopping.
-                                            <br /><br />
-                                        </p>
+                                        At the center of the store is the multisensory station, where shoppers can bring items regardless of store
+                                        merchandize or their own clothes, place the clothing in front of the sensor, and depending on the item color,
+                                        it will play a designated tune.
+                                        <br /><br />
+                                        For the visually impaired, this experience allows them to <span className={classes.boldText}> feel the joy of
+                                            perceiving color using hearing which is often their dominant receptor</span>. Joy was in fact one of the key
+                                        emotions we aimed to trigger since in-store shopping was seen as a chore and very much not enjoyable.
+                                        <br /><br />
+                                        This experience is really less so about accurately helping one pick out color, which is already achieved by our
+                                        assistive products, but more so about encouraging visually impaired and sighted shoppers to explore and play
+                                        during shopping.
+                                        <br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
                                         upper left: multisensory station mockup hung from ceiling, sensors grounded in a white housing<br />
@@ -1243,41 +1219,39 @@ export default function Able(props) {
                                 </Grid>
                             </Grid>
                             <div className={classes.negMargin}>
-                            <Grid className={classes.arrows} container spacing={3}>
-                                <Grid item xs={4}>
-                                    <img src={img['MultisensoryStation03.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={4}>
-                                    <Typography variant='body1'>
-                                        Our team was able to test the working prototype with 3 sighted participants, who found the experience to be fun and
-                                        engaging. Some interesting feedbacks were:
-                                        <br /><br />
-                                        <span className={classes.italic}>“I could also easily see this being used for child education. Being able to hear color
-                                            seems like a great way to learn and play with color!”
+                                <Grid className={classes.arrows} container spacing={3}>
+                                    <Grid item xs={4}>
+                                        <img src={img['MultisensoryStation03.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid item xs={4}>
+                                        <Typography variant='body1'>
+                                            Our team was able to test the working prototype with 3 sighted participants, who found the experience to be fun and
+                                            engaging. Some interesting feedbacks were:
                                             <br /><br />
-                                            “As a person who loves music, I think this would be awesome if the partnering store had to option choose the tune to
-                                            narrate their brand through music and communicate with customers.”</span>
-                                    </Typography>
+                                            <span className={classes.italic}>“I could also easily see this being used for child education. Being able to hear color
+                                                seems like a great way to learn and play with color!”
+                                                <br /><br />
+                                                “As a person who loves music, I think this would be awesome if the partnering store had to option choose the tune to
+                                                narrate their brand through music and communicate with customers.”</span>
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3} />
                                 </Grid>
-                                <Grid item xs={3} />
-                            </Grid>
                             </div>
                             <Grid className={classes.arrows} container spacing={3}>
                                 <Grid item xs={2} />
                                 <Grid item xs={3}>
                                     <div>
                                         <Typography variant='body1'>
-                                            <p>
-                                                I took the main role in designing, prototyping and testing the multisensory station and boy it was a HUGE learning
-                                                experience for me!
-                                                <br /><br />
-                                                I deployed various tools to create the prototype using C++ programing with Arduino, schematics design for
-                                                energetically efficient wiring of solenoids, RGB sensor and ultrasonic sensor, 3d modeling with SolidWorks to
-                                                design the housing, Cura to designate the right 3d printing settings so that the housing can durably and safely
-                                                host all electrical parts.
-                                                <br /><br />
-                                            </p>
+                                            I took the main role in designing, prototyping and testing the multisensory station and boy it was a HUGE learning
+                                            experience for me!
+                                            <br /><br />
+                                            I deployed various tools to create the prototype using C++ programing with Arduino, schematics design for
+                                            energetically efficient wiring of solenoids, RGB sensor and ultrasonic sensor, 3d modeling with SolidWorks to
+                                            design the housing, Cura to designate the right 3d printing settings so that the housing can durably and safely
+                                            host all electrical parts.
+                                            <br /><br />
                                         </Typography>
                                         <Typography variant='caption'>
                                             right: code setup on Arduino IDE<br />
@@ -1322,22 +1296,22 @@ export default function Able(props) {
                                 <Grid item xs={4} />
                             </Grid>
                             <div className={classes.negMargin2}>
-                            <Grid className={classes.alignItemsEnd} container spacing={0}>
-                                <Grid item xs={3} />
-                                <Grid item xs={6}>
-                                    <img src={img['MultisensoryStation07.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
+                                <Grid className={classes.alignItemsEnd} container spacing={0}>
+                                    <Grid item xs={3} />
+                                    <Grid item xs={6}>
+                                        <img src={img['MultisensoryStation07.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <video className={classes.imgFitContent} src={img['MultisensoryVid02.mp4']} controls id="video" />
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={3}>
-                                    <video className={classes.imgFitContent} src={img['MultisensoryVid02.mp4']} controls id="video" />
-                                </Grid>
-                            </Grid>
                             </div>
                         </div>
 
                         {/* learning outcomes */}
                         <Heading
                             header='LEARNING OUTCOMES'
-                            headerXs='4'
+                            headerLg={4}
                             caption='In this project we practiced so many disciplines of design and engineering including ux research, editorial design, 
                             graphic design, product design, rapid prototyping, interaction design, interior design, architecture, electrical engineering, 
                             software engineering and all of these for accessibility. My teammates and I taught ourselves as well as each other to acquire 
@@ -1346,7 +1320,7 @@ export default function Able(props) {
                             fewer resources to draw inspiration from due to the problem space being focused on a marginalized user group, we took an extra 
                             step to conduct research from direct resources including multiple accessibility guidelines, real users, and industry experts to 
                             make effective and empathetic design decisions.'
-                            captionXs='4'
+                            captionLg={4}
                         />
 
                     </div>

@@ -267,7 +267,7 @@ const useStyles = makeStyles(({
         padding: '10vmin',
         width: 'calc(100% - 20vmin)',
         height: 'calc(100% - 20vmin)',
-    }
+    },
 }));
 
 function Heading(props) {
@@ -275,17 +275,18 @@ function Heading(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
-                <div style={{ marginTop: '30vh' }} />
-                <Grid container spacing={3}>
-                    <Grid item xs={2} />
-                    <Grid item xs={props.headerXs}>
-                        <Typography variant='h5'>
-                            {props.header}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={props.captionXs}>
-                        <Typography variant='body1'>
-                            <p>
+                <div style={{ margin: (window.innerWidth > 1200) ? '30vh 0 10vh 0' : '10vh 0 -10vh 0' }}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={1} lg={2} />
+                        <Grid item lg={props.headerLg} xs={10}>
+                            <Typography variant='h5'>
+                                {props.header}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={1} sx={{ display: { xs: 'box', lg: 'none' } }} />
+                        <Grid item xs={1} sx={{ display: { xs: 'box', lg: 'none' } }} />
+                        <Grid item lg={props.captionLg} xs={10}>
+                            <Typography variant='body1'>
                                 {props.caption}<span className={classes.boldText}>{props.bold}</span>
                                 <br />
                                 {props.caption2}
@@ -293,14 +294,13 @@ function Heading(props) {
                                 {props.caption3}
                                 <br />
                                 {props.caption4}
-                                <br/>
+                                <br />
                                 {props.caption5}
-                            </p>
-                        </Typography>
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={1} lg={2} />
                     </Grid>
-                    <Grid item xs={2} />
-                </Grid>
-                <div style={{ marginBottom: '10vh' }} />
+                </div>
             </ThemeProvider>
         </StyledEngineProvider>
     );
@@ -309,13 +309,13 @@ function Heading(props) {
 function GridFormat(props) {
     return (
         <div style={{ margin: '5vh 0' }} >
-        <Grid container spacing={3}>
-            <Grid item xs={2} />
-            {props.children}
-            <Grid item xs={2} />
-        </Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={1} lg={2} />
+                {props.children}
+                <Grid item xs={1} lg={2} />
+            </Grid>
         </div>
     )
 }
 
-export {Heading, GridFormat}
+export { Heading, GridFormat }
