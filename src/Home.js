@@ -541,7 +541,7 @@ export default function Work(props) {
                                 <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}>
                                     <Grid container className={classes.about} spacing={3}>
                                         <Grid item lg={2} sx={{ display: { lg: 'block', xs: 'none' } }} />
-                                        <Grid item xs={12} lg={3}>
+                                        <Grid item xs={12} md={6} lg={3}>
                                             <div
                                                 className={classes.animatedItem}
                                             >
@@ -565,7 +565,7 @@ export default function Work(props) {
                                                 WORK
                                             </Typography>
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"10xFinders"}
                                                 desc={"All Recruiting Workflow on One Platform"}
@@ -576,7 +576,7 @@ export default function Work(props) {
                                                 link={"/10xfinders"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Able"}
                                                 desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
@@ -587,7 +587,7 @@ export default function Work(props) {
                                                 link={"/Able"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"AMC"}
                                                 desc={"A Reimagined Movie-Watching Experience"}
@@ -599,7 +599,7 @@ export default function Work(props) {
                                                 link={"/AMC"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Lightly"}
                                                 desc={"Bringing Back Casual Moments in Hybrid Workspace"}
@@ -610,7 +610,7 @@ export default function Work(props) {
                                                 link={"/Lightly"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Kozi"}
                                                 desc={"New Way of Addressing Seasonal Affective Disorder"}
@@ -621,7 +621,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Involv"}
                                                 desc={"Bringing Community Together to Support Each Other"}
@@ -633,7 +633,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"LovePop"}
                                                 desc={"Work from Summer Internship 2019"}
@@ -645,7 +645,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Drift"}
                                                 desc={"Safer and Affordable Scooter Sharing Experience"}
@@ -656,7 +656,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"CRAIGSLIST HOUSING"}
                                                 desc={"Housing Browsing made Reliable"}
@@ -667,7 +667,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} lg={4}>
+                                        <Grid item xs={12} md={6} lg={4}>
                                             <Card
                                                 title={"Localyze"}
                                                 desc={"Streamlining International Relocation"}
