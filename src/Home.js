@@ -18,7 +18,8 @@ import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
 import Engineer from './img/Engineer.mp4';
-import LovePop from './img/LovePop.jpg'
+import LovePop from './img/LovePop.jpg';
+import { Box } from '@mui/system';
 
 const cardStyles = makeStyles(({
     textDecoration: {
@@ -61,8 +62,8 @@ const cardStyles = makeStyles(({
     cardImg: {
         width: "100%",
         minWidth: "100%",
-        minHeight: "100%",
-        objectFit: 'contain',
+        minHeight: "38vh",
+        objectFit: 'cover',
         position: "absolute",
         transition: "0.6s",
     },
@@ -79,7 +80,7 @@ const homepageStyles = makeStyles(({
     wrap: {
         padding: "16px 16px",
     },
-    
+
     //about
     about: {
         height: "60vh",
@@ -141,8 +142,8 @@ const homepageStyles = makeStyles(({
     buttonAnim: {
         height: "5vh",
         display: "flex",
-        maxWidth: "16.6666666%",
-        flexBasis: "16.6666666%",
+        maxWidth: "300px",
+        flexBasis: "300px",
     },
     text: {
         alignSelf: "center",
@@ -163,7 +164,7 @@ const homepageStyles = makeStyles(({
         position: "absolute",
         border: '1px solid white',
         animation: `$buttonEffect 2s`,
-        width: "16.666666%",
+        width: "300px",
         height: "5vh",
         display: "flex",
         overflow: "hidden",
@@ -211,7 +212,7 @@ const homepageStyles = makeStyles(({
             height: "0",
         },
         "100%": {
-            width: "16.666666%",
+            width: "300px",
             height: "5vh",
         },
     },
@@ -232,7 +233,7 @@ const homepageStyles = makeStyles(({
         borderRadius: "50%",
         border: "1px solid white",
         backgroundColor: "#222222",
-        marginLeft: "calc(16.66666% - 3px)",
+        marginLeft: "297px",
         marginTop: "-3px",
         zIndex: "1",
         position: "absolute",
@@ -248,7 +249,7 @@ const homepageStyles = makeStyles(({
             marginTop: "-3px",
         },
         "100%": {
-            marginLeft: "calc(16.66666% - 3px)",
+            marginLeft: "297px",
             marginTop: "-3px",
         },
     },
@@ -287,7 +288,7 @@ const homepageStyles = makeStyles(({
         zIndex: "1",
         position: "absolute",
         animation: `$dot4Effect 2s`,
-        marginLeft: "calc(16.66666% - 3px)",
+        marginLeft: "297px",
         marginTop: "calc(5vh - 3px)",
     },
     "@keyframes dot4Effect": {
@@ -300,7 +301,7 @@ const homepageStyles = makeStyles(({
             marginTop: "-3px",
         },
         "100%": {
-            marginLeft: "calc(16.66666% - 3px)",
+            marginLeft: "297px",
             marginTop: "calc(5vh - 3px)",
         },
     },
@@ -309,7 +310,7 @@ const homepageStyles = makeStyles(({
         width: "27px",
         position: "absolute",
         zIndex: "2",
-        marginLeft: "calc(-8.333333% + 13.5px)",
+        marginLeft: "-136.5px",
         marginTop: "calc(-5vh + 43px)",
     },
     cursor: {
@@ -318,20 +319,20 @@ const homepageStyles = makeStyles(({
         position: "absolute",
         zIndex: "2",
         animation: `$cursorEffect 2s`,
-        marginLeft: "calc(8.333333% + 13.5px)",
+        marginLeft: "163.5px",
         marginTop: "5vh",
     },
     "@keyframes cursorEffect": {
         "0%": {
-            marginLeft: "calc(-8.333333% + 13.5px)",
+            marginLeft: "-136.5px",
             marginTop: "calc(-5vh + 43px)",
         },
         "25%": {
-            marginLeft: "calc(-8.333333% + 13.5px)",
+            marginLeft: "-136.5px",
             marginTop: "calc(-5vh + 43px)",
         },
         "100%": {
-            marginLeft: "calc(8.333333% + 13.5px)",
+            marginLeft: "163.5px",
             marginTop: "5vh",
         },
     },
@@ -403,8 +404,9 @@ const homepageStyles = makeStyles(({
     },
     engineerAnimContainer: {
         width: "30%",
+        height: '20vh',
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         color: "white",
         paddingBottom: "10vh",
     },
@@ -413,16 +415,16 @@ const homepageStyles = makeStyles(({
         alignSelf: "center",
         textAlign: "center",
         position: "absolute",
-        fontFamily: 'NeueHaasDisplayMedium',
         fontSize: "clamp(16px, 1.25rem, 20px)",
-        lineHeight: "1.125",
     }
 }));
 
 function Card(props) {
     const classes = cardStyles(props);
 
-    const [hover, setHovered] = useState(false);
+    const mobileTrueFalse = (window.innerWidth < 1200) ? true : false;
+
+    const [hover, setHovered] = useState(mobileTrueFalse);
     const [zoom, setZoomed] = useState(false);
 
     const onHover = (event) => {
@@ -472,27 +474,28 @@ const title = ([" Designer", "n Engineer", " Web Developer", " Foodie", " Design
 
 export default function Work(props) {
     const classes = homepageStyles(props);
+    const distortionTextSize = (window.innerWidth < 1200) ? 50 : 200;
 
     const workRef = useRef();
     const [workHeight, setWorkHeight] = useState(0);
     useEffect(() => {
         setWorkHeight(workRef.current.clientHeight);
-    },[]);
+    }, []);
 
     const workNameRef = useRef();
     const [wNHeight, setWNHeight] = useState(0);
     useEffect(() => {
         setWNHeight(workNameRef.current.clientHeight);
-    },[]);
+    }, []);
 
     const workNameDesignRef = useRef();
     // const [wNDHeight, setWNDHeight] = useState(0);
     useEffect(() => {
         setWNHeight(workNameDesignRef.current.clientHeight);
-    },[]);
+    }, []);
 
     const scrollYPosition = window.pageYOffset
-    const windowHeight = window.innerHeight*0.8
+    const windowHeight = window.innerHeight * 0.8
     const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#252525" : "";
     const vidOpacity = (scrollYPosition >= workHeight - windowHeight) ? "1" : "0";
     const scrollColor = (scrollYPosition >= workHeight - windowHeight) ? "white" : "#222222";
@@ -528,17 +531,17 @@ export default function Work(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
-            <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
-                <div ref={workNameDesignRef}>
-                    <div ref={workNameRef}>
-                        <div ref={workRef}>
-                            <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
-                                <Base color={scrollColor} selected="work" />
-                            </div>
-                            <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}> 
-                                    <Grid container className={classes.about}>
-                                        <Grid item xs={2} />
-                                        <Grid item xs={3}>
+                <div style={{ backgroundColor: dynamicBgColor, transition: "0.4s" }}>
+                    <div ref={workNameDesignRef}>
+                        <div ref={workNameRef}>
+                            <div ref={workRef}>
+                                <div style={{ position: "fixed", zIndex: "100", width: "100%" }}>
+                                    <Base color={scrollColor} selected="work" />
+                                </div>
+                                <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}>
+                                    <Grid container className={classes.about} spacing={3}>
+                                        <Grid item lg={2} sx={{ display: { lg: 'block', xs: 'none' } }} />
+                                        <Grid item xs={12} lg={3}>
                                             <div
                                                 className={classes.animatedItem}
                                             >
@@ -556,13 +559,13 @@ export default function Work(props) {
                                             </Typography>
                                         </Grid>
                                     </Grid>
-                                    <Grid container spacing={2}>
+                                    <Grid container spacing={3}>
                                         <Grid item xs={12}>
                                             <Typography variant="h1">
                                                 WORK
                                             </Typography>
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"10xFinders"}
                                                 desc={"All Recruiting Workflow on One Platform"}
@@ -573,7 +576,7 @@ export default function Work(props) {
                                                 link={"/10xfinders"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Able"}
                                                 desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
@@ -584,7 +587,7 @@ export default function Work(props) {
                                                 link={"/Able"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"AMC"}
                                                 desc={"A Reimagined Movie-Watching Experience"}
@@ -596,7 +599,7 @@ export default function Work(props) {
                                                 link={"/AMC"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Lightly"}
                                                 desc={"Bringing Back Casual Moments in Hybrid Workspace"}
@@ -607,7 +610,7 @@ export default function Work(props) {
                                                 link={"/Lightly"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Kozi"}
                                                 desc={"New Way of Addressing Seasonal Affective Disorder"}
@@ -618,7 +621,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Involv"}
                                                 desc={"Bringing Community Together to Support Each Other"}
@@ -630,7 +633,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"LovePop"}
                                                 desc={"Work from Summer Internship 2019"}
@@ -642,7 +645,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Drift"}
                                                 desc={"Safer and Affordable Scooter Sharing Experience"}
@@ -653,7 +656,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"CRAIGSLIST HOUSING"}
                                                 desc={"Housing Browsing made Reliable"}
@@ -664,7 +667,7 @@ export default function Work(props) {
                                                 link={"/project"}
                                             />
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={12} lg={4}>
                                             <Card
                                                 title={"Localyze"}
                                                 desc={"Streamlining International Relocation"}
@@ -676,50 +679,52 @@ export default function Work(props) {
                                             />
                                         </Grid>
                                     </Grid>
+                                </div>
+                            </div>
+                            <div className={classes.distortionText}>
+                                {/* intersectionobserver */}
+                                <DistortionText
+                                    text="nicole is a..."
+                                    fill="white"
+                                    speed={0.5}
+                                    rotation={45.0}
+                                    distortX={1}
+                                    distortY={1}
+                                    noiseAmplitude={0.05}
+                                    fontSize={distortionTextSize}
+                                />
                             </div>
                         </div>
-                        <div className={classes.distortionText}> 
-                        {/* intersectionobserver */}
-                            <DistortionText
-                                text="nicole is a..."
-                                fill="white"
-                                speed={0.5}
-                                rotation={45.0}
-                                distortX={1}
-                                distortY={1}
-                                noiseAmplitude={0.05}
-                                fontSize={200}
-                            />
-                        </div>
-                    </div>
-                    <div className={classes.productDesignerContainer}>
-                        <img className={cursorAnimClass} alt="Cursor" src={Cursor}/>
-                        <div className={classes.buttonAnim}>
-                            <div className={classes.dotPreAnim}/>
-                            <div className={dot2AnimClass}/>
-                            <div className={dot3AnimClass}/>
-                            <div className={dot4AnimClass}/>
-                            <div className={borderAnimClass}>
-                            <div className={fillAnimClass}/>
-                                <Typography variant="button" className={classes.text}>Product Designer</Typography>
+                        <div className={classes.productDesignerContainer}>
+                            <img className={cursorAnimClass} alt="Cursor" src={Cursor} />
+                            <div className={classes.buttonAnim}>
+                                <div className={classes.dotPreAnim} />
+                                <div className={dot2AnimClass} />
+                                <div className={dot3AnimClass} />
+                                <div className={dot4AnimClass} />
+                                <div className={borderAnimClass}>
+                                    <div className={fillAnimClass} />
+                                    <Typography variant="button" className={classes.text}>Product Designer</Typography>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className={classes.webDevContainer}>
+                        <Typewriter
+                            options={{
+                                strings: [typingString],
+                                autoStart: true,
+                                loop: true,
+                            }}
+                        />
+                    </div>
+                    <Box className={classes.engineerAnimContainer}>
+                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <video style={{ opacity: vidOpacity, transition: "1s", }} src={Engineer} autoPlay muted loop id="video" />
+                        </Box>
+                        <Typography variant="h4" className={classes.engineerText}>ENGINEER</Typography>
+                    </Box>
                 </div>
-                <div className={classes.webDevContainer}>
-                    <Typewriter
-                        options={{
-                            strings: [typingString],
-                            autoStart: true,
-                            loop: true,
-                        }}
-                    />
-                </div>
-                <div className={classes.engineerAnimContainer}>
-                    <video style={{opacity: vidOpacity, transition: "1s",}} src={Engineer} autoPlay muted loop id="video" />
-                    <div variant="h4" className={classes.engineerText}>ENGINEER</div>
-                </div>
-            </div>
             </ThemeProvider>
         </StyledEngineProvider>
     );
