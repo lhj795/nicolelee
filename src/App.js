@@ -8,8 +8,6 @@ import AMC from './AMC/AMC';
 import About from './About';
 import Construction from './Construction';
 import Lightly from './Lightly/Lightly';
-// import Template from './Template/Template';
-import Redesign from './Template/Redesign';
 
 function App() {
   return (
@@ -23,7 +21,6 @@ function App() {
         <Route path='/Lightly' element={<Lightly/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/project' element={<Construction/>} />
-        <Route path='/test' element={<Redesign/>} />
       </Routes>
     </Router>
   );

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from '../Base';
 import clsx from 'clsx';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box, Collapse } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const useStyles = makeStyles(({
     wrap: {
@@ -38,7 +40,7 @@ const useStyles = makeStyles(({
     },
     coverCaption: {
         textAlign: 'center',
-        paddingTop: '3vh',
+        paddingTop: 'clamp(10px, 3vh, 30px)',
     },
     boldText: {
         fontFamily: 'NeueHaasDisplayBold',
@@ -288,6 +290,20 @@ function Cover(props) {
 export default function Able(props) {
     const classes = useStyles(props);
 
+    const [mobile, setMobile] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < 1200) {
+            setMobile(true);
+        } else {
+            setMobile(false);
+        }
+    }, []);
+
+    const mobileTrueFalse = (window.innerWidth < 1200) ? false : true;
+
+    const [showDesc, setShowDesc] = useState(mobileTrueFalse);
+    const [showDesc2, setShowDesc2] = useState(mobileTrueFalse);
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
@@ -300,100 +316,120 @@ export default function Able(props) {
                     {/* cover */}
                     <div className={classes.coverContainer}>
                         <Grid container spacing={3}>
-                            <Grid item xs={5} />
-                            <Grid item xs={2}>
+                            <Grid item xs={3} md={4} lg={5} />
+                            <Grid item xs={6} md={4} lg={2}>
                                 <img className={classes.coverLogo} src={img['AbleLogo.svg']} alt='able' />
                             </Grid>
-                            <Grid item xs={5} />
-                            <Grid item xs={4} />
-                            <Grid item xs={4}>
+                            <Grid item xs={3} md={4} lg={5} />
+                            <Grid item xs={1} lg={4} />
+                            <Grid item xs={10} lg={4}>
                                 <Typography className={classes.coverCaption} variant='h4'>
                                     Bringing Inclusivity to Retail
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4} />
+                            <Grid item xs={1} lg={4} />
                         </Grid>
                         <Grid container spacing={3} className={classes.coverDetails}>
-                            <Grid item xs={2} />
-                            <Grid item xs={3}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Project</span>: Brown Risd Master of Arts in Design Engineering (MADE) Capstone Project
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Product Design, Fabrication, Engineering
                                 </Typography>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Arduino, Adobe Suite, Figma, Rapid Prototyping, Wood and Metal Fabrication
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
                         </Grid>
                     </div>
 
                     {/* abstract */}
                     <div>
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} direction="row">
                             <Grid item xs={12} />
-                            <Grid item xs={2} />
-                            <Grid item xs={5}>
-                                <Typography variant='body2'>
-                                    Abstract
-                                </Typography>
+                            <Grid item lg={2} xs={1} />
+                            <Grid onClick={() => setShowDesc(!showDesc)} item xs={10} lg={5}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Abstract
+                                    </Typography>
+                                    {showDesc ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc} timeout="auto" unmountOnExit>
+                                    <Typography className={(showDesc) ? '' : classes.displayNone} variant='body1'>
+                                        <br />
+                                        Environment drives motivation. When an environment incites positive emotional stimuli, it is only natural for
+                                        one to seek it out more frequently. Marginalized groups with disability who are unable to be a part of services
+                                        have to take an extra step to adjust their behaviors. Their pain points are slow to be addressed for implementation,
+                                        as enough profit could be established without performing accessibility. Yet, what corporations fail to realize is
+                                        that practicing inclusivity may enhance the experience for all, which is an investment for higher profit and corporate
+                                        social responsibility. This project explores a B2B concept, serving as a bridge between visually impaired shoppers
+                                        and retailers. With a strong basis of user research, the team reconstructs the perspectives apart from the
+                                        preconceptions, and tackles the unjust nature of today's shopping experience through various medium of design and
+                                        engineering.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body2'>
-                                    Invovement
-                                </Typography>
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={3}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Involvement
+                                    </Typography>
+                                    {showDesc2 ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc2} timeout="auto" unmountOnExit>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        The team executed service design, experience design and product design to address the needs of visually impaired shoppers
+                                        foremost, and also to appeal to the retailers and the sighted. The solution comprises a scope of products to achieve
+                                        accessibility. In every step of the journey, the team consistently consulted, co-designed and tested creations with users
+                                        to reflect real needs and pain points. I participated in every part of the project from research, execution to testing,
+                                        and led the team in deploying various methods of fabrication and engineering to design and build prototypes.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={5}>
-                                <Typography variant='body1'>
-                                    Environment drives motivation. When an environment incites positive emotional stimuli, it is only natural for
-                                    one to seek it out more frequently. Marginalized groups with disability who are unable to be a part of services
-                                    have to take an extra step to adjust their behaviors. Their pain points are slow to be addressed for implementation,
-                                    as enough profit could be established without performing accessibility. Yet, what corporations fail to realize is
-                                    that practicing inclusivity may enhance the experience for all, which is an investment for higher profit and corporate
-                                    social responsibility. This project explores a B2B concept, serving as a bridge between visually impaired shoppers
-                                    and retailers. With a strong basis of user research, the team reconstructs the perspectives apart from the
-                                    preconceptions, and tackles the unjust nature of today's shopping experience through various medium of design and
-                                    engineering.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    The team executed service design, experience design and product design to address the needs of visually impaired shoppers
-                                    foremost, and also to appeal to the retailers and the sighted. The solution comprises a scope of products to achieve
-                                    accessibility. In every step of the journey, the team consistently consulted, co-designed and tested creations with users
-                                    to reflect real needs and pain points. I participated in every part of the project from research, execution to testing,
-                                    and led the team in deploying various methods of fabrication and engineering to design and build prototypes.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
                         </Grid>
                     </div>
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
-                        <Grid container>
-                            <Grid item xs={2} />
+                        <Grid container spacing={2}>
+                            <Grid item xs={1} lg={2} />
                             <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Grid container spacing={2}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} container spacing={2}>
                                 <Grid item xs={12} />
-                                <Grid item xs={2} />
+                                <Grid item lg={2} />
                                 <Grid item xs={2}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Networking</Typography>
                                 </Grid>
@@ -414,7 +450,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={5} />
                             </Grid>
-                            <Grid container className={classes.arrows} spacing={0}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} container className={classes.arrows} spacing={0}>
                                 <Grid item xs={7} />
                                 <Grid item xs={2}>
                                     <div className={classes.arrowUp} />
@@ -422,7 +458,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={3} />
                             </Grid>
-                            <Grid container spacing={3}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} container spacing={3}>
                                 <Grid item xs={7} />
                                 <Grid item xs={1}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Prototyping</Typography>
@@ -431,7 +467,7 @@ export default function Able(props) {
                                     <Typography className={classes.designProcess} variant='subtitle1'>User Testing</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid container spacing={0}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} container spacing={0}>
                                 <Grid item xs={7} />
                                 <Grid item xs={2}>
                                     <div className={classes.arrowDown} />
@@ -439,42 +475,39 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid item xs={3} />
                             </Grid>
-                            <Grid container spacing={3}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} container spacing={3}>
                                 <Grid item xs={9} />
                                 <Grid item xs={1}>
                                     <Typography className={classes.designProcess} variant='subtitle1'>Final Iteration</Typography>
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={12} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Learning</Typography>
+                                    <Typography variant='body1'>
+                                        <br />Recruiting participants from online communities, local vision rehabilitation center and personal connections.{(mobile) ? <br/> :[]}
+                                    </Typography>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                                <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Concept</Typography>
+                                    <Typography variant='body1'>
+                                        <br />Sketching concepts based on user interviews and discussion on potential directions.{(mobile) ? <br/> :[]}
+                                    </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={2}>
+                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                                <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Agile Prototyping</Typography>
-                                </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
                                     <Typography variant='body1'>
-                                        Recruiting participants from online communities, local vision rehabilitation center and personal connections.
+                                        <br />Iterations on prototypes designed and tested with participants.{(mobile) ? <br/> :[]}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='body1'>
-                                        Sketching concepts based on user interviews and discussion on potential directions.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={2}>
-                                    <Typography variant='body1'>
-                                        Iterations on prototypes designed and tested with participants.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={3} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={12}/>
                                 <Grid item xs={12} />
                             </Grid>
                         </div>
@@ -498,7 +531,7 @@ export default function Able(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={4}>
+                            <Grid item xs={10} lg={4}>
                                 <Typography variant='body1'>
                                     Today’s shopping experience <span className={classes.boldText}>lacks inclusivity</span> for visually impaired shoppers,
                                     <span className={classes.boldText}> emphasizing heavily on visuals rather than paying more attention to other sensory palettes</span>
@@ -524,8 +557,9 @@ export default function Able(props) {
                                 </Typography>
                             </Grid>
                             <Grid item xs={1} />
-                            <Grid className={classes.textAlignRight} item xs={3}>
-                                <img src={img['Problem02.png']} className={classes.imgFitContent} alt='google search of clothing stores' />
+                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                            <Grid className={classes.textAlignRight} item xs={10} lg={3}>
+                                <img src={img['Problem02.png']} className={classes.imgFitContent} alt='NIH Aricle' />
                                 <div className={classes.smallMarginTop}>
                                     <Typography variant='caption'><br />Article from <span> </span>
                                         <Link to='https://www.nei.nih.gov/about/news-and-events/news/visual-impairment-blindness-cases-us-expected-double-2050'>
@@ -536,7 +570,7 @@ export default function Able(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid className={classes.textAlignRight} item xs={8}>
+                            <Grid className={classes.textAlignRight} item xs={10} lg={8}>
                                 <img src={img['Problem03.png']} className={classes.imgFitContent} alt='google search of clothing stores' />
                                 <Typography variant='caption'>
                                     left: ecommerce  websites; right: NFT
