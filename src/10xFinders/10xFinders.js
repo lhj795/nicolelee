@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from '../Base';
 import clsx from 'clsx';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box, Collapse } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
 import { UILibrary } from './ui/UILibrary';
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import { MarketMobile, MarketWeb } from './MarketResearch';
 
 const useStyles = makeStyles(({
     wrap: {
@@ -42,13 +45,14 @@ const useStyles = makeStyles(({
         top: '5vh',
     },
     coverContainer: {
-        position: 'absolute',
         top: '0',
-        height: '75vh',
+        height: 'fit-content',
         width: '100%',
         color: '#0B1F3D',
         background: '#C6D8ED',
         zIndex: '-1',
+        position: 'relative',
+        overflowX: 'hidden',
     },
     coverLogo: {
         paddingTop: '25vh',
@@ -111,31 +115,8 @@ const useStyles = makeStyles(({
         justifyContent: 'space-between',
         marginTop: '2.5vh',
     },
-    journeyItem: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        alignItems: 'flex-start',
-        height: '27vh'
-    },
-    journeyImg: {
-        height: '3rem',
-        width: 'auto',
-    },
-    journeyNum: {
-        color: '#c4c4c4',
-        fontFamily: 'NeueHaasDisplayRoman',
-        fontSize: 'clamp(20px, 1.563rem, 25px)',
-        lineHeight: '1.125',
-        textDecoration: 'none',
-    },
-    marketImg: {
-        width: '68%',
-    },
-    spaceBetween: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+    personaLabel: {
+        marginRight: '24px',
     },
     alignCenter: {
         display: 'flex',
@@ -234,24 +215,28 @@ const useStyles = makeStyles(({
     },
     color1: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#1B4077',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color2: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#356BBA',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color3: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#8DB0E3',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color4: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#D4E2F8',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
@@ -264,46 +249,56 @@ const useStyles = makeStyles(({
     },
     color6: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#757575',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color7: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#FFFFFF',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color8: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#F2F7FF',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color9: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#007745',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color10: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#FFD633',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color11: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#D5342A',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
     color12: {
         height: '5vmin',
+        minHeight: '30px',
         marginBottom: '1vmin',
         background: '#631A89',
         boxShadow: '0px 5px 5px rgb(174 188 209 / 50%)',
     },
+    zIndex: {
+        zIndex: '1',
+    }
 }));
 
 function importAll(r) {
@@ -317,6 +312,19 @@ const img = importAll(require.context('./img', false, /\.(png|jpg|svg|mp4)$/));
 export default function TenEx(props) {
     const classes = useStyles(props);
 
+    const [mobile, setMobile] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < 1200) {
+            setMobile(true);
+        } else {
+            setMobile(false);
+        }
+    }, []);
+
+    const mobileTrueFalse = (window.innerWidth < 1200) ? false : true;
+    const [showDesc, setShowDesc] = useState(mobileTrueFalse);
+    const [showDesc2, setShowDesc2] = useState(mobileTrueFalse);
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
@@ -324,176 +332,210 @@ export default function TenEx(props) {
 
                     <Base color='black' />
 
-                    {/* cover */}
-                    <div className={classes.coverContainer}>
-                        <img src={img['Cover.svg']} className={classes.cover} alt='10xFinders' />
+                     {/* cover */}
+                     <div className={classes.coverContainer}>
+                        <Box
+                            sx={{
+                                width: { xs: '90vw', lg: '50vw' },
+                                right: { xs: '5vw', lg: '0' },
+                                position: 'absolute',
+                                transition: '0.3s'
+                            }}
+                        >
+                            <img className={classes.imgFitContent} src={img['Cover.svg']} alt='10xFinders' />
+                        </Box>
                         <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={3}>
+                            <Grid item lg={2} xs={1} />
+                            <Grid className={classes.zIndex} item lg={3} xs={10}>
                                 <img className={classes.coverLogo} src={img['TenExLogo.svg']} alt='10xFinders' />
                             </Grid>
-                            <Grid item xs={7} />
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                            <Grid item lg={7} xs={1} />
+                            <Grid item xs={1} lg={2} />
+                            <Grid className={classes.zIndex} item xs={10} lg={4}>
                                 <Typography variant='h4'>
                                     Job Recruiting made Faster and Simpler
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4} />
-                        </Grid>
-                        <Grid container spacing={3} className={classes.coverDetails}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
+                            <Grid item lg={6} xs={1} />
+                            <Grid item lg={2} xs={1} />
+                            <Grid className={classes.zIndex} item xs={10} lg={4}>
+                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Research, UI/UX Design, Frontend Develepment
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid className={classes.zIndex} item xs={10} lg={4} >
+                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Adobe XD, After Effects, Illustrator, React
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
                         </Grid>
                     </div>
 
                     {/* abstract */}
-                    <div className={classes.abstractContainer}>
-                        <Grid container spacing={3}>
+                    <div>
+                        <Grid container spacing={3} direction="row">
                             <Grid item xs={12} />
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography variant='body2'>
-                                    Commpany Mission
-                                </Typography>
+                            <Grid item lg={2} xs={1} />
+                            <Grid onClick={() => setShowDesc(!showDesc)} item xs={10} lg={4}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Commpany Mission
+                                    </Typography>
+                                    {showDesc ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc} timeout="auto" unmountOnExit>
+                                    <Typography className={(showDesc) ? '' : classes.displayNone} variant='body1'>
+                                        <br />
+                                        10xFinders integrate all of a recruiter's daily tasks into one platform. We focus on streamlining and accelerating the
+                                        hiring workflow to increase talent engagements, thus more hires. 10xFinders' main features include super-targeted talent
+                                        search and sourcing, business insights on hires, promotions and vacancies from companies all over the world and multi-step
+                                        email campaigns with customization and metrics.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant='body2'>
-                                    Involvement
-                                </Typography>
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Involvement
+                                    </Typography>
+                                    {showDesc2 ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc2} timeout="auto" unmountOnExit>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        My team comprised of expert recruiters, the software engineer, and me. As the sole design advocate of the business solution, I
+                                        was responsible for thoroughly researching the market and the target audience. In every step of the process, I worked alongside
+                                        my team members and participated in client meetings to study the recruiting workflow and develop a user task flow. I worked on
+                                        projects including logo, marketing materials, company website, and software UI/UX.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
-                                    10xFinders integrate all of a recruiter's daily tasks into one platform. We focus on streamlining and accelerating the
-                                    hiring workflow to increase talent engagements, thus more hires. 10xFinders' main features include super-targeted talent
-                                    search and sourcing, business insights on hires, promotions and vacancies from companies all over the world and multi-step
-                                    email campaigns with customization and metrics.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
-                                    My team comprised of expert recruiters, the software engineer, and me. As the sole design advocate of the business solution, I
-                                    was responsible for thoroughly researching the market and the target audience. In every step of the process, I worked alongside
-                                    my team members and participated in client meetings to study the recruiting workflow and develop a user task flow. I worked on
-                                    projects including logo, marketing materials, company website, and software UI/UX.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
                         </Grid>
                     </div>
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
                         <Grid container>
-                            <Grid item xs={2} />
+                            <Grid item lg={2} xs={1} />
                             <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item lg={2} xs={1} />
                         </Grid>
                         <div className={classes.designProcessBg}>
+                            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12} />
+                                    <Grid item xs={4} />
+                                    <Grid item xs={6}>
+                                        <div className={classes.arrow} />
+                                    </Grid>
+                                    <Grid item xs={2} />
+                                    <Grid item xs={2} />
+                                    <Grid item xs={2}>
+                                        <div className={classes.designProcesses}>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Research</Typography>
+                                            </div>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Strategy</Typography>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <div className={classes.designProcesses}>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Structure</Typography>
+                                            </div>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Iterations</Typography>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <div className={classes.designProcesses}>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Present</Typography>
+                                            </div>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Revise</Typography>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <div className={classes.designProcesses}>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Implement</Typography>
+                                            </div>
+                                            <div className={classes.designProcess}>
+                                                <Typography variant='body1'>Test</Typography>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={2} />
+                                </Grid>
+                            </Box>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} />
-                                <Grid item xs={4} />
-                                <Grid item xs={6}>
-                                    <div className={classes.arrow} />
-                                </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
-                                    <div className={classes.designProcesses}>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Research</Typography>
-                                        </div>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Strategy</Typography>
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <div className={classes.designProcesses}>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Structure</Typography>
-                                        </div>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Iterations</Typography>
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <div className={classes.designProcesses}>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Present</Typography>
-                                        </div>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Revise</Typography>
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <div className={classes.designProcesses}>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Implement</Typography>
-                                        </div>
-                                        <div className={classes.designProcess}>
-                                            <Typography variant='body1'>Test</Typography>
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={12} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
+                                <Grid item sx={{ display: { xs: 'none', lg: 'flex' } }} lg={12} />
+                                <Grid item xs={12} lg={12} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item lg={2} xs={10}>
                                     <Typography variant='body2'>Learning</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='body2'>Iteration</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='body2'>Collaborate</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='body2'>Communicate</Typography>
-                                </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         All hands discussion, market research, competitor analysis, user journey mapping and then formulating MVP.
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item lg={2} xs={10}>
+                                    <Typography variant='body2'>Iteration</Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Use discoveries to create wireframes and define the information architecture, and constant iterations.
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item lg={2} xs={10}>
+                                    <Typography variant='body2'>Collaborate</Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Receive feedback from both recruiting and the developing perspectives, then re-iterate design to its final state
+                                        <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item lg={2} xs={10}>
+                                    <Typography variant='body2'>Communicate</Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? [] : <br />}
                                         Implement each design iterations on company server , then speak with users for any feedback.
+                                        <br /><br />
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={12} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={12} />
                             </Grid>
                         </div>
@@ -509,13 +551,15 @@ export default function TenEx(props) {
                             caption3='I found that a lot of the recruiting tasks are repetitive and tedious. Recruiters are faced with hundreds of tasks everyday. They use multiple softwares to keep track of projects and candidates such as an ATS (Applicant Tracking System). Even after candidates are sourced through the ATS algorithm, recruiters still feel the need to check each resume to validate the candidate’s fitting. This is because existing platforms fall short in targeting and the ATS database become obsolete over time. Let’s walk through Daniel’s recruiting workflow to take a deeper look.'
                         />
                         <GridFormat>
-                            <Grid item xs={1}>
+                            <Grid item xs={3} lg={1}>
                                 <img src={img['Daniel.svg']} className={classes.imgFitContent} alt='Daniel Turner' />
                             </Grid>
-                            <Grid className={classes.persona} item xs={5}>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={8} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid className={classes.persona} item xs={10} lg={5}>
                                 <Typography variant='h3'>Daniel Turner</Typography>
                                 <div className={classes.personaDemo}>
-                                    <div>
+                                    <div className={classes.personaLabel}>
                                         <Typography variant='body1'>Title</Typography>
                                         <Typography variant='body1'>Location</Typography>
                                         <Typography variant='body1'>Client</Typography>
@@ -532,10 +576,10 @@ export default function TenEx(props) {
                                     </div>
                                 </div>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey01.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>01</div>
                                 <Typography variant='body2'>Planning</Typography>
@@ -545,7 +589,9 @@ export default function TenEx(props) {
                                     builds an ideal candidate profile.
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey02.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>02</div>
                                 <Typography variant='body2'>Sourcing</Typography>
@@ -554,9 +600,9 @@ export default function TenEx(props) {
                                     both Applicant Tracking, and manually searching and saving the results of candidates into the CRM system.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={1} lg={2} />
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey03.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>03</div>
                                 <Typography variant='body2'>Screening</Typography>
@@ -566,7 +612,9 @@ export default function TenEx(props) {
                                     short in targeting.
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey04.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>04</div>
                                 <Typography variant='body2'>Interviewing</Typography>
@@ -576,9 +624,9 @@ export default function TenEx(props) {
                                     were interested.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={1} lg={2} />
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey05.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>05</div>
                                 <Typography variant='body2'>Verifying & Hiring</Typography>
@@ -588,7 +636,9 @@ export default function TenEx(props) {
                                     needs.
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.journeyItem} item xs={4}>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey06.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>06</div>
                                 <Typography variant='body2'>Business Development</Typography>
@@ -612,118 +662,8 @@ export default function TenEx(props) {
                             fulfill areas that leading platforms are not reaching, and learn which experiences are the most convenient for recruiters.'
                             captionLg={4}
                         />
-                        <GridFormat>
-                            <Grid item xs={2} />
-                            <Grid item xs={3}>
-                                <Typography variant='body2'>Use Cases</Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body2'>Areas of Improvements Needed</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.spaceBetween} item xs={2}>
-                                <img src={img['Market01.svg']} className={classes.marketImg} alt='LinkedIn Recruiter' />
-                                <Typography variant='body2'>LinkedIn Recruiter</Typography>
-                                <Typography variant='body1'>Talent Sourcing, Engagement & Collaboration Platform</Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    LinkedIn Recruiter is a subscription-based service where recruiters can find candidates who are on the LinkedIn user
-                                    database. The user can connect with candidates using the InMail (LinkedIn’s messaging). With these candidates, the user can
-                                    share the profile information with recruiting team-members and/or clients.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    LinkedIn is one of the most influential professional networking platform with over 675 million users. Despite its massive
-                                    scale, a user can send <span className={classes.boldText}> up to only 150 InMail messages</span> per month. Recruiters
-                                    often need to reach out to thousands of candidates within a limited time period for the most constructive talent placements.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.spaceBetween} item xs={2}>
-                                <img src={img['Market02.svg']} className={classes.marketImg} alt='Outreach' />
-                                <Typography variant='body2'>Outreach</Typography>
-                                <Typography variant='body1'>Customer Relationship Management (CRM)</Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    Outreach is a sales engagement platform, where users can manage interactions with existing customers as well as past and
-                                    potential customers. Recruiters particularly use the sequence feature in which they can customize email threads, and
-                                    schedule them to be sent to candidates and companies.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    One of the biggest issue with a CRM system is that its <span className={classes.boldText}>data expires over time</span>.
-                                    Meaning, candidate information previously scraped from resumes and social profiles could become obsolete with changes in a
-                                    candidate's title, location, contact information, and more.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.spaceBetween} item xs={2}>
-                                <img src={img['Market03.svg']} className={classes.marketImg} alt='Greenhouse' />
-                                <Typography variant='body2'>Greenhouse</Typography>
-                                <Typography variant='body1'>Application Tracking System (ATS)<br /><br /></Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    Greenhouse is an intelligent talent acquisition software. It takes the CRM databases and creates an algorithm in which it
-                                    parses the candidate information into categories then scans it to determine the qualification according to the user's
-                                    guided limits.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    ATS is meant to streamline the recruiting process by the automated search and screening. However, many leading ATS systems
-                                    <span className={classes.boldText}> fall short in targeting</span>. For instance, a recruiter could filter ATS to find
-                                    software engineers. Yet, the results may include candidates who are no longer relevant, but had a previous engineering title.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.spaceBetween} item xs={2}>
-                                <img src={img['Market04.svg']} className={classes.marketImg} alt='Crunchbase' />
-                                <Typography variant='body2'>Crunchbase</Typography>
-                                <Typography variant='body1'>Business Analytics Database<br /><br /></Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    Crunchbase is a platform for acquiring business insights about companies. Crunchbase information includes company funding
-                                    stage, investments, scale, industry, news and founding members and individuals in leadership positions.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    One difficulty that recruiters feel when using Crunchbase is that they have to <span className={classes.boldText}> move out
-                                        of the CRM and re-direct </span> to the Crunchbase website when looking up information of companies where their candidates,
-                                    clients, and potential business partners are from.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid className={classes.spaceBetween} item xs={2}>
-                                <img src={img['Market05.svg']} className={classes.marketImg} alt='Glassdoor' />
-                                <Typography variant='body2'>Glassdoor</Typography>
-                                <Typography variant='body1'>Jobs and Career Community<br /><br /></Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    Glassdoor is a community where users anonymously review, submit or view salaries of their current or previous companies.
-                                    Whereas Crunchbase provides business information, Glassdoor provides how well  companies provides experiences for their
-                                    employees.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography variant='body1'>
-                                    Similar to when using Crunchbase, recruiters have to <span className={classes.boldText}> move out their current operation
-                                    </span> looking up company information.
-                                </Typography>
-                            </Grid>
-                        </GridFormat>
+                        <Box sx={{display: {xs: 'block', lg: 'none'}}}><MarketMobile/></Box>
+                        <Box sx={{display: {xs: 'none', lg: 'block'}}}><MarketWeb/></Box>
                     </div>
 
                     {/* competitor analysis */}
@@ -743,23 +683,23 @@ export default function TenEx(props) {
                             captionLg={5}
                         />
                         <GridFormat>
-                            <Grid item lg={8} xs={10}>
-                                <Grid container spacing={0}>
+                            <Grid item sx={{overflowX: 'scroll'}} lg={8} xs={10}>
+                                <Grid sx={{minWidth: '700px'}} container spacing={0}>
                                     <Grid item xs={2} />
                                     <Grid className={classes.alignCenter} item xs={2}>
                                         <img src={img['Market02.svg']} className={classes.competitorLogo} alt='Outreach' />
                                     </Grid>
                                     <Grid className={classes.alignCenter} item xs={2}>
-                                        <img src={img['Competitor02.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                        <img src={img['Competitor02.svg']} className={classes.competitorLogo} alt='hiretual' />
                                     </Grid>
                                     <Grid className={classes.alignCenter} item xs={2}>
-                                        <img src={img['Competitor03.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                        <img src={img['Competitor03.svg']} className={classes.competitorLogo} alt='upsider' />
                                     </Grid>
                                     <Grid className={classes.alignCenter} item xs={2}>
-                                        <img src={img['Competitor04.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                        <img src={img['Competitor04.svg']} className={classes.competitorLogo} alt='interseller' />
                                     </Grid>
                                     <Grid className={classes.alignCenter} item xs={2}>
-                                        <img src={img['Competitor05.svg']} className={classes.competitorLogo} alt='Outreach' />
+                                        <img src={img['Competitor05.svg']} className={classes.competitorLogo} alt='humanpredictions' />
                                     </Grid>
                                     <Grid className={classes.competitor} item xs={2}><Typography variant='body1'>Business Insights</Typography></Grid>
                                     <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
@@ -791,7 +731,7 @@ export default function TenEx(props) {
                                     <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
                                     <Grid className={classes.borders} item xs={2}><div className={classes.circleOpen} /></Grid>
                                     <Grid className={classes.borders} item xs={2}><div className={classes.circleClosed} /></Grid>
-                                    <Grid className={classes.competitorLast} item xs={2}><Typography variant='body1'>Internal/Integrated ATS</Typography></Grid>
+                                    <Grid className={classes.competitorLast} item xs={2}><Typography variant='body1'>Internal / Integrated ATS</Typography></Grid>
                                     <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
                                     <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
                                     <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
@@ -847,22 +787,21 @@ export default function TenEx(props) {
 
                     {/* IA */}
                     <div className={classes.margin2}>
-                    <div>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Information Architecture</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    Based on the MVP identified during all hands discussion and references gathered from competitor analysis, I created the
-                                    10xFinders information architecture to construct the navigation structure of the application.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}>
-                                <img src={img['IA.svg']} className={classes.IA} alt='Information Architecture' />
-                                {/* <Grid className={classes.alignBottom} container spacing={3}>
+                        <div>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Information Architecture</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        Based on the MVP identified during all hands discussion and references gathered from competitor analysis, I created the
+                                        10xFinders information architecture to construct the navigation structure of the application.
+                                    </Typography>
+                                </Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}>
+                                    <img src={img['IA.svg']} className={classes.IA} alt='Information Architecture' />
+                                    {/* <Grid className={classes.alignBottom} container spacing={3}>
                                 <Grid item xs={2}>
                                     <div className={classes.IABox}>
                                         <Typography className={classes.textAlign} variant='body1'>Onboarding</Typography>
@@ -956,270 +895,289 @@ export default function TenEx(props) {
                                     </div>
                                 </Grid>
                             </Grid> */}
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* Wireframes */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Wireframes</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    Before moving on to hi-fidelity prototypes, I used the information architecture to sketch wireframes. This helps me better
-                                    layout components on the frame, as well as accelerate the prototyping process.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>People Search</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Candidate Profile</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaigns List</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaign</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item lg={8} xs={10}>
-                                <img src={img['Wireframes.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                        {/* Wireframes */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Wireframes</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        Before moving on to hi-fidelity prototypes, I used the information architecture to sketch wireframes. This helps me better
+                                        layout components on the frame, as well as accelerate the prototyping process.
+                                    </Typography>
+                                </Grid>
+                            </GridFormat>
+                            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <GridFormat>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>People Search</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Candidate Profile</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaigns List</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaign</Typography>
+                                </Grid>
+                            </GridFormat>
+                            </Box>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}>
+                                    <img src={img['Wireframes.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* Hi Fidelity Prototype */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Hi Fidelity Prototype</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    Using 10xFinders Brand Guideline and UI Assets, I created higher fidelity prototype using Adobe XD. All frames were
-                                    interactive and included dynamic elements which were later implemented in the product.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>People Search</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Candidate Profile</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaigns List</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaign</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <img src={img['HiFi01.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['HiFi04.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                        {/* Hi Fidelity Prototype */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Hi Fidelity Prototype</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        Using 10xFinders Brand Guideline and UI Assets, I created higher fidelity prototype using Adobe XD. All frames were
+                                        interactive and included dynamic elements which were later implemented in the product.
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4} />
+                            </GridFormat>
+                            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <GridFormat>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>People Search</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Candidate Profile</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaigns List</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaign</Typography>
+                                </Grid>
+                            </GridFormat>
+                            </Box>
+                            <GridFormat>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['HiFi01.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['HiFi04.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* Frontend Implementation */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Frontend Implementation</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    After final iteration of the design, my team went over it thoroughly, then implemented the design on the platform using
-                                    React. The designs were changed as I adjusted them to fit the content from real data.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>People Search</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Candidate Profile</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaigns List</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='caption'>Campaign</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <img src={img['Frontend01.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['Frontend04.svg']} className={classes.imgFitContent} alt='Wireframes' />
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                        {/* Frontend Implementation */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Frontend Implementation</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        After final iteration of the design, my team went over it thoroughly, then implemented the design on the platform using
+                                        React. The designs were changed as I adjusted them to fit the content from real data.
+                                    </Typography>
+                                </Grid>
+                            </GridFormat>
+                            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <GridFormat>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>People Search</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Candidate Profile</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaigns List</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant='caption'>Campaign</Typography>
+                                </Grid>
+                            </GridFormat>
+                            </Box>
+                            <GridFormat>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['Frontend01.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={10} lg={2}>
+                                    <img src={img['Frontend04.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* responsive layout */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Responsive Layout</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    10xFinders is a web applications that users primarily use on their personal/work laptop or desktop. To produce the best
-                                    experience for users with different devices, I’ve designed a responsive system with different screen resolutions.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}>
-                                <Typography variant='body2'>4k Screen<br /><br /></Typography>
-                            </Grid>
-                            <img src={img['Responsive01.svg']} className={classes.imgFitContent2} alt='4k' />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}>
-                                <Typography variant='body2'>1920 * 1080<br /></Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item lg={8} xs={10}>
-                                <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
-                            </Grid>
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item xs={1} />
-                            <Grid item xs={6}>
-                                <Typography variant='body2'>1336 * 768<br /></Typography>
-                            </Grid>
-                            <Grid item xs={1} />
-                            <Grid item xs={3} />
-                            <Grid item xs={6}>
-                                <img src={img['Responsive03.svg']} className={classes.imgFitContent} alt='1336 * 768' />
-                                <Grid item xs={1} />
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                        {/* responsive layout */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Responsive Layout</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        10xFinders is a web applications that users primarily use on their personal/work laptop or desktop. To produce the best
+                                        experience for users with different devices, I’ve designed a responsive system with different screen resolutions.
+                                    </Typography>
+                                </Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}>
+                                    <Typography variant='body2'>4k Screen<br /><br /></Typography>
+                                </Grid>
+                                <img src={img['Responsive01.svg']} className={classes.imgFitContent} alt='4k' />
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}>
+                                    <Typography variant='body2'>1920 * 1080<br /></Typography>
+                                </Grid>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item lg={8} xs={10}>
+                                    <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
+                                </Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item xs={1} sx={{display: {xs: 'none', lg: 'block'}}}/>
+                                <Grid item xs={10} lg={6}>
+                                    <Typography variant='body2'>1336 * 768<br /></Typography>
+                                </Grid>
+                                <Grid item xs={1}/>
+                                <Grid item xs={1} lg={3} />
+                                <Grid item xs={10} lg={6}>
+                                    <img src={img['Responsive03.svg']} className={classes.imgFitContent} alt='1336 * 768' />
+                                </Grid>
+                                    <Grid item xs={1} />
+                            </GridFormat>
+                        </div>
 
-                    {/* brand guideline */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Brand Guideline</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    As the sole designer on team, I was also responsible for creating the brand guideline for UI components, typography, logo
-                                    and other marketing materials.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}><Typography variant='body2'>10xFinders Palette</Typography></Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <div className={classes.color1} />
-                                <Typography variant='caption'>#1B4077</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color2} />
-                                <Typography variant='caption'>#356BBA</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color3} />
-                                <Typography variant='caption'>#8DB0E3</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color4} />
-                                <Typography variant='caption'>#D4E2F8</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <div className={classes.color5} />
-                                <Typography variant='caption'>#152845</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color6} />
-                                <Typography variant='caption'>#757575</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color7} />
-                                <Typography variant='caption'>#FFFFFF</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color8} />
-                                <Typography variant='caption'>#F2F7FF</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <div className={classes.color9} />
-                                <Typography variant='caption'>#007745</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color10} />
-                                <Typography variant='caption'>#FFD633</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color11} />
-                                <Typography variant='caption'>#D5342A</Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <div className={classes.color12} />
-                                <Typography variant='caption'>#631A89</Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                        </GridFormat>
-                    </div>
+                        {/* brand guideline */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>Brand Guideline</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        As the sole designer on team, I was also responsible for creating the brand guideline for UI components, typography, logo
+                                        and other marketing materials.
+                                    </Typography>
+                                </Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}><Typography variant='body2'>10xFinders Palette</Typography></Grid>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color1} />
+                                    <Typography variant='caption'>#1B4077</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color2} />
+                                    <Typography variant='caption'>#356BBA</Typography>
+                                </Grid>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color3} />
+                                    <Typography variant='caption'>#8DB0E3</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color4} />
+                                    <Typography variant='caption'>#D4E2F8</Typography>
+                                </Grid>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color5} />
+                                    <Typography variant='caption'>#152845</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color6} />
+                                    <Typography variant='caption'>#757575</Typography>
+                                </Grid>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color7} />
+                                    <Typography variant='caption'>#FFFFFF</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color8} />
+                                    <Typography variant='caption'>#F2F7FF</Typography>
+                                </Grid>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color9} />
+                                    <Typography variant='caption'>#007745</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color10} />
+                                    <Typography variant='caption'>#FFD633</Typography>
+                                </Grid>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color11} />
+                                    <Typography variant='caption'>#D5342A</Typography>
+                                </Grid>
+                                <Grid item xs={5} lg={2}>
+                                    <div className={classes.color12} />
+                                    <Typography variant='caption'>#631A89</Typography>
+                                </Grid>
+                                <Grid item xs={2} />
+                            </GridFormat>
+                        </div>
 
-                    {/* logo */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>Logo</Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item xs={1}>
-                                <img src={img['Logo01.svg']} className={classes.marketImg} alt='Wireframes' />
-                                <Typography variant='caption'>Gradient</Typography>
-                            </Grid>
-                            <Grid item xs={1}>
-                                <img src={img['Logo02.svg']} className={classes.marketImg} alt='Wireframes' />
-                                <Typography variant='caption'><br />Solid</Typography>
-                            </Grid>
-                            <Grid item lg={8} xs={10} />
-                            <Grid item xs={12} />
-                            <Grid item xs={2} />
-                            <Grid item xs={3}>
-                                <img src={img['Logo03.svg']} className={classes.marketImg} alt='Wireframes' />
-                                <Typography variant='caption'><br />Full Character</Typography>
-                                {/* <Grid container spacing={3}>
+                        {/* logo */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={4}>
+                                    <Typography variant='h3'>Logo</Typography>
+                                </Grid>
+                                <Grid item xs={4} />
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item xs={3} lg={1}>
+                                    <img src={img['Logo01.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    <Typography variant='caption'>Gradient</Typography>
+                                </Grid>
+                                <Grid item xs={3} lg={1}>
+                                    <img src={img['Logo02.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    <Typography variant='caption'><br />Solid</Typography>
+                                </Grid>
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item xs={10} lg={3}>
+                                    <img src={img['Logo03.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    <Typography variant='caption'><br />Full Character</Typography>
+                                    {/* <Grid container spacing={3}>
                                     <Grid item xs={2}>
                                         <div className={classes.IABox}>
                                             <Typography className={classes.textAlign} variant='body1'>Onboarding</Typography>
@@ -1240,66 +1198,65 @@ export default function TenEx(props) {
                                         </div>
                                     </Grid>
                                 </Grid> */}
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* UI components */}
-                    <div className={classes.margin2}>
-                        <GridFormat>
-                            <Grid item xs={4}>
-                                <Typography variant='h3'>UI Components</Typography>
-                                <Typography variant='body1'>
-                                    <br />
-                                    They’re interactive. Try them yourself!
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4} />
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}>
-                                <UILibrary />
-                            </Grid>
-                        </GridFormat>
-                    </div>
+                        {/* UI components */}
+                        <div className={classes.margin2}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography variant='h3'>UI Components</Typography>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        They’re interactive. Try them yourself!
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4} />
+                            </GridFormat>
+                            <GridFormat>
+                                <Grid item lg={8} xs={10}>
+                                    <UILibrary />
+                                </Grid>
+                            </GridFormat>
+                        </div>
 
-                    {/* user testing */}
-                    <div>
-                        <Heading
-                            header='USER TESTING'
-                            headerLg={3}
-                            caption='After implementing each iteration, I presented the design to my team, reiterated based on feedbacks, then implemented the 
+                        {/* user testing */}
+                        <div>
+                            <Heading
+                                header='USER TESTING'
+                                headerLg={3}
+                                caption='After implementing each iteration, I presented the design to my team, reiterated based on feedbacks, then implemented the 
                             final design on the server. With the final design, I spoke with 6 clients who were active on the platform to receive the first-hand 
                             experience as the direct user. To share the feedbacks with my team in which all members were in remote locations, I used 
                             collaboration tools including the Google Suite and Notion.'
-                            captionLg={5}
-                        />
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
-                        </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={8} xs={10}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
-                        </GridFormat>
-                        <div className={classes.margin} >
+                                captionLg={5}
+                            />
                             <GridFormat>
-                                <Grid item xs={5}>
-                                    <Typography variant='h3'>Redesigns based on Feedback</Typography>
-                                    <Typography variant='body1'>
-                                        <br />
-                                        Here is an example of redesigned pages including “Lists” page and “Lists filter” on “People” Page.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={3} />
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item lg={8} xs={10}><img src={img['UserTesting03.svg']} className={classes.imgFitContent} alt='redesign 1' /></Grid>
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
                             </GridFormat>
-                            <GridFormat>
-                                <Grid item lg={8} xs={10}><img src={img['UserTesting04.png']} className={classes.imgFitContent} alt='redesign 2' /></Grid>
-                            </GridFormat>
+                            <div className={classes.margin} >
+                                <GridFormat>
+                                    <Grid item xs={10} lg={5}>
+                                        <Typography variant='h3'>Redesigns based on Feedback</Typography>
+                                        <Typography variant='body1'>
+                                            <br />
+                                            Here is an example of redesigned pages including “Lists” page and “Lists filter” on “People” Page.
+                                        </Typography>
+                                    </Grid>
+                                </GridFormat>
+                                <GridFormat>
+                                    <Grid item lg={8} xs={10}><img src={img['UserTesting03.svg']} className={classes.imgFitContent} alt='redesign 1' /></Grid>
+                                </GridFormat>
+                                <GridFormat>
+                                    <Grid item lg={8} xs={10}><img src={img['UserTesting04.png']} className={classes.imgFitContent} alt='redesign 2' /></Grid>
+                                </GridFormat>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </ThemeProvider>
         </StyledEngineProvider >

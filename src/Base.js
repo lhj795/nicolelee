@@ -9,7 +9,7 @@ const useStyles = makeStyles(({
         padding: '16px',
         position: 'fixed',
         width: 'calc(100% - 32px)',
-        // zIndex: '100',
+        zIndex: '100',
         mixBlendMode: 'overlay',
     },
     home: {

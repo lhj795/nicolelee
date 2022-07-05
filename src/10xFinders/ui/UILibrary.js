@@ -13,10 +13,24 @@ import { StyledChipInput } from './StyledChipInput';
 const useStyles = makeStyles((theme) => ({
     row: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: () => {
+            if (window.innerWidth > 1200) {
+                return 'row'
+            } else {
+                return 'column';
+            }
+        },
     },
     component: {
-        width: '20%',
+        width: () => {
+            if (window.innerWidth > 1200) {
+                return '20%'
+            } else if (window.innerWidth > 600 && window.innerWidth <= 1200) {
+                return '50%'
+            } else {
+                return '100%';
+            }
+        },
         margin: '2vmin 2vmin 2vmin 0',
     },
     margin: {

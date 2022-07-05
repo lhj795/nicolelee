@@ -275,8 +275,8 @@ function Heading(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
-                <div style={{ margin: (window.innerWidth > 1200) ? '30vh 0 10vh 0' : '10vh 0 -10vh 0' }}>
-                    <Grid container spacing={3}>
+                <div style={{ margin: (window.innerWidth > 1200) ? '30vh 0 10vh 0' : '10vh 0 ww10vh 0' }}>
+                    <Grid alignItems={props.alignItems} container spacing={3}>
                         <Grid item xs={1} lg={2} />
                         <Grid item lg={props.headerLg} xs={10}>
                             <Typography variant='h5'>

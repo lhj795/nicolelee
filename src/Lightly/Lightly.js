@@ -492,7 +492,7 @@ export default function Lightly(props) {
                             insights, I created the following persona.'
                             captionLg={4}
                         />
-                        <GridFormat>
+                        <GridFormat alignItems='flex-end'>
                             <Grid item lg={4} xs={10}>
                                 <Grid alignItems='flex-end' container spacing={3}>
                                     <Grid item xs={3}>

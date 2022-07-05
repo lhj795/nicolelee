@@ -682,7 +682,6 @@ export default function Work(props) {
                                 </div>
                             </div>
                             <div className={classes.distortionText}>
-                                {/* intersectionobserver */}
                                 <DistortionText
                                     text="nicole is a..."
                                     fill="white"
