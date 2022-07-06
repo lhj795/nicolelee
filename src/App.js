@@ -8,6 +8,7 @@ import AMC from './AMC/AMC';
 import About from './About';
 import Construction from './Construction';
 import Lightly from './Lightly/Lightly';
+import LovePop from './LovePop/LovePop';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/10xfinders' element={<TenEx/>} />
         <Route path='/AMC' element={<AMC/>} />
         <Route path='/Lightly' element={<Lightly/>} />
+        <Route path='/LovePop' element={<LovePop/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/project' element={<Construction/>} />
       </Routes>
