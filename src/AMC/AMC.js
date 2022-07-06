@@ -492,7 +492,7 @@ export default function AMC(props) {
                             <Grid item xs={2} lg={1}>
                                 <img src={img['Leah.svg']} className={classes.imgFitContent} alt='Leah' />
                             </Grid>
-                            <Grid className={classes.persona} item xs={8} lg={3}>
+                            <Grid className={classes.persona} item xs={8} md={6} lg={3}>
                                 <Typography variant='h3'>Leah Solomon</Typography>
                                 <div className={classes.personaDemo}>
                                     <Box sx={{ marginRight: { xs: '10px', lg: '0' } }}>
@@ -683,7 +683,7 @@ export default function AMC(props) {
                         </div>
 
                         {/* valet */}
-                        <Box sx={{ margin: { xs: '0', lg: '20vh 0' } }}>
+                        <Box sx={{ margin: { xs: '0', md: '10vh 0 0 0', lg: '20vh 0' } }}>
                             <GridFormat>
                                 <Grid item xs={10} lg={4}>
                                     <Typography className={classes.valet} variant='h1'>Valet Service</Typography>
@@ -708,7 +708,7 @@ export default function AMC(props) {
                                 textBottom='column-reverse'
                                 zIndex='1'
                             />
-                            <Box sx={{ margin: { lg: '30vh 0 10vh 0', xs: '10vh 0 0' } }}>
+                            <Box sx={{ margin: { lg: '30vh 0 10vh 0', md: '10vh 0 0 0', xs: '10vh 0 0' } }}>
                                 <GridFormat>
                                     <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                         <Typography variant='body2'>Automated Entry System</Typography>
@@ -739,9 +739,10 @@ export default function AMC(props) {
                                 sx={{
                                     color: { xs: 'black', lg: 'white' },
                                     left: { xs: '', lg: 'calc(16.6666666vw + 72px)' },
-                                    margin: { xs: '0 0 -28vh 0', lg: '10vh 0 0 0' },
+                                    margin: { xs: '0 0 -28vh 0', md: '0 0 -5vh', lg: '10vh 0 0 0' },
                                     position: { xs: 'relative', lg: 'absolute' },
                                     padding: { xs: '24px', lg: '0' },
+                                    zIndex: '1'
                                 }}
                             >
                                 <Typography variant='body1'>

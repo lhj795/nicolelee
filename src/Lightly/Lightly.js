@@ -264,7 +264,7 @@ export default function Lightly(props) {
                             <Grid item lg={7} xs={1} />
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={10} lg={4}>
-                                <Typography variant='h4'>
+                                <Typography sx={{zIndex: '1', position: 'relative'}} variant='h4'>
                                     Bringing back casual moments {(mobile) ? [] : <br />}
                                     by planning better meetings
                                 </Typography>
@@ -272,21 +272,21 @@ export default function Lightly(props) {
                             <Grid item lg={6} xs={1} />
                             <Grid item lg={2} xs={1} />
                             <Grid item xs={10} lg={4}>
-                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
+                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' }, zIndex: '1', position: 'relative' }} variant='body1'>
                                     <span className={classes.boldText}>Project</span>: Brown Risd Master of Arts in Design Engineering (MADE) Module
                                 </Typography>
                             </Grid>
                             <Grid item xs={1} sx={{ display: { xs: '', lg: 'none' } }} />
                             <Grid item xs={1} sx={{ display: { xs: '', lg: 'none' } }} />
                             <Grid item lg={2} xs={10}>
-                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
+                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' }, zIndex: '1', position: 'relative' }} variant='body1'>
                                     <span className={classes.boldText}>Role</span>: UX Design
                                 </Typography>
                             </Grid>
                             <Grid item xs={1} sx={{ display: { xs: '', lg: 'none' } }} />
                             <Grid item xs={1} sx={{ display: { xs: '', lg: 'none' } }} />
                             <Grid item lg={2} xs={10}>
-                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
+                                <Typography sx={{ marginTop: { xs: '0', lg: '20vh' }, zIndex: '1', position: 'relative' }} variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Figma, Illustrator, After Effects
                                 </Typography>
                             </Grid>
@@ -494,10 +494,10 @@ export default function Lightly(props) {
                         <GridFormat alignItems='flex-end'>
                             <Grid item lg={4} xs={10}>
                                 <Grid alignItems='flex-end' container spacing={3}>
-                                    <Grid item xs={3}>
+                                    <Grid item xs={3} md={2}>
                                         <img src={img['Persona01.svg']} className={classes.imgFitContent} alt='Paul ' />
                                     </Grid>
-                                    <Grid item lg={6} xs={9}>
+                                    <Grid item xs={9} md={4} lg={6}>
                                         <Typography variant='h3'>Paul Emerson</Typography>
                                         <div className={classes.personaDemo}>
                                             <div>
@@ -548,10 +548,10 @@ export default function Lightly(props) {
                             <Grid item lg={2} xs={1} />
                             <Grid item lg={4} xs={10}>
                                 <Grid alignItems='flex-end' container spacing={3}>
-                                    <Grid item xs={3}>
+                                    <Grid item xs={3} md={2}>
                                         <img src={img['Persona02.svg']} className={classes.imgFitContent} alt='Emma' />
                                     </Grid>
-                                    <Grid item lg={6} xs={9}>
+                                    <Grid item xs={9} md={4} lg={6}>
                                         <Typography variant='h3'>Emma Marshall</Typography>
                                         <div className={classes.personaDemo}>
                                             <div>
@@ -611,7 +611,7 @@ export default function Lightly(props) {
                                 <img src={img['Tools05.svg']} className={classes.tools} alt='Tools' />
                             </Grid>
                             <Grid className={classes.alignLeft} item lg={4} xs={10}>
-                                <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
+                                <Box sx={{ display: { xs: 'block', lg: 'none' }, alignSelf: 'center', width: {xs: '100%', md: '50%'} }}>
                                     <img src={img['ToolsMobile.svg']} className={classes.imgFitContent} alt='Tools' />
                                 </Box>
                                 <img src={img['Persona03.svg']} className={classes.paulEmma} alt='Tools' />

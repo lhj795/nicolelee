@@ -136,7 +136,13 @@ const useStyles = makeStyles(({
     competitorLogo: {
         padding: '1vmin 0',
         margin: 'auto',
-        height: '2.5vh',
+        height: () => {
+            if (window.innerWidth > 1200) {
+                return '2.5vh'
+            } else {
+                return '2vh';
+            }
+        },
     },
     borders: {
         borderTop: '1.5px solid #C6DFFF',
@@ -298,7 +304,33 @@ const useStyles = makeStyles(({
     },
     zIndex: {
         zIndex: '1',
-    }
+    },
+    journeyItem: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'flex-start',
+        height: () => {
+            if (window.innerWidth > 1200) {
+                return '27vh'
+            } else if (window.innerWidth > 900 && window.innerWidth <= 1200) {
+                return '20vmin'
+            } else {
+                return '39vh';
+            }
+        },
+    },
+    journeyImg: {
+        height: '3rem',
+        width: 'auto',
+    },
+    journeyNum: {
+        color: '#c4c4c4',
+        fontFamily: 'NeueHaasDisplayRoman',
+        fontSize: 'clamp(20px, 1.563rem, 25px)',
+        lineHeight: '1.125',
+        textDecoration: 'none',
+    },
 }));
 
 function importAll(r) {
@@ -551,10 +583,10 @@ export default function TenEx(props) {
                             caption3='I found that a lot of the recruiting tasks are repetitive and tedious. Recruiters are faced with hundreds of tasks everyday. They use multiple softwares to keep track of projects and candidates such as an ATS (Applicant Tracking System). Even after candidates are sourced through the ATS algorithm, recruiters still feel the need to check each resume to validate the candidate’s fitting. This is because existing platforms fall short in targeting and the ATS database become obsolete over time. Let’s walk through Daniel’s recruiting workflow to take a deeper look.'
                         />
                         <GridFormat>
-                            <Grid item xs={3} lg={1}>
+                            <Grid item xs={3} md={2} lg={1}>
                                 <img src={img['Daniel.svg']} className={classes.imgFitContent} alt='Daniel Turner' />
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={8} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={8} md={9} />
                             <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
                             <Grid className={classes.persona} item xs={10} lg={5}>
                                 <Typography variant='h3'>Daniel Turner</Typography>
@@ -1164,17 +1196,17 @@ export default function TenEx(props) {
                                 <Grid item xs={4} />
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={3} lg={1}>
+                                <Grid item xs={3} md={2} lg={1}>
                                     <img src={img['Logo01.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     <Typography variant='caption'>Gradient</Typography>
                                 </Grid>
-                                <Grid item xs={3} lg={1}>
+                                <Grid item xs={3} md={2} lg={1}>
                                     <img src={img['Logo02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     <Typography variant='caption'><br />Solid</Typography>
                                 </Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={10} lg={3}>
+                                <Grid item xs={10} md={5} lg={3}>
                                     <img src={img['Logo03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     <Typography variant='caption'><br />Full Character</Typography>
                                     {/* <Grid container spacing={3}>

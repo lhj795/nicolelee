@@ -282,6 +282,8 @@ const useStyles = makeStyles(({
         height: () => {
             if (window.innerWidth > 1200) {
                 return '100vh'
+            } else if (window.innerWidth > 900 && window.innerWidth <= 1200) {
+                return '50vw'
             } else {
                 return '200px';
             }
@@ -706,10 +708,10 @@ export default function Able(props) {
                         <GridFormat>
                             <Grid item xs={10} lg={4}>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={3}>
+                                    <Grid item xs={3} md={2}>
                                         <img src={img['Amanda.png']} className={classes.imgFitContent} alt='meeting with users' />
                                     </Grid>
-                                    <Grid item xs={9} lg={6}>
+                                    <Grid item xs={9} md={4} lg={6}>
                                         <Box><Typography variant='h3'>Amanda Williams</Typography></Box>
                                         <div className={classes.personaDemo}>
                                             <Box sx={{ marginRight: { xs: '10px', lg: '0' } }}>
@@ -1003,8 +1005,8 @@ export default function Able(props) {
                                     <video className={classes.imgFitContent} src={img['App03.mp4']} controls id="video" />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                <Grid item xs={10} lg={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} md={3} />
+                                <Grid item xs={10} md={6} lg={3}>
                                     <video className={classes.imgFitContent} src={img['App02.mp4']} controls id="video" />
                                 </Grid>
                             </GridFormat>
@@ -1042,14 +1044,14 @@ export default function Able(props) {
                                             Cheon (MADE ’22) woo hoo!
                                             <br /><br />
                                         </Typography>
-                                        <Typography variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
                                             left: magazine prototype with sample fabrics and scratch and sniff stickers. <br />
                                             right: magazine request page on Able app.
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                    <Grid item xs={10} lg={2}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} md={3} />
+                                    <Grid item xs={10} md={6} lg={2}>
                                         <img src={img['MultisensoryMagazine03.png']} className={classes.imgFitContent} alt='magazine subscription via app' />
                                     </Grid>
                                 </Grid>
@@ -1088,7 +1090,7 @@ export default function Able(props) {
                                         pavings to reference the measurements and patterns used, and then to design ours.
                                         <br /><br />
                                     </Typography>
-                                    <Typography variant='caption'>
+                                    <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
                                         right 1: store interior<br />
                                         right 2: tactile pavings<br />
                                         bottom 1: documentation of relevant ADA guidelines<br />
@@ -1238,7 +1240,7 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={1} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={4}>
                                     <img src={img['AssistiveHanger02.png']} className={classes.imgFitContent} alt='Assistive Hanger user testing' />
                                 </Grid>
