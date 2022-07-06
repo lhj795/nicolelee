@@ -83,6 +83,7 @@ const useStyles = makeStyles(({
         textAlign: 'center',
     },
     arrows: {
+        display: 'flex',
         alignItems: 'center',
     },
     arrowUp: {
@@ -1407,8 +1408,8 @@ export default function Able(props) {
                                     <img src={img['MultisensoryStation05.png']} className={clsx(classes.imgFitContent, classes.padding)} alt='Multisensory Station user testing' />
                                 </Grid>
                             </Grid>
-                            <Box className={clsx(classes.negMargin2, classes.arrows)}>
-                                <Grid container spacing={3}>
+                            <Box className={classes.negMargin2}>
+                                <Grid container alignItems='center' spacing={3}>
                                     <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                     <Grid xs={10} lg={4}>
                                         <img src={img['MultisensoryStation06.png']} className={classes.imgFitContent2} alt='Multisensory Station print setup' />
