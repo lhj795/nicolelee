@@ -959,7 +959,7 @@ export default function Able(props) {
                                     <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
                                     <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={5}>
-                                        <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['App01.mp4']} webkit-playsInline playsInline autoPlay muted loop id="video" />
+                                        <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['App01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop id="video" />
                                     </Grid>
                                     <Grid item xs={1} />
                                     <Grid item xs={1} lg={6} />
@@ -1210,7 +1210,7 @@ export default function Able(props) {
                                 <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />
                                 <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
                                 <Grid item lg={8} xs={12}>
-                                    <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['AssistiveHangerDemo.mp4']} webkit-playsInline playsInline autoPlay muted loop id="video" />
+                                    <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['AssistiveHangerDemo.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop id="video" />
                                 </Grid>
                                 <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
                                 <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />

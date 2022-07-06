@@ -642,7 +642,7 @@ export default function Lightly(props) {
                         <Grid container spacing={3}>
                             <Grid item sx={{ display: { xs: 'none', lg: 'flex' } }} lg={2} />
                             <Grid item xs={12} lg={8}>
-                                <video className={classes.imgFitContent} src={img['Solution01.mp4']} webkit-playsInline playsInline autoPlay muted loop controls id="video" />
+                                <video className={classes.imgFitContent} src={img['Solution01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                             </Grid>
                             <Grid item sx={{ display: { xs: 'none', lg: 'flex' } }} lg={2} />
                         </Grid>
@@ -785,7 +785,7 @@ export default function Lightly(props) {
                                 </Grid>
                                 <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'block' } }} />
                                 <Grid item lg={5} xs={12}>
-                                    <video className={classes.imgFitContent} src={img['App01.mp4']} webkit-playsInline playsInline autoPlay muted loop controls id="video" />
+                                    <video className={classes.imgFitContent} src={img['App01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
                                 <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
                                 <Grid item xs={10} sx={{ display: { xs: 'block', lg: 'none' } }}>
@@ -803,7 +803,7 @@ export default function Lightly(props) {
                             <Grid container spacing={3}>
                                 <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
                                 <Grid item xs={12} lg={8}>
-                                    <video className={classes.imgFitContent} src={img['App02.mp4']} webkit-playsInline playsInline autoPlay muted loop controls id="video" />
+                                    <video className={classes.imgFitContent} src={img['App02.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
                                 <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
                                 <Grid item lg={2} xs={1} />
@@ -826,7 +826,7 @@ export default function Lightly(props) {
                             <Grid alignItems='center' container spacing={3}>
                                 <Grid item lg={1} sx={{ display: { lg: 'block', xs: 'none' } }} />
                                 <Grid item lg={5} xs={12}>
-                                    <video className={classes.imgFitContent} src={img['App04.mp4']} webkit-playsInline playsInline autoPlay muted loop controls id="video" />
+                                    <video className={classes.imgFitContent} src={img['App04.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
                                 <Grid item xs={1} sx={{ display: { lg: 'none', xs: 'block' } }} />
                                 <Grid item xs={10} lg={4}>
@@ -949,7 +949,7 @@ export default function Lightly(props) {
                         <Box sx={{ margin: '10vh 0' }}>
                             <Grid container spacing={3}>
                                 <Grid item lg={5} xs={12}>
-                                    <video className={classes.imgFitContent} src={img['Testing01.mp4']} webkit-playsInline playsInline autoPlay muted loop controls id="video" />
+                                    <video className={classes.imgFitContent} src={img['Testing01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
                                 <Grid item xs={1}/>
                                 <Grid item xs={10} lg={4}>
