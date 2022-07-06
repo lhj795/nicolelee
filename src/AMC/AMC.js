@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from '../Base';
 import clsx from 'clsx';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box, Collapse } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const useStyles = makeStyles(({
     wrap: {
@@ -48,12 +50,6 @@ const useStyles = makeStyles(({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-    },
-    cover: {
-        height: '70vh',
-        position: 'absolute',
-        right: '0',
-        top: '5vh',
     },
     coverContainer: {
         position: 'absolute',
@@ -202,6 +198,11 @@ function Cover(props) {
 export default function AMC(props) {
     const classes = useStyles(props);
 
+    const mobileTrueFalse = (window.innerWidth < 1200) ? false : true;
+
+    const [showDesc, setShowDesc] = useState(mobileTrueFalse);
+    const [showDesc2, setShowDesc2] = useState(mobileTrueFalse);
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
@@ -211,82 +212,113 @@ export default function AMC(props) {
 
                     {/* cover */}
                     <div className={classes.coverContainer}>
-                        <img src={img['AMCCover.png']} className={classes.cover} alt='10xFinders' />
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={3}>
+                        <Box
+                            sx={{
+                                width: { xs: '100vw', lg: '50vw' },
+                                position: 'absolute',
+                                transition: '0.3s',
+                                right: '0',
+                                top: '5vh',
+                                objectFit: 'contain',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <img src={img['AMCCover.png']} className={classes.imgFitContent} alt='10xFinders' />
+                        </Box>
+                        <Grid sx={{ position: 'relative' }} container spacing={3}>
+                            <Grid item xs={3} lg={2} />
+                            <Grid item xs={6} lg={3}>
                                 <img className={classes.coverLogo} src={img['AMCLogo.svg']} alt='10xFinders' />
                             </Grid>
-                            <Grid item xs={7} />
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                            <Grid item xs={3} lg={7} />
+                            <Grid item xs={1} lg={2} />
+                            <Grid sx={{textAlign: {xs: 'center', lg: 'left'}}} item xs={10} lg={4}>
                                 <Typography variant='h4'>
                                     Revolutionized Movie Watching Experience
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4} />
                         </Grid>
                         <Grid container spacing={3} className={classes.coverDetails}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={10} lg={4}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: RISD Industrial Design Advanced Studio: Business of Product Design - Final Project
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Research, Concept, Visual
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Adobe Suite, Rhino
                                 </Typography>
                             </Grid>
-                            <Grid item xs={3} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
                         </Grid>
                     </div>
 
                     {/* abstract */}
                     <div className={classes.abstractContainer}>
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} direction="row">
                             <Grid item xs={12} />
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography variant='body2'>
-                                    Abstract
-                                </Typography>
+                            <Grid item lg={2} xs={1} />
+                            <Grid onClick={() => setShowDesc(!showDesc)} item xs={10} lg={4}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Abstract
+                                    </Typography>
+                                    {showDesc ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc} timeout="auto" unmountOnExit>
+                                    <Typography className={(showDesc) ? '' : classes.displayNone} variant='body1'>
+                                        <br />
+                                        Going to the theater is not just about going into a dark room and watching a movie on a large screen. The journey starts
+                                        when a person is interested in a movie and ends when walking out of the theater. AMC World is a comprehensive movie
+                                        experience that reimagines every step of the journey to be better in quality and to be more enjoyable. AMC World offers an
+                                        extended entertainment experience from the good old movie watching to virtual experiences of being part of a movie, then
+                                        taking the memories to keep after the experience.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant='body2'>
-                                    Involvement
-                                </Typography>
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
+                                <Box
+                                    sx={{ display: "flex" }}
+                                    alignItems="center"
+                                    flexDirection="row"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography variant='body2'>
+                                        Involvement
+                                    </Typography>
+                                    {showDesc2 ? <ExpandLess /> : <ExpandMore />}
+                                </Box>
+                                <Collapse in={showDesc2} timeout="auto" unmountOnExit>
+                                    <Typography variant='body1'>
+                                        <br />
+                                        I was not affiliated or in any way officially connected with the AMC Theatres. This project was based solely on the
+                                        research, ideation, and execution of my teammate Priyanshi Bareja and I. We both actively participated on every part of the
+                                        project under the supervision of the co-founder of Ximedica, Aidan Petrie and his colleague Ayan Bhandari. As a student of
+                                        RISD Industrial Design Advanced Studio, Business of Product Design, we were assigned to choose a brand and redesign the
+                                        experience with the goal of 20% business growth.
+                                    </Typography>
+                                </Collapse>
                             </Grid>
-                            <Grid item xs={2} />
+                            <Grid item xs={1} lg={2} />
                             <Grid item xs={12} />
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
-                                    Going to the theater is not just about going into a dark room and watching a movie on a large screen. The journey starts
-                                    when a person is interested in a movie and ends when walking out of the theater. AMC World is a comprehensive movie
-                                    experience that reimagines every step of the journey to be better in quality and to be more enjoyable. AMC World offers an
-                                    extended entertainment experience from the good old movie watching to virtual experiences of being part of a movie, then
-                                    taking the memories to keep after the experience.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant='body1'>
-                                    I was not affiliated or in any way officially connected with the AMC Theatres. This project was based solely on the
-                                    research, ideation, and execution of my teammate Priyanshi Bareja and I. We both actively participated on every part of the
-                                    project under the supervision of the co-founder of Ximedica, Aidan Petrie and his colleague Ayan Bhandari. As a student of
-                                    RISD Industrial Design Advanced Studio, Business of Product Design, we were assigned to choose a brand and redesign the
-                                    experience with the goal of 20% business growth.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
                         </Grid>
                     </div>
 
@@ -765,9 +797,9 @@ export default function AMC(props) {
                         {/* gift shop */}
                         <div>
                             <Typography className={clsx(classes.positionAbsolute, classes.giftshopCaption)} variant='body1'>
-                            After the movie, customers may visit the AMC gift shop <br/>
-                            that offers movie novelty items to take back home with them. <br/>
-                            Making this the perfect ending to the New AMC journey!<br/>
+                                After the movie, customers may visit the AMC gift shop <br />
+                                that offers movie novelty items to take back home with them. <br />
+                                Making this the perfect ending to the New AMC journey!<br />
                             </Typography>
                             <Cover
                                 img='GiftShop.svg'

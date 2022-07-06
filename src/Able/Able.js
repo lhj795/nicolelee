@@ -1172,7 +1172,7 @@ export default function Able(props) {
                                 </Grid>
                                 <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
-                                <Grid ite xs={10} lg={5}>
+                                <Grid item xs={10} lg={5}>
                                     <img src={img['TactileMap02.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
                             </Grid>
@@ -1403,7 +1403,7 @@ export default function Able(props) {
                                 <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
                                 <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={6} />
-                                <Grid ietm xs={10} lg={5}>
+                                <Grid item xs={10} lg={5}>
                                     <img src={img['MultisensoryStation05.png']} className={clsx(classes.imgFitContent, classes.padding)} alt='Multisensory Station user testing' />
                                 </Grid>
                             </Grid>

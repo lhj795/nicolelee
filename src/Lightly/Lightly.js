@@ -250,7 +250,6 @@ export default function Lightly(props) {
                             sx={{
                                 width: { xs: '90vw', lg: '48vw' },
                                 right: { xs: '5vw', lg: '9vw' },
-                                // height: '100vh',
                                 position: 'absolute',
                                 transition: '0.3s'
                             }}
