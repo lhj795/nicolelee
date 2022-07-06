@@ -10,7 +10,15 @@ const useStyles = makeStyles(({
         position: 'fixed',
         width: 'calc(100% - 32px)',
         zIndex: '100',
-        mixBlendMode: 'overlay',
+        mixBlendMode: {
+            mixBlendMode: () => {
+                if (window.innerWidth > 1200) {
+                    return 'overlay'
+                } else {
+                    return '';
+                }
+            },
+        },
     },
     home: {
         textDecoration: 'none',

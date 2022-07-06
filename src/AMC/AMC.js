@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from '../Base';
 import clsx from 'clsx';
@@ -16,23 +16,35 @@ const useStyles = makeStyles(({
         overflowX: 'hidden',
     },
     margin: {
-        margin: '30vh 0 10vh 0',
-    },
-    margin2: {
-        margin: '35vh 0 10vh 0',
-    },
-    margin3: {
-        margin: '50vh 0 0 0',
+        margin: () => {
+            if (window.innerWidth > 1200) {
+                return '30vh 0 10vh 0'
+            } else {
+                return '10vh 0 0 0';
+            }
+        },
     },
     pZ: {
         paddingLeft: '0 !important',
     },
     maxHeight: {
-        height: '100vh',
-        display: 'flex'
+        height: () => {
+            if (window.innerWidth > 1200) {
+                return '100vh'
+            } else {
+                return '57vw';
+            }
+        },
+        display: 'flex',
     },
     imgMixBlendMode: {
-        mixBlendMode: 'hard-light',
+        mixBlendMode: () => {
+            if (window.innerWidth > 1200) {
+                return 'hard-light'
+            } else {
+                return '';
+            }
+        },
     },
     imgFitContent: {
         width: '100%',
@@ -139,12 +151,12 @@ const useStyles = makeStyles(({
     },
     appCover: {
         background: '#CE2540',
-        height: '100vh',
+        height: 'fit-content',
         margin: '30vh 0 10vh 0',
     },
     ticketCover: {
         background: '#CE2540',
-        height: '80vh',
+        height: '90vh',
         margin: '30vh 0 10vh 0',
     },
     coverTitleWhite: {
@@ -163,16 +175,8 @@ const useStyles = makeStyles(({
         textAlign: 'right',
         color: '#333333',
     },
-    concessionCaption: {
-        color: 'white',
-        left: 'calc(16.6666666vw + 72px)',
-        marginTop: '10vh'
-    },
-    giftshopCaption: {
-        color: 'black',
-        right: '8.33333vw',
-        marginTop: '85vh',
-        zIndex: '1',
+    minWidth: {
+        minWidth: '1000px',
     },
 }));
 
@@ -197,6 +201,15 @@ function Cover(props) {
 
 export default function AMC(props) {
     const classes = useStyles(props);
+
+    const [mobile, setMobile] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < 1200) {
+            setMobile(true);
+        } else {
+            setMobile(false);
+        }
+    }, []);
 
     const mobileTrueFalse = (window.innerWidth < 1200) ? false : true;
 
@@ -232,7 +245,7 @@ export default function AMC(props) {
                             </Grid>
                             <Grid item xs={3} lg={7} />
                             <Grid item xs={1} lg={2} />
-                            <Grid sx={{textAlign: {xs: 'center', lg: 'left'}}} item xs={10} lg={4}>
+                            <Grid sx={{ textAlign: { xs: 'center', lg: 'left' } }} item xs={10} lg={4}>
                                 <Typography variant='h4'>
                                     Revolutionized Movie Watching Experience
                                 </Typography>
@@ -245,15 +258,15 @@ export default function AMC(props) {
                                     <span className={classes.boldText}>Role</span>: RISD Industrial Design Advanced Studio: Business of Product Design - Final Project
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
-                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Research, Concept, Visual
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
-                            <Grid item sx={{display: {xs: 'block', lg: 'none'}}} xs={1}/>
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Adobe Suite, Rhino
@@ -324,15 +337,14 @@ export default function AMC(props) {
 
                     {/* design process */}
                     <div className={classes.designProcessContainer}>
-                        <Grid container>
-                            <Grid item xs={2} />
+                        <Grid container spacing={2}>
+                            <Grid item xs={1} lg={2} />
                             <Grid item lg={8} xs={10}>
                                 <Typography variant='h5'>DESIGN PROCESS</Typography>
                             </Grid>
-                            <Grid item xs={2} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Grid container spacing={2}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex' } }} container spacing={2}>
                                 <Grid item xs={12} />
                                 <Grid item xs={2} />
                                 <Grid item lg={8} xs={10}>
@@ -360,29 +372,35 @@ export default function AMC(props) {
                                 </Grid>
                                 <Grid item xs={2} />
                                 <Grid item xs={12} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
-                                    <Typography variant='body2'>Learning</Typography>
-                                </Grid>
-                                <Grid item xs={3} />
-                                <Grid className={classes.pZ} item xs={2}>
-                                    <Typography variant='body2'>Redesign</Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={2}>
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={12} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={2}>
+                                    <Typography variant='body2'>
+                                        Learning
+                                        {(mobile) ? <br /> : []}
+                                    </Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? <br /> : []}
                                         User survey, user interviews, site visits, user journey mapping and synthesis.
+                                        {(mobile) ? <br /> : []}
+                                        {(mobile) ? <br /> : []}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={3} />
-                                <Grid className={classes.pZ} item xs={2}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={1} />
+                                <Grid sx={{ paddingLeft: { xs: 'inherit', lg: '0 !important' } }} item xs={10} lg={2}>
+                                    <Typography variant='body2'>
+                                        Redesign
+                                        {(mobile) ? <br /> : []}
+                                    </Typography>
                                     <Typography variant='body1'>
+                                        {(mobile) ? <br /> : []}
                                         Identifying areas of opportunity during the user journey to implement redesigns and introduce new experiences.
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={1} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={12} />
                                 <Grid item xs={12} />
                             </Grid>
@@ -401,13 +419,15 @@ export default function AMC(props) {
                             captionLg={4}
                         />
                         <GridFormat>
-                            <Grid item xs={4}>
+                            <Grid item xs={10} lg={4}>
                                 <img src={img['UserResearch01.svg']} className={classes.imgFitContent} alt='AMC theaters' />
                                 <Typography variant='caption'>
                                     <br />Credit: Patrick T. Fallon/Bloomberg via Getty Images
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.justifyCenter} item xs={4}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>AMC? Hmm yeah it's a great theater…</Typography>
                                 <Typography variant='body1'>
                                     <br />AMC Entertainment Holdings, Inc. is an American movie theater chain that is the largest in the world, ahead of Regal
@@ -418,12 +438,14 @@ export default function AMC(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={4}>
+                            <Grid item xs={10} lg={4}>
                                 <img src={img['UserResearch02.svg']} className={classes.imgFitContent} alt='research graph 1' />
                                 <Typography variant='caption'>
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.justifyCenter} item xs={4}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>Do you regularly go to the movies?</Typography>
                                 <Typography variant='body1'>
                                     <br />During the beginning stage of our research, a survey was conducted among 38 people between the ages of 20’s and 40’s.
@@ -434,12 +456,14 @@ export default function AMC(props) {
                             </Grid>
                         </GridFormat>
                         <GridFormat>
-                            <Grid item xs={4}>
+                            <Grid item xs={10} lg={4}>
                                 <img src={img['UserResearch03.svg']} className={classes.imgFitContent} alt='research graph 1' />
                                 <Typography variant='caption'>
                                 </Typography>
                             </Grid>
-                            <Grid className={classes.justifyCenter} item xs={4}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>Do you care about the brand?</Typography>
                                 <Typography variant='body1'>
                                     <br />However these movie-goers also answered that they do not care about which movie theater brand they go to when deciding
@@ -465,19 +489,19 @@ export default function AMC(props) {
                             captionLg={4}
                         />
                         <GridFormat>
-                            <Grid item xs={1}>
+                            <Grid item xs={2} lg={1}>
                                 <img src={img['Leah.svg']} className={classes.imgFitContent} alt='Leah' />
                             </Grid>
-                            <Grid className={classes.persona} item xs={3}>
+                            <Grid className={classes.persona} item xs={8} lg={3}>
                                 <Typography variant='h3'>Leah Solomon</Typography>
                                 <div className={classes.personaDemo}>
-                                    <div>
+                                    <Box sx={{ marginRight: { xs: '10px', lg: '0' } }}>
                                         <Typography variant='body1'>Job</Typography>
                                         <Typography variant='body1'>Location</Typography>
                                         <Typography variant='body1'>Archetype</Typography>
                                         <Typography variant='body1'>Goals</Typography>
-                                    </div>
-                                    <div>
+                                    </Box>
+                                    <Box>
                                         <Typography variant='body1'>Barista</Typography>
                                         <Typography variant='body1'>Metropolitan City</Typography>
                                         <Typography variant='body1'>The Superhero Geek</Typography>
@@ -485,17 +509,32 @@ export default function AMC(props) {
                                             1. Easily coordinate with friends to plan movie-going, <br />
                                             2. Collect superhero goods
                                         </Typography>
-                                    </div>
+                                    </Box>
                                 </div>
                             </Grid>
                             <Grid item xs={2} />
                         </GridFormat>
-                        <img src={img['DesignOpportunity01.svg']} className={classes.imgFitContent} alt='journey map' />
+                        <Box sx={{ overflowX: 'scroll' }}>
+                            <img src={img['DesignOpportunity01.svg']} className={clsx(classes.minWidth, classes.imgFitContent)} alt='journey map' />
+                        </Box>
                         <GridFormat>
-                            <Grid item xs={2}>
+                            <Grid item xs={10} lg={2}>
                                 <Typography variant='body2'>Leah's visit at the new AMC</Typography>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={10} lg={3}>
+                                <Typography variant='body1'>
+                                    Leah's journey starts by receiving notification via AMC app on a recommended movie release, then invites her friend to
+                                    reserve seats together. Upon entering the theater, Leah receives her premium admission pass. While waiting for the movie to
+                                    start, Leah visits the entertainment zone, where she plays Marvel VR games. After the fun time at the entertainment zone,
+                                    Leah enters the auditorium where she finds her premium sofa seat. During the movie, Leah stops by the Sky Lounge located in the
+                                    auditorium, to refill her cup of soda and use the restroom, without missing any scenes. In AMC, every item our customer
+                                    receives do not go to waste. Leah leaves AMC with her movie poster printed ticket, and the reusable cup that is designed
+                                    after her favorite character.
+                                </Typography>
+                            </Grid>
+                            <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     Leah's journey starts by receiving notification via AMC app on a recommended movie release, then invites her friend to
                                     reserve seats together. Upon entering the theater, Leah receives her premium admission pass. While waiting for the movie to
@@ -503,7 +542,9 @@ export default function AMC(props) {
                                     Leah enters
                                 </Typography>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     the auditorium where she finds her premium sofa seat. During the movie, Leah stops by the Sky Lounge located in the
                                     auditorium, to refill her cup of soda and use the restroom, without missing any scenes. In AMC, every item our customer
@@ -529,28 +570,40 @@ export default function AMC(props) {
 
                         {/* app */}
                         <div>
-                            <Grid className={classes.appCover} container>
-                                <Typography className={clsx(classes.positionAbsolute, classes.coverTitleWhite)} variant='h1'>
-                                    Mobile App
-                                </Typography>
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
-                                    <Typography className={classes.margin3} variant='body1' style={{ color: 'white' }}>
-                                        The redesigned mobile app has added features including notifications on movies by user preference, and social
-                                        interactions for remote ticket purchases with friends.
+                            <Box className={classes.appCover}>
+                                <Grid container spacing={3}>
+                                    <Typography className={clsx(classes.positionAbsolute, classes.coverTitleWhite)} variant='h1'>
+                                        Mobile App
                                     </Typography>
+                                    <Grid item xs={12} />
+                                    <Grid item xs={12} />
+                                    <Grid item xs={1} lg={2} />
+                                    <Grid item xs={10} lg={3}>
+                                        <Box sx={{ margin: { lg: '40vh 0 0 0', xs: '0', color: 'white' } }}>
+                                            <Typography variant='body1'>
+                                                The redesigned mobile app has added features including notifications on movies by user preference, and social
+                                                interactions for remote ticket purchases with friends.
+                                            </Typography>
+                                        </Box>
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                    <Grid className={classes.justifyCenter} item xs={11} lg={6}>
+                                        <img src={img[`App01.svg`]} className={classes.imgFitContent} alt='AMC App' />
+                                    </Grid>
+                                    <Grid item xs={12} />
+                                    <Grid item xs={12} />
+                                    <Grid item xs={12} />
                                 </Grid>
-                                <Grid item xs={1} />
-                                <Grid className={classes.justifyCenter} item xs={6}>
-                                    <img src={img[`App01.svg`]} className={classes.imgFitContent} alt='AMC App' />
-                                </Grid>
-                            </Grid>
+                            </Box>
                             <GridFormat>
-                                <Grid item xs={3}>
+                                <Grid item xs={10} lg={3}>
                                     <img src={img[`App02.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid className={classes.justifyCenter} item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                     <Typography variant='body2'>
                                         Personalized Notifications
                                     </Typography>
@@ -563,11 +616,12 @@ export default function AMC(props) {
                                 </Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={3}>
+                                <Grid item xs={10} lg={3}>
                                     <img src={img[`App03.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid className={classes.justifyCenter} item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         Remote Booking with Friends
                                     </Typography>
@@ -586,24 +640,28 @@ export default function AMC(props) {
                                 <Typography className={clsx(classes.positionAbsolute, classes.coverTitleWhite)} variant='h1'>
                                     Admission Pass
                                 </Typography>
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
-                                    <Typography className={classes.margin2} variant='body1' style={{ color: 'white' }}>
-                                        Movie tickets often get left as garbage. This was seen as an opportunity to make the ticket an artifact that the movie
-                                        fanatics can keep in the memory of the movie as well as the theater experience.
-                                    </Typography>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={3}>
+                                    <Box sx={{ margin: { lg: '40vh 0 0 0', xs: '20vh 0 0 0' } }}>
+                                        <Typography className={classes.margin2} variant='body1' style={{ color: 'white' }}>
+                                            Movie tickets often get left as garbage. This was seen as an opportunity to make the ticket an artifact that the movie
+                                            fanatics can keep in the memory of the movie as well as the theater experience.
+                                        </Typography>
+                                    </Box>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid className={classes.justifyCenter} item xs={6}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={6}>
                                     <img src={img[`Ticket01.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                             </Grid>
                             <GridFormat>
-                                <Grid item xs={4}>
+                                <Grid item xs={10} lg={4}>
                                     <img src={img[`Ticket02.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid className={classes.justifyCenter} item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         3 Tiered Admission System
                                     </Typography>
@@ -625,17 +683,19 @@ export default function AMC(props) {
                         </div>
 
                         {/* valet */}
-                        <Grid className={classes.margin} container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
-                                <Typography className={classes.valet} variant='h1'>Valet Service</Typography>
-                                <Typography className={classes.valetCaption} variant='body1'>Providing convenience to all mobile movie-goers.</Typography>
-                            </Grid>
-                            <Grid item xs={1} />
-                            <Grid item xs={5}>
-                                <img src={img[`Valet.svg`]} className={classes.imgFitContent} alt='AMC App' />
-                            </Grid>
-                        </Grid>
+                        <Box sx={{ margin: { xs: '0', lg: '20vh 0' } }}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4}>
+                                    <Typography className={classes.valet} variant='h1'>Valet Service</Typography>
+                                    <Typography className={classes.valetCaption} variant='body1'>Providing convenience to all mobile movie-goers.</Typography>
+                                </Grid>
+                                <Grid item xs={1} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid item xs={10} lg={5}>
+                                    <img src={img[`Valet.svg`]} className={classes.imgFitContent} alt='AMC App' />
+                                </Grid>
+                            </GridFormat>
+                        </Box>
 
                         {/* entry gates */}
                         <div>
@@ -648,35 +708,47 @@ export default function AMC(props) {
                                 textBottom='column-reverse'
                                 zIndex='1'
                             />
-                            <Grid className={classes.margin} container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid className={classes.justifyCenter} item xs={4}>
-                                    <Typography variant='body2'>Automated Entry System</Typography>
-                                    <Typography variant='body1'>
-                                        <br />During site visits at AMC, it was noticed that most theaters have a check in area where an employee checks the
-                                        customer’s ticket and guide them towards the theater hall. With AMC’s value of innovation, why not make this automated?
-                                        <br /><br />
-                                        With a purchase of one of the AMC admission passes, the customer now may check in to the entertainment area through the
-                                        newly designed entry gate. This system is hypothesized reducing the cost of labor that had only been needed for such a
-                                        tedious task. For the customers, checking-in becomes quicker and autonomous.
-                                        <br /><br />
-                                        The design references various public transportation systems that use automated gate system to simulate the usual user
-                                        behavior. The gate is streamlined to reflect AMC's brand guidelines and values.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={5}>
-                                    <img src={img[`Gate02.svg`]} className={classes.imgFitContent} alt='AMC App' />
-                                </Grid>
-                            </Grid>
+                            <Box sx={{ margin: { lg: '30vh 0 10vh 0', xs: '10vh 0 0' } }}>
+                                <GridFormat>
+                                    <Grid className={classes.justifyCenter} item xs={10} lg={4}>
+                                        <Typography variant='body2'>Automated Entry System</Typography>
+                                        <Typography variant='body1'>
+                                            <br />During site visits at AMC, it was noticed that most theaters have a check in area where an employee checks the
+                                            customer’s ticket and guide them towards the theater hall. With AMC’s value of innovation, why not make this automated?
+                                            <br /><br />
+                                            With a purchase of one of the AMC admission passes, the customer now may check in to the entertainment area through the
+                                            newly designed entry gate. This system is hypothesized reducing the cost of labor that had only been needed for such a
+                                            tedious task. For the customers, checking-in becomes quicker and autonomous.
+                                            <br /><br />
+                                            The design references various public transportation systems that use automated gate system to simulate the usual user
+                                            behavior. The gate is streamlined to reflect AMC's brand guidelines and values.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                    <Grid item xs={10} lg={5}>
+                                        <img src={img[`Gate02.svg`]} className={classes.imgFitContent} alt='AMC App' />
+                                    </Grid>
+                                </GridFormat>
+                            </Box>
                         </div>
 
                         {/* concession */}
                         <div>
-                            <Typography className={clsx(classes.positionAbsolute, classes.concessionCaption)} variant='body1'>
-                                The entertainment area features AMC exclusive concessions stands. <br />
-                                Concession offers gourmet food items that come in movie-themed packaging.
-                            </Typography>
+                            <Box
+                                sx={{
+                                    color: { xs: 'black', lg: 'white' },
+                                    left: { xs: '', lg: 'calc(16.6666666vw + 72px)' },
+                                    margin: { xs: '0 0 -28vh 0', lg: '10vh 0 0 0' },
+                                    position: { xs: 'relative', lg: 'absolute' },
+                                    padding: { xs: '24px', lg: '0' },
+                                }}
+                            >
+                                <Typography variant='body1'>
+                                    The entertainment area features AMC exclusive concessions stands. <br />
+                                    Concession offers gourmet food items that come in movie-themed packaging.
+                                </Typography>
+                            </Box>
                             <Cover
                                 img='Concession01.svg'
                                 title='Concession'
@@ -700,9 +772,8 @@ export default function AMC(props) {
                                 color='black'
                                 textBottom='column-reverse'
                             />
-                            <Grid container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid item xs={4} className={classes.justifyCenter}>
+                            <GridFormat>
+                                <Grid item xs={10} lg={4} className={classes.justifyCenter}>
                                     <Typography variant='body2'>Reimagined Arcade Experience</Typography>
                                     <Typography variant='body1'>
                                         <br />During site visits at AMC, it was noticed theaters equipped with an arcade area barely has any engagement. The
@@ -716,10 +787,11 @@ export default function AMC(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={5}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid item xs={10} lg={5}>
                                     <img src={img[`Arcade02.svg`]} className={classes.imgFitContent} alt='AMC VR' />
                                 </Grid>
-                            </Grid>
+                            </GridFormat>
                         </div>
 
                         {/* movie */}
@@ -734,12 +806,13 @@ export default function AMC(props) {
                                 zIndex='1'
                             />
                             <Grid container spacing={3}>
-                                <Grid item xs={12} />
-                                <Grid item xs={5}>
+                                <Grid item xs={1} lg={12} />
+                                <Grid item xs={10} lg={5}>
                                     <img src={img[`Theater02.png`]} className={classes.imgFitContent} alt='chair' />
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid className={classes.justifyCenter} item xs={3}>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         Bringing the comfort of home to the theatre
                                     </Typography>
@@ -752,14 +825,18 @@ export default function AMC(props) {
                                         provide, these special sofas develop a strong incentive for our customers to occupy the first few rows of our theatres
                                         as well.
                                     </Typography>
-                                    <Grid item xs={1} />
                                 </Grid>
                             </Grid>
                             <Grid container spacing={3}>
                                 <Grid item xs={12} />
                                 <Grid item xs={12} />
-                                <Grid item xs={2} />
-                                <Grid className={classes.justifyCenter} item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={10} lg={5}>
+                                    <img src={img[`Theater03.svg`]} className={classes.imgFitContent} alt='sky lounge' />
+                                </Grid>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         Sky Lounge: An uninterrupted movie experience
                                     </Typography>
@@ -770,19 +847,21 @@ export default function AMC(props) {
                                         without the frustrations of missing out the best part!
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={5}>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={5}>
                                     <img src={img[`Theater03.svg`]} className={classes.imgFitContent} alt='sky lounge' />
                                 </Grid>
                             </Grid>
                             <Grid container spacing={3}>
                                 <Grid item xs={12} />
-                                <Grid item xs={12} />
-                                <Grid item xs={5}>
+                                <Grid item xs={1} lg={12} />
+                                <Grid item xs={10} lg={5}>
                                     <img src={img[`Theater04.svg`]} className={classes.imgFitContent} alt='chair' />
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid className={classes.justifyCenter} item xs={3}>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         Stubs Lounge
                                     </Typography>
@@ -796,11 +875,23 @@ export default function AMC(props) {
 
                         {/* gift shop */}
                         <div>
-                            <Typography className={clsx(classes.positionAbsolute, classes.giftshopCaption)} variant='body1'>
-                                After the movie, customers may visit the AMC gift shop <br />
-                                that offers movie novelty items to take back home with them. <br />
-                                Making this the perfect ending to the New AMC journey!<br />
-                            </Typography>
+                            <Box
+                                sx={{
+                                    color: 'black',
+                                    display: {xs: 'none', lg: 'block'},
+                                    position: {xs: 'relative', lg: 'absolute'},
+                                    right: {xs: '', lg: '8.33333vw'},
+                                    marginTop: {xs: '1rem', lg: '70vh'},
+                                    zIndex: '1',
+                                    padding: {xs: '0 24px 24px 24px', lg: '0'},
+                                }}
+                            >
+                                <Typography variant='body1'>
+                                    After the movie, customers may visit the AMC gift shop {(mobile) ? [] : <br/>}
+                                    that offers movie novelty items to take back home with them. {(mobile) ? [] : <br/>}
+                                    Making this the perfect ending to the New AMC journey! {(mobile) ? [] : <br/>}
+                                </Typography>
+                            </Box>
                             <Cover
                                 img='GiftShop.svg'
                                 title='Gift Shop'
@@ -810,6 +901,23 @@ export default function AMC(props) {
                                 textBottom='column'
                                 zIndex='1'
                             />
+                            <Box
+                                sx={{
+                                    color: 'black',
+                                    display: {xs: 'block', lg: 'none'},
+                                    position: {xs: 'relative', lg: 'absolute'},
+                                    right: {xs: '', lg: '8.33333vw'},
+                                    marginTop: {xs: '1rem', lg: '70vh'},
+                                    zIndex: '1',
+                                    padding: {xs: '0 24px 24px 24px', lg: '0'},
+                                }}
+                            >
+                                <Typography variant='body1'>
+                                    After the movie, customers may visit the AMC gift shop {(mobile) ? [] : <br/>}
+                                    that offers movie novelty items to take back home with them. {(mobile) ? [] : <br/>}
+                                    Making this the perfect ending to the New AMC journey! {(mobile) ? [] : <br/>}
+                                </Typography>
+                            </Box>
                         </div>
 
                     </div>

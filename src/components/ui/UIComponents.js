@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box } from '@mui/material';
 import { TypographyTheme } from './Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
@@ -275,7 +275,7 @@ function Heading(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
-                <div style={{ margin: (window.innerWidth > 1200) ? '30vh 0 10vh 0' : '10vh 0 ww10vh 0' }}>
+                <Box sx={{ margin: {lg: '30vh 0 10vh 0', xs: '10vh 0 10vh 0' } }}>
                     <Grid alignItems={props.alignItems} container spacing={3}>
                         <Grid item xs={1} lg={2} />
                         <Grid item lg={props.headerLg} xs={10}>
@@ -300,7 +300,7 @@ function Heading(props) {
                         </Grid>
                         <Grid item xs={1} lg={2} />
                     </Grid>
-                </div>
+                </Box>
             </ThemeProvider>
         </StyledEngineProvider>
     );
