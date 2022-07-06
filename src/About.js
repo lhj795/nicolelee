@@ -1,7 +1,7 @@
 import React from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from './Base';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box } from '@mui/material';
 import { TypographyTheme } from './components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import Nicole from './img/Nicole.png'
@@ -13,7 +13,15 @@ const useStyles = makeStyles(({
         maxHeight: '100vh',
         objectFit: 'cover',
         zIndex: '0',
-        mixBlendMode: 'color',
+        mixBlendMode: {
+            mixBlendMode: () => {
+                if (window.innerWidth > 1200) {
+                    return 'color'
+                } else {
+                    return '';
+                }
+            },
+        },
     },
     justifyCenter: {
         display: 'flex',
@@ -34,9 +42,10 @@ export default function About(props) {
             <ThemeProvider theme={TypographyTheme}>
 
                 <Base className={classes.base} color='black' zIndex='1' mixBlendMode='darken'/>
+                <Box sx={{paddingTop: {xs: '10vh', lg: '0'}}}>
                 <Grid container spacing={3}>
-                    <Grid item xs={2} />
-                    <Grid className={classes.justifyCenter} item xs={4}>
+                    <Grid item xs={1} lg={2} />
+                    <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                         <Typography variant='h2'>반가워요! Get to know me</Typography>
                         <Typography variant='body1'>
                             <br />Here’s my TLDR.
@@ -66,10 +75,12 @@ export default function About(props) {
                         </Typography>
                     </Grid>
                     <Grid item xs={1} />
-                    <Grid item xs={5}>
+                    <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                    <Grid item xs={10} lg={5}>
                         <img className={classes.imgFitContent} src={Nicole} alt='Nicole in her natural state' />
                     </Grid>
                 </Grid>
+                </Box>
 
             </ThemeProvider>
         </StyledEngineProvider>
