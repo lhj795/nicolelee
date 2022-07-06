@@ -17,7 +17,13 @@ const useStyles = makeStyles(({
         overflowX: 'hidden',
     },
     imgMixBlendMode: {
-        mixBlendMode: 'hard-light',
+        mixBlendMode: () => {
+            if (window.innerWidth > 1200) {
+                return 'hard-light'
+            } else {
+                return '';
+            }
+        },
     },
     cover: {
         height: '75vh',
@@ -25,7 +31,13 @@ const useStyles = makeStyles(({
         objectFit: 'cover',
         filter: 'brightness(0.6)',
         backdropFilter: 'invert(1)',
-        mixBlendMode: 'color-dodge',
+        mixBlendMode: () => {
+            if (window.innerWidth > 1200) {
+                return 'color-dodge'
+            } else {
+                return '';
+            }
+        },
     },
     coverContainer: {
         position: 'absolute',
@@ -56,7 +68,13 @@ const useStyles = makeStyles(({
         background: '#333333',
         height: 'fit-content',
         color: 'white',
-        mixBlendMode: 'color',
+        mixBlendMode: () => {
+            if (window.innerWidth > 1200) {
+                return 'color'
+            } else {
+                return '';
+            }
+        },
         backdropFilter: 'invert(1)',
     },
     designProcess: {
@@ -112,7 +130,20 @@ const useStyles = makeStyles(({
         objectFit: 'cover',
     },
     layout: {
-        height: '100vh',
+        height: () => {
+            if (window.innerWidth > 1200) {
+                return '100vh'
+            } else {
+                return '';
+            }
+        },
+        width: () => {
+            if (window.innerWidth <= 1200) {
+                return '100%'
+            } else {
+                return '';
+            }
+        },
         objectFit: 'contain',
         display: 'flex',
         margin: 'auto',
@@ -129,10 +160,7 @@ const useStyles = makeStyles(({
     personaDemo: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-end',
-        height: '100%',
         width: '100%',
-        marginTop: 'clamp(-20px, -1.563rem, -25px)',
         justifyContent: 'space-between',
     },
     personaMotivation: {
@@ -205,13 +233,26 @@ const useStyles = makeStyles(({
         height: '8vh',
     },
     appCover: {
-        height: '100vh',
+        height: 'fit-content',
+        minHeight: '100vh',
         background: '#0A191F',
         marginLeft: '0',
         color: 'white',
         marginBottom: '10vh',
-        mixBlendMode: 'color',
-        backdropFilter: 'invert(1)',
+        mixBlendMode: () => {
+            if (window.innerWidth > 1200) {
+                return 'color'
+            } else {
+                return '';
+            }
+        },
+        backdropFilter: () => {
+            if (window.innerWidth > 1200) {
+                return 'invert(1)'
+            } else {
+                return '';
+            }
+        },
     },
     appCoverTitle: {
         color: 'white !important',
@@ -220,7 +261,6 @@ const useStyles = makeStyles(({
     appCaptions: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: '-72px',
     },
     appCaption: {
         color: 'white',
@@ -239,7 +279,14 @@ const useStyles = makeStyles(({
         margin: '10vh 0 10vh 0',
     },
     maxHeight: {
-        height: '100vh',
+        height: () => {
+            if (window.innerWidth > 1200) {
+                return '100vh'
+            } else {
+                return '200px';
+            }
+        },
+        transitio: '0.3s',
         display: 'flex'
     },
     justifyContent: {
@@ -256,10 +303,22 @@ const useStyles = makeStyles(({
         fontSize: 'clamp(20px, 1.563rem, 25px)',
     },
     negMargin: {
-        margin: '-20vh 0 10vh 0'
+        margin: () => {
+            if (window.innerWidth > 1200) {
+                return '-20vh 0 10vh 0'
+            } else {
+                return '0';
+            }
+        },
     },
     negMargin2: {
-        margin: '-50vh 0 10vh 0'
+        margin: () => {
+            if (window.innerWidth > 1200) {
+                return '-50vh 0 10vh 0'
+            } else {
+                return '0';
+            }
+        },
     },
     padding: {
         padding: '10vmin',
@@ -487,7 +546,7 @@ export default function Able(props) {
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Learning</Typography>
                                     <Typography variant='body1'>
-                                        <br />Recruiting participants from online communities, local vision rehabilitation center and personal connections.{(mobile) ? <br/> :[]}
+                                        <br />Recruiting participants from online communities, local vision rehabilitation center and personal connections.{(mobile) ? <br /> : []}
                                     </Typography>
                                 </Grid>
                                 <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
@@ -495,7 +554,7 @@ export default function Able(props) {
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Concept</Typography>
                                     <Typography variant='body1'>
-                                        <br />Sketching concepts based on user interviews and discussion on potential directions.{(mobile) ? <br/> :[]}
+                                        <br />Sketching concepts based on user interviews and discussion on potential directions.{(mobile) ? <br /> : []}
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
@@ -503,11 +562,11 @@ export default function Able(props) {
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Agile Prototyping</Typography>
                                     <Typography variant='body1'>
-                                        <br />Iterations on prototypes designed and tested with participants.{(mobile) ? <br/> :[]}
+                                        <br />Iterations on prototypes designed and tested with participants.{(mobile) ? <br /> : []}
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} lg={2} />
-                                <Grid item xs={12}/>
+                                <Grid item xs={12} />
                                 <Grid item xs={12} />
                             </Grid>
                         </div>
@@ -557,7 +616,7 @@ export default function Able(props) {
                                 </Typography>
                             </Grid>
                             <Grid item xs={1} />
-                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
                             <Grid className={classes.textAlignRight} item xs={10} lg={3}>
                                 <img src={img['Problem02.png']} className={classes.imgFitContent} alt='NIH Aricle' />
                                 <div className={classes.smallMarginTop}>
@@ -644,33 +703,31 @@ export default function Able(props) {
                                 captionLg={5}
                             />
                         </div>
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                        <GridFormat>
+                            <Grid item xs={10} lg={4}>
                                 <Grid container spacing={3}>
                                     <Grid item xs={3}>
                                         <img src={img['Amanda.png']} className={classes.imgFitContent} alt='meeting with users' />
                                     </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography variant='h3'>Amanda Williams</Typography>
+                                    <Grid item xs={9} lg={6}>
+                                        <Box><Typography variant='h3'>Amanda Williams</Typography></Box>
                                         <div className={classes.personaDemo}>
-                                            <div>
+                                            <Box sx={{ marginRight: { xs: '10px', lg: '0' } }}>
                                                 <Typography variant='body1'>Age</Typography>
                                                 <Typography variant='body1'>Location</Typography>
-                                                <Typography variant='body1'>Occupation</Typography>
+                                                <Typography variant='body1'>Job</Typography>
                                                 <Typography variant='body1'>Vision</Typography>
-                                            </div>
-                                            <div>
+                                            </Box>
+                                            <Box>
                                                 <Typography variant='body1'>32</Typography>
                                                 <Typography variant='body1'>Boston, MA</Typography>
                                                 <Typography variant='body1'>Unemployed</Typography>
                                                 <Typography variant='body1'>Legally blind since age 5</Typography>
-                                            </div>
+                                            </Box>
                                         </div>
                                     </Grid>
-                                    <Grid item xs={3} />
                                 </Grid>
-                                <Typography variant='body2'><br />Bio</Typography>
+                                <Typography variant='body2'><br />Bio<br /><br /></Typography>
                                 <Typography variant='body1'>
                                     Meet Amanda. She lost her vision at a young age but that didn’t stop her passion for fashion. She needs to buy a set of spring
                                     clothes for the upcoming season, but finds it difficult to do so because of inaccessible and pricey stores that are immediately
@@ -678,7 +735,9 @@ export default function Able(props) {
                                     and confidence, even in unfamiliar stores.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid item xs={10} lg={4}>
                                 <div className={classes.personaMotivation}>
                                     <div><Typography variant='body2'>Motivation</Typography></div>
                                     <div className={classes.br} />
@@ -708,10 +767,9 @@ export default function Able(props) {
                                     </div>
                                 </div>
                             </Grid>
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={4}>
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={1} lg={2} />
+                            <Grid item xs={10} lg={4}>
                                 <Typography variant='body2'><br />Frustrations</Typography>
                                 <Typography variant='body1'>
                                     <br />
@@ -719,7 +777,9 @@ export default function Able(props) {
                                     • Risk of injuries from protruding objects in stores.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid item xs={10} lg={4}>
                                 <Typography variant='body2'><br />Goal</Typography>
                                 <Typography variant='body1'>
                                     <br />
@@ -727,8 +787,7 @@ export default function Able(props) {
                                     • Be able to do so  without family or store associate assistance.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={2} />
-                        </Grid>
+                        </GridFormat>
                     </div>
 
                     {/* market research */}
@@ -742,16 +801,16 @@ export default function Able(props) {
                         accessibility.'
                             captionLg={4}
                         />
-                        <Grid container>
-                            <Grid item xs={2} />
-                            <Grid item xs={5}>
+                        <GridFormat>
+                            <Grid item xs={10} lg={5}>
                                 <img src={img['MarketResearch01.png']} className={classes.imgFitContent} alt='market research' />
                             </Grid>
                             <Grid item xs={1} />
-                            <Grid item xs={4}>
+                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={10} lg={4}>
                                 <img src={img['MarketResearch02.png']} className={classes.imgFitContent} alt='uniqlo' />
                             </Grid>
-                        </Grid>
+                        </GridFormat>
                         <GridFormat>
                             <Grid item lg={8} xs={10}>
                                 <Typography variant='body1'>
@@ -763,102 +822,96 @@ export default function Able(props) {
                                 </Typography>
                             </Grid>
                         </GridFormat>
-                        <Grid style={{ marginRight: '0' }} className={classes.textAlignCenter} container xs={12} spacing={3}>
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <Typography variant='body2'>
-                                    Recognition of Item
-                                </Typography>
+                        <GridFormat>
+                            <Grid sx={{ overflowX: 'scroll' }} item xs={10} lg={8}>
+                                <Grid sx={{ width: '100%', minWidth: '700px', }} container spacing={3} className={classes.textAlignCenter}>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body2'>
+                                            Recognition of Item
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body2'>
+                                            Reservation & Suggestion
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body2'>
+                                            Sample out of Store
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body2'>
+                                            Sensory Enhancement
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <img src={img['MarketResearch03.svg']} className={classes.mRImg} alt='Recognition of Item' />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <img src={img['MarketResearch04.svg']} className={classes.mRImg} alt='Reservation & Suggestion' />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <img src={img['MarketResearch05.svg']} className={classes.mRImg} alt='Sample out of Store' />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <img src={img['MarketResearch06.svg']} className={classes.mRImg} alt='Sensory Enhancement' />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <div className={classes.mRBar} />
+                                    </Grid>
+                                    <Grid item xs={3} />
+                                    <Grid item xs={3} />
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Price Tag & Hanger
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            App Integration
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Multisensory Magazine
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Multisensorty Station
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <div className={classes.mRDollar}>
+                                            <div><Typography variant='h3'>$</Typography></div>
+                                            <div><Typography variant='h3'>$$</Typography></div>
+                                            <div><Typography variant='h3'>$$$</Typography></div>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Removes barrier to entry, guarantees independence for navigation and shopping.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Invites customers to visit via mobile app service to view recommended products in advance
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Builds brand loyalty and expand customer segment for brand to customer relationship
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <Typography variant='body1'>
+                                            Full store experience with exploration for both the visually impaired and sighted shoppers.
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body2'>
-                                    Reservation & Suggestion
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body2'>
-                                    Sample out of Store
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body2'>
-                                    Sensory Enhancement
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <img src={img['MarketResearch03.svg']} className={classes.mRImg} alt='Recognition of Item' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['MarketResearch04.svg']} className={classes.mRImg} alt='Reservation & Suggestion' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['MarketResearch05.svg']} className={classes.mRImg} alt='Sample out of Store' />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <img src={img['MarketResearch06.svg']} className={classes.mRImg} alt='Sensory Enhancement' />
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item lg={8} xs={10}>
-                                <div className={classes.mRBar} />
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Price Tag & Hanger
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    App Integration
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Multisensory Magazine
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Multisensorty Station
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item lg={8} xs={10}>
-                                <div className={classes.mRDollar}>
-                                    <div><Typography variant='h3'>$</Typography></div>
-                                    <div><Typography variant='h3'>$$</Typography></div>
-                                    <div><Typography variant='h3'>$$$</Typography></div>
-                                </div>
-                            </Grid>
-                            <Grid item xs={2} />
-                            <Grid item xs={2} />
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Removes barrier to entry, guarantees independence for navigation and shopping.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Invites customers to visit via mobile app service to view recommended products in advance
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Builds brand loyalty and expand customer segment for brand to customer relationship
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Typography variant='body1'>
-                                    Full store experience with exploration for both the visually impaired and sighted shoppers.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={2} />
-                        </Grid>
+                        </GridFormat>
                     </div>
 
                     {/* solution */}
@@ -876,37 +929,49 @@ export default function Able(props) {
 
                         {/* App */}
                         <div>
-                            <Grid container spacing={3} className={classes.appCover}>
-                                <Grid item xs={6}>
-                                    <Typography className={classes.appCoverTitle} variant='h1'>Mobile App</Typography>
+                            <Box className={classes.appCover}>
+                                <Grid container spacing={3}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={11}>
+                                        <Typography className={classes.appCoverTitle} variant='h1'>Mobile App</Typography>
+                                    </Grid>
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid item xs={12} />
+                                    <Grid item xs={1} lg={2} />
+                                    <Grid item xs={10} lg={3}>
+                                        <Typography variant='body1'>
+                                            Shopping doesn’t always start the moment one walks into a store. It can be getting invited to an event, a new season coming up,
+                                            or getting a bonus from work. The Able mobile app allows users to
+                                            <span className={classes.boldText}> discover nearby accessible stores, browse items in advance personalized by user’s size,
+                                                budget, style, and occasion, and pick out items to later try them on in the store along with other additional items </span>
+                                            by relevance and popularity.
+                                            <br /><br />
+                                            The app is also used in the store. The user can navigate around the store by sections to find an item they are looking for and scan the item to get a text/audio description.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={5}>
+                                        <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['App01.mp4']} autoPlay muted loop id="video" />
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid item xs={1} lg={6} />
+                                    <Grid item xs={10} lg={5} className={clsx(classes.textAlignCenter, classes.appCaptions)}>
+                                        <Typography className={classes.appCaption} variant='caption'>onboarding</Typography>
+                                        <Typography className={classes.appCaption} variant='caption'>browsing</Typography>
+                                    </Grid>
+                                    <Grid item xs={12} />
                                 </Grid>
-                                <Grid item xs={6} />
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
-                                    <Typography variant='body1'>
-                                        <br /><br /><br /><br /><br /><br /><br /><br />
-                                        Shopping doesn’t always start the moment one walks into a store. It can be getting invited to an event, a new season coming up,
-                                        or getting a bonus from work. The Able mobile app allows users to
-                                        <span className={classes.boldText}> discover nearby accessible stores, browse items in advance personalized by user’s size,
-                                            budget, style, and occasion, and pick out items to later try them on in the store along with other additional items </span>
-                                        by relevance and popularity.
-                                        <br /><br />
-                                        The app is also used in the store. The user can navigate around the store by sections to find an item they are looking for and scan the item to get a text/audio description.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={5}>
-                                    <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['App01.mp4']} autoPlay muted loop id="video" />
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={6} />
-                                <Grid item xs={5} className={clsx(classes.textAlignCenter, classes.appCaptions)}>
-                                    <Typography className={classes.appCaption} variant='caption'>onboarding</Typography>
-                                    <Typography className={classes.appCaption} variant='caption'>browsing</Typography>
-                                </Grid>
-                            </Grid>
+                            </Box>
                             <GridFormat>
-                                <Grid item xs={4}>
+                                <Grid item xs={10} lg={4}>
                                     <Typography variant='body1'>
                                         Able app was designed following the WCAG 2.1 accessibility guidelines and user feedback. Our
                                         <span className={classes.boldText}> users in fact said the app was extra descriptive and helpful, yet simple unlike
@@ -930,13 +995,16 @@ export default function Able(props) {
                                         <br /><br />
                                     </Typography>
                                     <Typography variant='caption'>
-                                        right:  iOS accessibility setting → text to speech feature interpreting html elements including text and images.
-                                        <br />bottom: user testing<br /><br /><br />
+                                        video1: user testing
+                                        <br />
+                                        video2:  iOS accessibility setting → text to speech feature interpreting html elements including text and images.
+                                        <br /><br /><br />
                                     </Typography>
                                     <video className={classes.imgFitContent} src={img['App03.mp4']} controls id="video" />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={3}>
                                     <video className={classes.imgFitContent} src={img['App02.mp4']} controls id="video" />
                                 </Grid>
                             </GridFormat>
@@ -951,36 +1019,41 @@ export default function Able(props) {
                                 textAlign='right'
                                 textBottom='column'
                             />
-                            <Grid container spacing={3}>
-                                <Grid item xs={5}>
-                                    <img src={img['MultisensoryMagazine02.png']} className={classes.imgFitContent} alt='magazine prototype' />
+                            <Box className={classes.margin2}>
+                                <Grid container spacing={3}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={5}>
+                                        <img src={img['MultisensoryMagazine02.png']} className={classes.imgFitContent} alt='magazine prototype' />
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={3}>
+                                        <Typography variant='body1'>
+                                            Taking a further step in providing assistance outside of the store, we created the multisensory magazine in which
+                                            readers can not only view products, but <span className={classes.boldText}> hear, feel and smell the items prior to
+                                                store visit</span>. It has scratch and sniff stickers with curated scents based on the brand identity and style, sample
+                                            fabric to feel the item, and a QR code to the corresponding item details accessible by the Able app. The magazine
+                                            encourages shoppers at home to  book an appointment to visit the store based on sample items, and to explore brands that
+                                            support inclusivity.
+                                            <br /><br />
+                                            During research, we discovered that users tend to stick to a few stores that they are already comfortable with, and to
+                                            counter that we proposed this magazine to evoke curiosity and motivation to visit stores and give new brands a try.
+                                            Able magazine can be requested through the Able app. The magazine was designed and prototyped by my teammate Sarah
+                                            Cheon (MADE ’22) woo hoo!
+                                            <br /><br />
+                                        </Typography>
+                                        <Typography variant='caption'>
+                                            left: magazine prototype with sample fabrics and scratch and sniff stickers. <br />
+                                            right: magazine request page on Able app.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={2}>
+                                        <img src={img['MultisensoryMagazine03.png']} className={classes.imgFitContent} alt='magazine subscription via app' />
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={3}>
-                                    <Typography variant='body1'>
-                                        Taking a further step in providing assistance outside of the store, we created the multisensory magazine in which
-                                        readers can not only view products, but <span className={classes.boldText}> hear, feel and smell the items prior to
-                                            store visit</span>. It has scratch and sniff stickers with curated scents based on the brand identity and style, sample
-                                        fabric to feel the item, and a QR code to the corresponding item details accessible by the Able app. The magazine
-                                        encourages shoppers at home to  book an appointment to visit the store based on sample items, and to explore brands that
-                                        support inclusivity.
-                                        <br /><br />
-                                        During research, we discovered that users tend to stick to a few stores that they are already comfortable with, and to
-                                        counter that we proposed this magazine to evoke curiosity and motivation to visit stores and give new brands a try.
-                                        Able magazine can be requested through the Able app. The magazine was designed and prototyped by my teammate Sarah
-                                        Cheon (MADE ’22) woo hoo!
-                                        <br /><br />
-                                    </Typography>
-                                    <Typography variant='caption'>
-                                        left: magazine prototype with sample fabrics and scratch and sniff stickers. <br />
-                                        right: magazine request page on Able app.
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={2}>
-                                    <img src={img['MultisensoryMagazine03.png']} className={classes.imgFitContent} alt='magazine subscription via app' />
-                                </Grid>
-                            </Grid>
+                            </Box>
                         </div>
 
 
@@ -996,8 +1069,8 @@ export default function Able(props) {
                                 customHeight='77vh !important'
                             />
                             <Grid container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid item xs={4}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={4}>
                                     <Typography variant='body1'>
                                         Let’s go to the Able Store. The store is a place for partnering brands to showcase not only their products, but also
                                         their values on accessibility and inclusivity curated by Able’s products. All elements of the store including the item
@@ -1023,7 +1096,8 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={5}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={5}>
                                     <img src={img['AbleStore02.png']} className={classes.imgFitContent} alt='able store interior' />
                                     <img src={img['AbleStore03.png']} className={classes.imgFitContent} alt='tactile paving' />
                                 </Grid>
@@ -1039,19 +1113,24 @@ export default function Able(props) {
                                 </Grid>
                             </GridFormat>
                             <Grid container spacing={3}>
-                                <Grid item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={3}>
                                     <img src={img['AbleStore06.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                 </Grid>
-                                <Grid className={classes.justifyContent} item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid className={classes.justifyContent} item xs={10} lg={4}>
                                     <img src={img['AbleStore07.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                     <Typography variant='body1'>
-                                        Tactile paving models were designed, 3d modeled, printed scaled and live size for testing. Testings will be displayed
-                                        later. <br /><br />
-                                        Design and prototypes by Trista Zhong, team 3d printing queen B)
+                                        {(mobile) ? <br /> : []}
+                                        Tactile paving models were designed, 3d modeled, printed scaled and live size for testing. Testings will be displayed later.
+                                        <br /><br />
+                                        Design and prototypes by Trista Zhong, team 3d printing queen :)
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={4}>
                                     <img src={img['AbleStore08.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                 </Grid>
                             </Grid>
@@ -1069,8 +1148,8 @@ export default function Able(props) {
                                 zIndex='1'
                             />
                             <Grid container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid item xs={4}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={4}>
                                     <Typography variant='body1'>
                                         Upon store arrival, shoppers will be instructed on how to browse the store by a store associate. Otherwise,
                                         shoppers may learn by referencing the map from downloading the app via QR code or the tactile map located at the
@@ -1088,21 +1167,30 @@ export default function Able(props) {
                                     </Typography>
                                     <Typography variant='caption'>
                                         bottom: testing earlier iterations with user
+                                        <br /><br />
                                     </Typography>
                                 </Grid>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
-                                <Grid ite xs={5}>
+                                <Grid ite xs={10} lg={5}>
                                     <img src={img['TactileMap02.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
                             </Grid>
                             <Grid className={classes.alignItemsEnd} container spacing={3}>
                                 <Grid item xs={1} />
-                                <Grid item xs={5}>
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap03.png']} className={classes.imgFitContent} alt='Tactile Map user testing' />
                                 </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={5}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap04.png']} className={classes.imgFitContent} alt='Tactile Map' />
+                                </Grid>
+                                <Grid item xs={1} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={10} lg={5}>
+                                    <img src={img['TactileMap04.png']} className={classes.imgFitContent} alt='Tactile Map' />
+                                </Grid>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={10} lg={5}>
+                                    <img src={img['TactileMap03.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
                             </Grid>
                         </div>
@@ -1118,14 +1206,18 @@ export default function Able(props) {
                                 textBottom='column'
                                 zIndex='1'
                             />
-                            <GridFormat>
-                                <Grid item lg={8} xs={10}>
+                            <Grid container spacing={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
+                                <Grid item lg={8} xs={12}>
                                     <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['AssistiveHangerDemo.mp4']} autoPlay muted loop id="video" />
                                 </Grid>
-                            </GridFormat>
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />
+                            </Grid>
                             <Grid container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid item xs={5}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={5}>
                                     <Typography variant='body1'>
                                         The hanger has a text cutout at the center to see and/or feel the size quickly. Underneath is a built-in NFC chip in
                                         which customers can scan the item with their smartphone with or without the Able app to get a detailed text/audio
@@ -1138,7 +1230,7 @@ export default function Able(props) {
                                             size as well as online information that guaranteed efficiency and independence</span>.
                                         <br /><br />
                                     </Typography>
-                                    <Typography variant='caption'>
+                                    <Typography sx={{ display: { xs: 'none', lg: 'block' } }} variant='caption'>
                                         right: site testing with sighted participants at The Matchbox<br />
                                         bottom left: team Able working hard in the Brown Design Workshop!<br />
                                         bottom center: concept testing with earlier iteration with stakeholder at INSIGHT<br />
@@ -1146,7 +1238,8 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={1} />
+                                <Grid item xs={10} lg={4}>
                                     <img src={img['AssistiveHanger02.png']} className={classes.imgFitContent} alt='Assistive Hanger user testing' />
                                 </Grid>
                             </Grid>
@@ -1157,37 +1250,41 @@ export default function Able(props) {
                         <div className={classes.margin}>
                             <Typography style={{ padding: '0 24px' }} variant='h1'>Assistive Price Tag</Typography>
                             <GridFormat>
-                                <Grid item xs={1} />
-                                <Grid item xs={6}>
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={1} />
+                                <Grid item xs={10} lg={6}>
                                     <img src={img['Pricetag01.png']} className={clsx(classes.imgFitContent, classes.margin2)} alt='Price Tag' />
                                 </Grid>
-                                <Grid item xs={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={1} />
                             </GridFormat>
-                            <GridFormat>
+                            <Grid container spacing={1}>
+                                <Grid item xs={1} lg={2} />
                                 <Grid item lg={8} xs={10}>
                                     <img src={img['Pricetag02.png']} className={classes.imgFitContent} alt='Price Tag' />
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={4} lg={3}>
                                     <Typography variant='body2'>Embossing</Typography>
                                     <Typography variant='body1'>Size & Price</Typography>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} lg={3}>
                                     <Typography variant='body2'>Braille</Typography>
                                     <Typography variant='body1'>Size & Price</Typography>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={3} lg={2}>
                                     <Typography variant='body2'>QR Code</Typography>
-                                    <Typography variant='body1'>Link to item page</Typography>
+                                    <Typography variant='body1'>Item page</Typography>
                                 </Grid>
-                            </GridFormat>
+                            </Grid>
                             <Grid container spacing={3}>
-                                <Grid item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={4}>
                                     <img src={img['Pricetag03.png']} className={classes.imgFitContent} alt='Price Tag' />
                                 </Grid>
-                                <Grid item xs={2} />
-                                <Grid className={classes.justifyContent} item xs={4}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid className={classes.justifyContent} item xs={10} lg={4}>
                                     <div>
                                         <Typography variant='body1'>
                                             When we go shopping, some of the most important factors to buy an item or even trying one on are price and size.
@@ -1199,7 +1296,7 @@ export default function Able(props) {
                                                 frustrating parts of shopping</span>.
                                             <br /><br />
                                         </Typography>
-                                        <Typography variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
                                             top: detail photos of embossing, braille and QR code<br />
                                             left: concept testing with earlier prototype with stakeholder<br />
                                             bottom left: price tag on The Matchbox’s merchandise, displayed in store<br />
@@ -1223,11 +1320,13 @@ export default function Able(props) {
                                 zIndex='1'
                             />
                             <Grid container spacing={3}>
-                                <Grid item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={3}>
                                     <img src={img['MultisensoryStation02.png']} className={classes.imgFitContent} alt='Multisensory Station' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={3}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={3}>
                                     <Typography variant='body1'>
                                         At the center of the store is the multisensory station, where shoppers can bring items regardless of store
                                         merchandize or their own clothes, place the clothing in front of the sensor, and depending on the item color,
@@ -1248,17 +1347,20 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={4}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={4}>
                                     <video className={classes.imgFitContent} src={img['MultisensoryVid01.mp4']} controls id="video" />
                                 </Grid>
                             </Grid>
                             <div className={classes.negMargin}>
                                 <Grid className={classes.arrows} container spacing={3}>
-                                    <Grid item xs={4}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={4}>
                                         <img src={img['MultisensoryStation03.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid item xs={4}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={4}>
                                         <Typography variant='body1'>
                                             Our team was able to test the working prototype with 3 sighted participants, who found the experience to be fun and
                                             engaging. Some interesting feedbacks were:
@@ -1270,12 +1372,11 @@ export default function Able(props) {
                                                 narrate their brand through music and communicate with customers.”</span>
                                         </Typography>
                                     </Grid>
-                                    <Grid item xs={3} />
                                 </Grid>
                             </div>
                             <Grid className={classes.arrows} container spacing={3}>
-                                <Grid item xs={2} />
-                                <Grid item xs={3}>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={10} lg={3}>
                                     <div>
                                         <Typography variant='body1'>
                                             I took the main role in designing, prototyping and testing the multisensory station and boy it was a HUGE learning
@@ -1287,7 +1388,7 @@ export default function Able(props) {
                                             host all electrical parts.
                                             <br /><br />
                                         </Typography>
-                                        <Typography variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
                                             right: code setup on Arduino IDE<br />
                                             right bottom: schematics diagram<br />
                                             left: screenshot on SolidWorks and Cura
@@ -1295,47 +1396,54 @@ export default function Able(props) {
                                     </div>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item xs={5}>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid item xs={10} lg={5}>
                                     <img src={img['MultisensoryStation04.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                 </Grid>
+                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
-                                <Grid item xs={6} />
-                                <Grid ietm xs={5}>
+                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={6} />
+                                <Grid ietm xs={10} lg={5}>
                                     <img src={img['MultisensoryStation05.png']} className={clsx(classes.imgFitContent, classes.padding)} alt='Multisensory Station user testing' />
                                 </Grid>
                             </Grid>
-                            <Grid container className={clsx(classes.negMargin2, classes.arrows)} spacing={3}>
-                                <Grid xs={4}>
-                                    <img src={img['MultisensoryStation06.png']} className={classes.imgFitContent2} alt='Multisensory Station print setup' />
+                            <Box className={clsx(classes.negMargin2, classes.arrows)}>
+                                <Grid container spacing={3}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid xs={10} lg={4}>
+                                        <img src={img['MultisensoryStation06.png']} className={classes.imgFitContent2} alt='Multisensory Station print setup' />
+                                    </Grid>
+                                    <Grid item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={3}>
+                                        <Typography variant='body1'>
+                                            You might be wondering, why is this thing a semi-cone shaped? After doing multiple sound tests on rapidly
+                                            prototyped housings using different materials , I discovered that the metal keys cannot be suspended at a 90
+                                            degrees angle since the nails that hold them together puts too much force on the metal, making the key vibration
+                                            dimmer. I decided the housing to have a 20 degrees slope throughout so that the keys have minimized pressure
+                                            applied to itself.
+                                            <br /><br />
+                                        </Typography>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                            upper left: cross-section view of the housing. The housing was designed with the minimum material needed to reduce
+                                            printing time, but still durable to hold all parts<br />
+                                            left: setting up on Cura using customized settings on wall thickness, infill density and infill pattern for maximum
+                                            durability.<br />
+                                            bottom: different housing testing using wood, acrylic and metal<br />
+                                            right: sound test with the final prototype
+                                        </Typography>
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={3}>
-                                    <Typography variant='body1'>
-                                        You might be wondering, why is this thing a semi-cone shaped? After doing multiple sound tests on rapidly
-                                        prototyped housings using different materials , I discovered that the metal keys cannot be suspended at a 90
-                                        degrees angle since the nails that hold them together puts too much force on the metal, making the key vibration
-                                        dimmer. I decided the housing to have a 20 degrees slope throughout so that the keys have minimized pressure
-                                        applied to itself.
-                                        <br /><br />
-                                    </Typography>
-                                    <Typography variant='caption'>
-                                        upper left: cross-section view of the housing. The housing was designed with the minimum material needed to reduce
-                                        printing time, but still durable to hold all parts<br />
-                                        left: setting up on Cura using customized settings on wall thickness, infill density and infill pattern for maximum
-                                        durability.<br />
-                                        bottom: different housing testing using wood, acrylic and metal<br />
-                                        right: sound test with the final prototype
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={4} />
-                            </Grid>
+                            </Box>
                             <div className={classes.negMargin2}>
                                 <Grid className={classes.alignItemsEnd} container spacing={0}>
-                                    <Grid item xs={3} />
-                                    <Grid item xs={6}>
+                                    <Grid item xs={1} lg={3} />
+                                    <Grid item xs={10} lg={6}>
                                         <img src={img['MultisensoryStation07.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                     </Grid>
-                                    <Grid item xs={3}>
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={3}>
                                         <video className={classes.imgFitContent} src={img['MultisensoryVid02.mp4']} controls id="video" />
                                     </Grid>
                                 </Grid>

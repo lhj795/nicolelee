@@ -6,7 +6,9 @@ export const TypographyTheme = createTheme(({
         h1: {
             fontFamily: 'NeueHaasDisplayXXThin',
             '@media (max-width:1200px)': {
-                fontSize: '4.768rem',
+                fontSize: '3.815rem',
+                lineHeight: '1 !important',
+                zIndex: '1',
             },
             fontSize: 'clamp(61.04px, 7.451rem, 119.21px)',
             lineHeight: '0.4',
