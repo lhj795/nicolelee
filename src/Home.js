@@ -719,7 +719,7 @@ export default function Work(props) {
                     </div>
                     <Box className={classes.engineerAnimContainer}>
                         <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <video style={{ opacity: vidOpacity, transition: "1s", }} src={Engineer} autoPlay muted loop id="video" />
+                            <video style={{ opacity: vidOpacity, transition: "1s", }} src={Engineer} webkit-playsInline playsInline autoPlay muted loop id="video" />
                         </Box>
                         <Typography variant="h4" className={classes.engineerText}>ENGINEER</Typography>
                     </Box>
