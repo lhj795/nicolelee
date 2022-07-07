@@ -55,7 +55,7 @@ export default function LovePop(props) {
     useEffect(() => {
         const slider = setInterval(() => {
             setIndex(index + 1);
-        }, 10000);
+        }, 3000);
         return () => {
             clearInterval(slider);
         };
