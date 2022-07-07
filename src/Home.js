@@ -14,11 +14,11 @@ import KoziCover from './img/KOZI/KoziCover.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import AbleCover from './Able/img/AssistiveHanger01.png';
 import LightlyCover from './Lightly/img/LightlyCover.png';
+import LovePop from './img/LovePop.jpg';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
 import Engineer from './img/Engineer.mp4';
-import LovePop from './img/LovePop.jpg';
 import { Box } from '@mui/system';
 
 const cardStyles = makeStyles(({
@@ -612,13 +612,14 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
                                             <Card
-                                                title={"Kozi"}
-                                                desc={"New Way of Addressing Seasonal Affective Disorder"}
-                                                caption={"Designing for Mental Health, Gaming UI/UX"}
-                                                img={KoziCover}
-                                                alt={"Kozi"}
-                                                bgColor={BgColors.Kozi}
-                                                link={"/project"}
+                                                title={"LovePop"}
+                                                desc={"Work from Summer Internship 2019"}
+                                                caption={"Consumer Product, CAD Design"}
+                                                img={LovePop}
+                                                alt={"LovePop"}
+                                                bgColor={BgColors.Able}
+                                                color="black"
+                                                link={"/LovePop"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
@@ -635,13 +636,12 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
                                             <Card
-                                                title={"LovePop"}
-                                                desc={"Work from Summer Internship 2019"}
-                                                caption={"Consumer Product, CAD Design"}
-                                                img={LovePop}
-                                                alt={"LovePop"}
-                                                bgColor={BgColors.Able}
-                                                color="black"
+                                                title={"Kozi"}
+                                                desc={"New Way of Addressing Seasonal Affective Disorder"}
+                                                caption={"Designing for Mental Health, Gaming UI/UX"}
+                                                img={KoziCover}
+                                                alt={"Kozi"}
+                                                bgColor={BgColors.Kozi}
                                                 link={"/project"}
                                             />
                                         </Grid>

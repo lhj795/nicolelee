@@ -42,7 +42,7 @@ export default function About(props) {
             <ThemeProvider theme={TypographyTheme}>
 
                 <Base className={classes.base} color='black' zIndex='1' mixBlendMode='darken'/>
-                <Box sx={{paddingTop: {xs: '10vh', lg: '0'}}}>
+                <Box sx={{paddingTop: {xs: '10vh', lg: '16px'}}}>
                 <Grid container spacing={3}>
                     <Grid item xs={1} lg={2} />
                     <Grid className={classes.justifyCenter} item xs={10} lg={4}>
@@ -51,14 +51,14 @@ export default function About(props) {
                             <br />Here’s my TLDR.
                             <br /><br />
                             I recently finished my studies at Brown University and RISD in Master of Arts in Design Engineering (MADE). In this past year I’ve
-                            learned from professors in Industrial Design, Brown School of Engineering, critics from IBM, IDEO, Giant Shoulders, Shaper and
-                            UrbanLeaf. From lectures, workshops and projects led by technical and industry experts, I gained a significant amount of skills in
-                            UX design, software engineering and electrical engineering, as well as hone in my collaboration skills in working successfully
-                            within interdisciplinary practices.
+                            learned from professors in the RISD Architecture + Design Division, Brown School of Engineering, critics from IBM, IDEO, 
+                            Giant Shoulders, Shaper and UrbanLeaf. From lectures, workshops and projects led by technical and industry experts, I gained a 
+                            significant amount of skills in UX design, software engineering and embedded systems electronics, as well as hone in my 
+                            collaboration skills to work as an effective team player.
                             <br /><br />
                             While and before I was in the MADE program, I worked as a product designer and frontend engineer at 10xFinders, a recruiting
-                            software company. Being the sole designer on team, I always worked very closely with clients and stakeholders for real user
-                            feedback and efficient implementation of design iterations.
+                            software platform and services company. Being the sole designer on team, I always worked very closely with clients and stakeholders 
+                            for real user feedback and efficient implementation of design iterations.
                             <br /><br />
                             Born and raised in Seoul, Korea, then starting at a young age, I moved to the USA to the Upstate NY → Midwest → West Coast → and
                             now back in the East Coast. Growing up I had been exposed to a lot of different cultures and lifestyles. I find this background
@@ -76,7 +76,7 @@ export default function About(props) {
                     </Grid>
                     <Grid item xs={1} />
                     <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
-                    <Grid item xs={10} lg={5}>
+                    <Grid item xs={10} lg={5} sx={{marginTop: {xs: '0', lg: '-16px'}}}>
                         <img className={classes.imgFitContent} src={Nicole} alt='Nicole in her natural state' />
                     </Grid>
                 </Grid>

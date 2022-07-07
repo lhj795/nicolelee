@@ -23,20 +23,10 @@ const useStyles = makeStyles(({
     margin2: {
         margin: '20vh 0 10vh 0',
     },
-    maxHeight: {
-        height: '100vh',
-        display: 'flex'
-    },
-    imgMixBlendMode: {
-        mixBlendMode: 'hard-light',
-    },
     imgFitContent: {
         width: '100%',
         maxHeight: '100vh',
         objectFit: 'cover',
-    },
-    positionAbsolute: {
-        position: 'absolute',
     },
     cover: {
         height: '70vh',
@@ -60,13 +50,6 @@ const useStyles = makeStyles(({
     },
     boldText: {
         fontFamily: 'NeueHaasDisplayBold',
-    },
-    coverDetails: {
-        position: 'absolute',
-        bottom: '0',
-    },
-    abstractContainer: {
-        marginTop: '75vh',
     },
     designProcessContainer: {
         marginTop: '10vh',
@@ -181,31 +164,31 @@ const useStyles = makeStyles(({
         borderTop: '10px solid #356BBA',
         padding: '1vmin',
     },
-    IALine: {
-        width: '1px',
-        background: '#C6DFFF',
-        height: '3vmin',
-    },
-    IALine2: {
-        width: '85%',
-        background: '#C6DFFF',
-        height: '1px',
-        marginTop: '-3vmin',
-    },
-    IALine3: {
-        width: '1px',
-        background: '#C6DFFF',
-        height: '1.5vmin',
-        padding: '0',
-    },
-    IA: {
-        objectFit: 'cover',
-        width: '100%',
-    },
-    textAlign: {
-        textAlign: 'center',
-        textTransform: 'uppercase',
-    },
+    // IALine: {
+    //     width: '1px',
+    //     background: '#C6DFFF',
+    //     height: '3vmin',
+    // },
+    // IALine2: {
+    //     width: '85%',
+    //     background: '#C6DFFF',
+    //     height: '1px',
+    //     marginTop: '-3vmin',
+    // },
+    // IALine3: {
+    //     width: '1px',
+    //     background: '#C6DFFF',
+    //     height: '1.5vmin',
+    //     padding: '0',
+    // },
+    // IA: {
+    //     objectFit: 'cover',
+    //     width: '100%',
+    // },
+    // textAlign: {
+    //     textAlign: 'center',
+    //     textTransform: 'uppercase',
+    // },
     caption: {
         lineHeight: '1.5',
     },

@@ -1,0 +1,65 @@
+:root {
+  --transition: all 0.3s linear;
+}
+  .section-center {
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .card-img {
+    width: auto;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+    object-fit: contain;
+  }
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: grid;
+    place-items: center;
+    border-color: transparent;
+    font-size: 1rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+  }
+  .prev:hover,
+  .next:hover {
+    background: transparent;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  article.activeSlide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  article.lastSlide {
+    transform: translateX(-100%);
+  }
+  article.nextSlide {
+    transform: translateX(100%);
+  }
+  
