@@ -324,7 +324,7 @@ export default function AMC(props) {
                                         <br />
                                         I was not affiliated or in any way officially connected with the AMC Theatres. This project was based solely on the
                                         research, ideation, and execution of my teammate Priyanshi Bareja and I. We both actively participated on every part of the
-                                        project under the supervision of the co-founder of Ximedica, Aidan Petrie and his colleague Ayan Bhandari. As a student of
+                                        project under the supervision of the co-founder of Ximedica (Acquired by Veranex), Aidan Petrie and his colleague Ayan Bhandari. As a student of
                                         RISD Industrial Design Advanced Studio, Business of Product Design, we were assigned to choose a brand and redesign the
                                         experience with the goal of 20% business growth.
                                     </Typography>
