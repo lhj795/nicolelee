@@ -340,8 +340,8 @@ export default function Lightly(props) {
                                 <Collapse in={showDesc2} timeout="auto" unmountOnExit>
                                     <Typography variant='body1'>
                                         <br />
-                                        <span>I was a part of a team with a
-                                        <a rel="noreferrer" target='_blank' href='https://robstereli.github.io/'>UX Researcher</a>, a </span>
+                                        <span>I was a part of a team with a </span>
+                                        <a rel="noreferrer" target='_blank' href='https://robstereli.github.io/'>UX Researcher</a><span>, a </span>
                                         <a rel="noreferrer" target='_blank' href='https://danrapoport.net/portfolio/lightly/'>Product Technologist</a>, and me as the UX Designer. I was responsible for
                                         concept generation and interaction design. I used Figma and Adobe CC softwares primarily to generate UI assets, mockups,
                                         and demons. I worked closely with the researcher to generate concepts from data-driven insights, then translate those
