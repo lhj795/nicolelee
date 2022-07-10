@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import Base from '../Base';
 import clsx from 'clsx';
-import { Typography, Grid, Box, Collapse } from '@mui/material';
+import { Typography, Grid, Box, Collapse, Modal } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
@@ -314,6 +314,9 @@ const useStyles = makeStyles(({
         lineHeight: '1.125',
         textDecoration: 'none',
     },
+    infoArch: {
+        width: '100%',
+    }
 }));
 
 function importAll(r) {
@@ -340,6 +343,38 @@ export default function TenEx(props) {
     const [showDesc, setShowDesc] = useState(mobileTrueFalse);
     const [showDesc2, setShowDesc2] = useState(mobileTrueFalse);
 
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const [open2, setOpen2] = useState(false);
+    const handleOpen2 = () => setOpen2(true);
+    const handleClose2 = () => setOpen2(false);
+
+    const [open3, setOpen3] = useState(false);
+    const handleOpen3 = () => setOpen3(true);
+    const handleClose3 = () => setOpen3(false);
+
+    const [open4, setOpen4] = useState(false);
+    const handleOpen4 = () => setOpen4(true);
+    const handleClose4 = () => setOpen4(false);
+
+    const [open5, setOpen5] = useState(false);
+    const handleOpen5 = () => setOpen5(true);
+    const handleClose5 = () => setOpen5(false);
+
+    const [open6, setOpen6] = useState(false);
+    const handleOpen6 = () => setOpen6(true);
+    const handleClose6 = () => setOpen6(false);
+
+    const [open7, setOpen7] = useState(false);
+    const handleOpen7 = () => setOpen7(true);
+    const handleClose7 = () => setOpen7(false);
+
+    const [open8, setOpen8] = useState(false);
+    const handleOpen8 = () => setOpen8(true);
+    const handleClose8 = () => setOpen8(false);
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
@@ -347,8 +382,8 @@ export default function TenEx(props) {
 
                     <Base color='black' />
 
-                     {/* cover */}
-                     <div className={classes.coverContainer}>
+                    {/* cover */}
+                    <div className={classes.coverContainer}>
                         <Box
                             sx={{
                                 width: { xs: '90vw', lg: '50vw' },
@@ -677,8 +712,8 @@ export default function TenEx(props) {
                             fulfill areas that leading platforms are not reaching, and learn which experiences are the most convenient for recruiters.'
                             captionLg={4}
                         />
-                        <Box sx={{display: {xs: 'block', lg: 'none'}}}><MarketMobile/></Box>
-                        <Box sx={{display: {xs: 'none', lg: 'block'}}}><MarketWeb/></Box>
+                        <Box sx={{ display: { xs: 'block', lg: 'none' } }}><MarketMobile /></Box>
+                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}><MarketWeb /></Box>
                     </div>
 
                     {/* competitor analysis */}
@@ -698,8 +733,8 @@ export default function TenEx(props) {
                             captionLg={5}
                         />
                         <GridFormat>
-                            <Grid item sx={{overflowX: 'scroll'}} lg={8} xs={10}>
-                                <Grid sx={{minWidth: '700px'}} container spacing={0}>
+                            <Grid item sx={{ overflowX: 'scroll' }} lg={8} xs={10}>
+                                <Grid sx={{ minWidth: '700px' }} container spacing={0}>
                                     <Grid item xs={2} />
                                     <Grid className={classes.alignCenter} item xs={2}>
                                         <img src={img['Market02.svg']} className={classes.competitorLogo} alt='Outreach' />
@@ -815,7 +850,7 @@ export default function TenEx(props) {
                             </GridFormat>
                             <GridFormat>
                                 <Grid item lg={8} xs={10}>
-                                    <img src={img['IA.svg']} className={classes.IA} alt='Information Architecture' />
+                                    <img src={img['IA.svg']} className={classes.infoArch} alt='Information Architecture' />
                                     {/* <Grid className={classes.alignBottom} container spacing={3}>
                                 <Grid item xs={2}>
                                     <div className={classes.IABox}>
@@ -927,20 +962,20 @@ export default function TenEx(props) {
                                 </Grid>
                             </GridFormat>
                             <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <GridFormat>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>People Search</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Candidate Profile</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaigns List</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaign</Typography>
-                                </Grid>
-                            </GridFormat>
+                                <GridFormat>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>People Search</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Candidate Profile</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaigns List</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaign</Typography>
+                                    </Grid>
+                                </GridFormat>
                             </Box>
                             <GridFormat>
                                 <Grid item lg={8} xs={10}>
@@ -963,40 +998,132 @@ export default function TenEx(props) {
                                 <Grid item xs={4} />
                             </GridFormat>
                             <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <GridFormat>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>People Search</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Candidate Profile</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaigns List</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaign</Typography>
-                                </Grid>
-                            </GridFormat>
+                                <GridFormat>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>People Search</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Candidate Profile</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaigns List</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaign</Typography>
+                                    </Grid>
+                                </GridFormat>
                             </Box>
                             <GridFormat>
-                                <Grid item xs={10} lg={2}>
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen} item xs={10} lg={2}>
                                     <img src={img['HiFi01.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open}
+                                        onClose={handleClose}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['HiFi01.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen2} item xs={10} lg={2}>
                                     <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open2}
+                                    onClose={handleClose2}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open2}
+                                        onClose={handleClose2}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen3} item xs={10} lg={2}>
                                     <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open3}
+                                    onClose={handleClose3}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open2}
+                                        onClose={handleClose3}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen4} item xs={10} lg={2}>
                                     <img src={img['HiFi04.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
+                                <Modal
+                                    open={open4}
+                                    onClose={handleClose4}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open4}
+                                        onClose={handleClose4}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['HiFi04.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
                             </GridFormat>
                         </div>
 
@@ -1013,40 +1140,132 @@ export default function TenEx(props) {
                                 </Grid>
                             </GridFormat>
                             <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <GridFormat>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>People Search</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Candidate Profile</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaigns List</Typography>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography variant='caption'>Campaign</Typography>
-                                </Grid>
-                            </GridFormat>
+                                <GridFormat>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>People Search</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Candidate Profile</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaigns List</Typography>
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography variant='caption'>Campaign</Typography>
+                                    </Grid>
+                                </GridFormat>
                             </Box>
                             <GridFormat>
-                                <Grid item xs={10} lg={2}>
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen5} item xs={10} lg={2}>
                                     <img src={img['Frontend01.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open5}
+                                    onClose={handleClose5}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open5}
+                                        onClose={handleClose5}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['Frontend01.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen6} item xs={10} lg={2}>
                                     <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open6}
+                                    onClose={handleClose6}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open6}
+                                        onClose={handleClose6}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen7} item xs={10} lg={2}>
                                     <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: { xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={10} lg={2}>
+                                <Modal
+                                    open={open7}
+                                    onClose={handleClose7}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open7}
+                                        onClose={handleClose7}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen8} item xs={10} lg={2}>
                                     <img src={img['Frontend04.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
+                                <Modal
+                                    open={open8}
+                                    onClose={handleClose8}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    disableAutoFocus
+                                >
+                                    <Box
+                                        open={open8}
+                                        onClose={handleClose8}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                        sx={{
+                                            width: {lg: '50vw', xs: '100vw'},
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                        }}
+                                    >
+                                        <img src={img['Frontend04.svg']} className={classes.imgFitContent} alt='Wireframes' />
+                                    </Box>
+                                </Modal>
                             </GridFormat>
                         </div>
 
@@ -1072,23 +1291,23 @@ export default function TenEx(props) {
                                 <Grid item lg={8} xs={10}>
                                     <Typography variant='body2'>1920 * 1080<br /></Typography>
                                 </Grid>
-                                <Grid item xs={1} lg={2}/>
-                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item lg={8} xs={10}>
                                     <img src={img['Responsive02.svg']} className={classes.imgFitContent} alt='1920 * 1080' />
                                 </Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={1} sx={{display: {xs: 'none', lg: 'block'}}}/>
+                                <Grid item xs={1} sx={{ display: { xs: 'none', lg: 'block' } }} />
                                 <Grid item xs={10} lg={6}>
                                     <Typography variant='body2'>1336 * 768<br /></Typography>
                                 </Grid>
-                                <Grid item xs={1}/>
+                                <Grid item xs={1} />
                                 <Grid item xs={1} lg={3} />
                                 <Grid item xs={10} lg={6}>
                                     <img src={img['Responsive03.svg']} className={classes.imgFitContent} alt='1336 * 768' />
                                 </Grid>
-                                    <Grid item xs={1} />
+                                <Grid item xs={1} />
                             </GridFormat>
                         </div>
 
@@ -1116,8 +1335,8 @@ export default function TenEx(props) {
                                     <div className={classes.color2} />
                                     <Typography variant='caption'>#356BBA</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color3} />
                                     <Typography variant='caption'>#8DB0E3</Typography>
@@ -1126,8 +1345,8 @@ export default function TenEx(props) {
                                     <div className={classes.color4} />
                                     <Typography variant='caption'>#D4E2F8</Typography>
                                 </Grid>
-                                <Grid item xs={1} lg={2}/>
-                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color5} />
                                     <Typography variant='caption'>#152845</Typography>
@@ -1136,8 +1355,8 @@ export default function TenEx(props) {
                                     <div className={classes.color6} />
                                     <Typography variant='caption'>#757575</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color7} />
                                     <Typography variant='caption'>#FFFFFF</Typography>
@@ -1146,8 +1365,8 @@ export default function TenEx(props) {
                                     <div className={classes.color8} />
                                     <Typography variant='caption'>#F2F7FF</Typography>
                                 </Grid>
-                                <Grid item xs={1} lg={2}/>
-                                <Grid item xs={1} lg={2}/>
+                                <Grid item xs={1} lg={2} />
+                                <Grid item xs={1} lg={2} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color9} />
                                     <Typography variant='caption'>#007745</Typography>
@@ -1156,8 +1375,8 @@ export default function TenEx(props) {
                                     <div className={classes.color10} />
                                     <Typography variant='caption'>#FFD633</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
-                                <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color11} />
                                     <Typography variant='caption'>#D5342A</Typography>
