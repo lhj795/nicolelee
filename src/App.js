@@ -9,6 +9,8 @@ import About from './About';
 import Construction from './Construction';
 import Lightly from './Lightly/Lightly';
 import LovePop from './LovePop/LovePop';
+import Involv from './Involv/Involv';
+import Pokemon from './Pokemon/InputAndOutput';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/AMC' element={<AMC/>} />
         <Route path='/Lightly' element={<Lightly/>} />
         <Route path='/LovePop' element={<LovePop/>} />
+        <Route path='/Involv' element={<Involv/>} />
+        <Route path='/Pokemon' element={<Pokemon/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/project' element={<Construction/>} />
       </Routes>

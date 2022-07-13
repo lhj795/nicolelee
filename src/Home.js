@@ -15,6 +15,8 @@ import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import AbleCover from './Able/img/AssistiveHanger01.png';
 import LightlyCover from './Lightly/img/LightlyCover.png';
 import LovePop from './img/LovePop.jpg';
+import JellyfishCover from './img/JellyfishCover.mp4';
+import PokemonCover from './img/PokemonCover.png';
 import { DistortionText } from "react-text-fun";
 import Cursor from './img/cursor.svg';
 import Typewriter from 'typewriter-effect';
@@ -470,6 +472,60 @@ function Card(props) {
     );
 }
 
+function VideoCard(props) {
+    const classes = cardStyles(props);
+
+    const mobileTrueFalse = (window.innerWidth < 1200) ? true : false;
+
+    const [hover, setHovered] = useState(mobileTrueFalse);
+    const [zoom, setZoomed] = useState(false);
+
+    const onHover = (event) => {
+        setHovered(true);
+        setZoomed(true);
+    };
+    const onLeave = (event) => {
+        setHovered(false);
+        setZoomed(false);
+    };
+
+    const hoveredStyle = (hover) ? classes.hover : classes.default
+    const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;
+
+    return (
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={TypographyTheme}>
+                    <div
+                        className={classes.overlay}
+                        onMouseEnter={onHover}
+                        onMouseLeave={onLeave}
+                        onClick={() => window.open(props.href, '_blank')}  
+                        style={{cursor: 'pointer'}}
+                    >
+                        <video
+                            className={zoomedStyle}
+                            src={props.video}
+                            alt={props.alt}
+                            muted
+                            autoPlay
+                            loop
+                        />
+                        <div
+                            className={hoveredStyle}
+                            style={{
+                                backgroundColor: props.bgColor,
+                            }}
+                        >
+                            <Typography style={{ textTransform: "uppercase", color: props.color }} variant="h4">{props.title}</Typography>
+                            <Typography style={{ color: props.color }} variant="body1">{props.desc}</Typography>
+                            <div className={classes.caption}><Typography style={{ color: props.color }} variant="caption">{props.caption}</Typography></div>
+                        </div>
+                    </div>
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
+}
+
 const title = ([" Designer", "n Engineer", " Web Developer", " Foodie", " Designer"]);
 
 export default function Work(props) {
@@ -496,7 +552,7 @@ export default function Work(props) {
 
     const scrollYPosition = window.pageYOffset
     const windowHeight = window.innerHeight * 0.8
-    const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#252525" : "";
+    const dynamicBgColor = (scrollYPosition >= workHeight - windowHeight) ? "#262626" : "";
     const vidOpacity = (scrollYPosition >= workHeight - windowHeight) ? "1" : "0";
     const scrollColor = (scrollYPosition >= workHeight - windowHeight) ? "white" : "#222222";
     const borderAnimClass = (scrollYPosition >= wNHeight - windowHeight) ? classes.border : classes.borderPreAnim;
@@ -525,6 +581,7 @@ export default function Work(props) {
         Drift: "rgba(153, 196, 202, 0.7)",
         Craigslist: "rgba(226, 213, 252, 0.7)",
         Localyze: "rgba(132, 215, 183, 0.7)",
+        Jellyfish: 'rgba(0, 0, 0, .5)',
         More: "#EDF1FA",
     }
 
@@ -612,26 +669,48 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
                                             <Card
+                                                title={"Involv"}
+                                                desc={"Bringing Community Together to Support Each Other"}
+                                                caption={"UI/UX "}
+                                                img={InvolvCover}
+                                                alt={"Involv"}
+                                                bgColor={BgColors.Involv}
+                                                color="white"
+                                                link={"/Involv"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
                                                 title={"LovePop"}
                                                 desc={"Work from Summer Internship 2019"}
                                                 caption={"Consumer Product, CAD Design"}
                                                 img={LovePop}
                                                 alt={"LovePop"}
                                                 bgColor={BgColors.Able}
-                                                color="black"
                                                 link={"/LovePop"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
-                                            <Card
-                                                title={"Involv"}
-                                                desc={"Bringing Community Together to Support Each Other"}
-                                                caption={"UI/UX "}
-                                                img={InvolvCover}
-                                                alt={"Drift"}
-                                                bgColor={BgColors.Involv}
+                                            <VideoCard
+                                                title={"WebHID Experiment"}
+                                                desc={"Translating Jellyfish Perspective to a Browser"}
+                                                caption={"WebHID Device, HTML, CSS, JS"}
+                                                video={JellyfishCover}
+                                                alt={"Jellyfish"}
+                                                bgColor={BgColors.Jellyfish}
                                                 color="white"
-                                                link={"/project"}
+                                                href='https://jellyfish02.vercel.app/'
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"Pokemon Card Maker"}
+                                                desc={"API, HTML, CSS, JS"}
+                                                caption={"Wanna Make Some Pokemon Cards?"}
+                                                img={PokemonCover}
+                                                alt={"Pokemon"}
+                                                bgColor={BgColors.Able}
+                                                link={"/Pokemon"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>

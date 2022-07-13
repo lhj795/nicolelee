@@ -309,7 +309,7 @@ function Heading(props) {
 function GridFormat(props) {
     return (
         <div style={{ margin: '5vh 0' }} >
-            <Grid container spacing={3}>
+            <Grid alignItems={props.alignItems} container spacing={3}>
                 <Grid item xs={1} lg={2} />
                 {props.children}
                 <Grid item xs={1} lg={2} />

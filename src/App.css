@@ -91,6 +91,26 @@
   src: url("fonts/DMSans-Bold.ttf") format("ttf"), url("fonts/DMSans-Bold.ttf")  format("truetype");
 }
 
+@font-face {
+  font-family: Karla-Regular;
+  src: url("fonts/Karla-Regular.ttf") format("ttf"), url("fonts/Karla-Regular.ttf")  format("truetype");
+}
+
+@font-face {
+  font-family: Karla-Bold;
+  src: url("fonts/Karla-Bold.ttf") format("ttf"), url("fonts/Karla-Bold.ttf")  format("truetype");
+}
+
+@font-face {
+  font-family: Lora-Regular;
+  src: url("fonts/Lora-Regular.ttf") format("ttf"), url("fonts/Lora-Regular.ttf")  format("truetype");
+}
+
+@font-face {
+  font-family: Lora-Bold;
+  src: url("fonts/Lora-Bold.ttf") format("ttf"), url("fonts/Lora-Bold.ttf")  format("truetype");
+}
+
 .b-canvas  {
   overflow: visible;
 }
