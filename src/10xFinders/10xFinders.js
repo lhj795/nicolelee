@@ -6,7 +6,7 @@ import { Typography, Grid, Box, Collapse, Modal } from '@mui/material';
 import { TypographyTheme } from '../components/ui/Typography';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { GridFormat, Heading } from '../components/ui/UIComponents';
-import { UILibrary } from './ui/UILibrary';
+import { UILibrary } from './ui/TenExUI';
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { MarketMobile, MarketWeb } from './MarketResearch';
@@ -413,8 +413,8 @@ export default function TenEx(props) {
                                     <span className={classes.boldText}>Role</span>: Research, UI/UX Design, Frontend Develepment
                                 </Typography>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid className={classes.zIndex} item xs={10} lg={4} >
                                 <Typography sx={{ marginTop: { xs: '0', lg: '20vh' } }} variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Adobe XD, After Effects, Illustrator, React
@@ -452,8 +452,8 @@ export default function TenEx(props) {
                                     </Typography>
                                 </Collapse>
                             </Grid>
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
                                 <Box
                                     sx={{ display: "flex" }}
@@ -491,7 +491,7 @@ export default function TenEx(props) {
                             <Grid item lg={2} xs={1} />
                         </Grid>
                         <div className={classes.designProcessBg}>
-                            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} />
                                     <Grid item xs={4} />
@@ -555,8 +555,8 @@ export default function TenEx(props) {
                                         <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                                 <Grid item lg={2} xs={10}>
                                     <Typography variant='body2'>Iteration</Typography>
                                     <Typography variant='body1'>
@@ -565,8 +565,8 @@ export default function TenEx(props) {
                                         <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                                 <Grid item lg={2} xs={10}>
                                     <Typography variant='body2'>Collaborate</Typography>
                                     <Typography variant='body1'>
@@ -575,8 +575,8 @@ export default function TenEx(props) {
                                         <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                                 <Grid item lg={2} xs={10}>
                                     <Typography variant='body2'>Communicate</Typography>
                                     <Typography variant='body1'>
@@ -604,8 +604,8 @@ export default function TenEx(props) {
                             <Grid item xs={3} md={2} lg={1}>
                                 <img src={img['Daniel.svg']} className={classes.imgFitContent} alt='Daniel Turner' />
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={8} md={9} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={8} md={9} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid className={classes.persona} item xs={10} lg={5}>
                                 <Typography variant='h3'>Daniel Turner</Typography>
                                 <div className={classes.personaDemo}>
@@ -639,8 +639,8 @@ export default function TenEx(props) {
                                     builds an ideal candidate profile.
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey02.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>02</div>
@@ -662,8 +662,8 @@ export default function TenEx(props) {
                                     short in targeting.
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey04.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>04</div>
@@ -686,8 +686,8 @@ export default function TenEx(props) {
                                     needs.
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid className={classes.journeyItem} item xs={10} lg={4}>
                                 <img src={img['Journey06.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>06</div>
@@ -712,8 +712,12 @@ export default function TenEx(props) {
                             fulfill areas that leading platforms are not reaching, and learn which experiences are the most convenient for recruiters.'
                             captionLg={4}
                         />
-                        <Box sx={{ display: { xs: 'block', lg: 'none' } }}><MarketMobile /></Box>
-                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}><MarketWeb /></Box>
+                        <GridFormat>
+                            <Grid item xs={10}>
+                        <Box sx={{ display: { xs: 'flex', lg: 'none' } }}><MarketMobile /></Box>
+                        </Grid>
+                        </GridFormat>
+                        <Box sx={{ display: { xs: 'none', lg: 'flex' } }}><MarketWeb /></Box>
                     </div>
 
                     {/* competitor analysis */}
@@ -1040,8 +1044,8 @@ export default function TenEx(props) {
                                         <img src={img['HiFi01.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen2} item xs={10} lg={2}>
                                     <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1068,8 +1072,8 @@ export default function TenEx(props) {
                                         <img src={img['HiFi02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen3} item xs={10} lg={2}>
                                     <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1096,8 +1100,8 @@ export default function TenEx(props) {
                                         <img src={img['HiFi03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen4} item xs={10} lg={2}>
                                     <img src={img['HiFi04.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1182,8 +1186,8 @@ export default function TenEx(props) {
                                         <img src={img['Frontend01.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen6} item xs={10} lg={2}>
                                     <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1210,8 +1214,8 @@ export default function TenEx(props) {
                                         <img src={img['Frontend02.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen7} item xs={10} lg={2}>
                                     <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1238,8 +1242,8 @@ export default function TenEx(props) {
                                         <img src={img['Frontend03.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                     </Box>
                                 </Modal>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid sx={{ cursor: 'pointer' }} onClick={handleOpen8} item xs={10} lg={2}>
                                     <img src={img['Frontend04.svg']} className={classes.imgFitContent} alt='Wireframes' />
                                 </Grid>
@@ -1298,7 +1302,7 @@ export default function TenEx(props) {
                                 </Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item xs={1} sx={{ display: { xs: 'none', lg: 'block' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'none', lg: 'flex' } }} />
                                 <Grid item xs={10} lg={6}>
                                     <Typography variant='body2'>1336 * 768<br /></Typography>
                                 </Grid>
@@ -1335,8 +1339,8 @@ export default function TenEx(props) {
                                     <div className={classes.color2} />
                                     <Typography variant='caption'>#356BBA</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color3} />
                                     <Typography variant='caption'>#8DB0E3</Typography>
@@ -1355,8 +1359,8 @@ export default function TenEx(props) {
                                     <div className={classes.color6} />
                                     <Typography variant='caption'>#757575</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color7} />
                                     <Typography variant='caption'>#FFFFFF</Typography>
@@ -1375,8 +1379,8 @@ export default function TenEx(props) {
                                     <div className={classes.color10} />
                                     <Typography variant='caption'>#FFD633</Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid item xs={5} lg={2}>
                                     <div className={classes.color11} />
                                     <Typography variant='caption'>#D5342A</Typography>

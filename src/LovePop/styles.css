@@ -14,18 +14,34 @@
     align-self: center;
     object-fit: contain;
   }
-  .prev,
-  .next {
+  .prevL {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: black;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
     border-color: transparent;
-    font-size: 1rem;
+    font-size: 2rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+  }
+  .nextL {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: black;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-color: transparent;
+    font-size: 2rem;
     border-radius: 0;
     cursor: pointer;
     transition: var(--transition);

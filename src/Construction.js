@@ -20,7 +20,7 @@ const cardStyles = makeStyles(({
     },
     default: {
         opacity: "0",
-        display: "block",
+        display: "flex",
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
@@ -31,7 +31,7 @@ const cardStyles = makeStyles(({
     },
     hover: {
         opacity: "1",
-        display: "block",
+        display: "flex",
         width: "100%",
         height: "100%",
         boxSizing: "border-box",

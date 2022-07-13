@@ -397,15 +397,15 @@ export default function Able(props) {
                                     <span className={classes.boldText}>Project</span>: Brown Risd Master of Arts in Design Engineering (MADE) Capstone Project
                                 </Typography>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Product Design, Fabrication, Engineering
                                 </Typography>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Arduino, Adobe Suite, Figma, Rapid Prototyping, Wood and Metal Fabrication
@@ -448,8 +448,8 @@ export default function Able(props) {
                                     </Typography>
                                 </Collapse>
                             </Grid>
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={3}>
                                 <Box
                                     sx={{ display: "flex" }}
@@ -543,7 +543,7 @@ export default function Able(props) {
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2}>
-                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={12} />
+                                <Grid item sx={{ display: { xs: 'flex', lg: 'none', } }} xs={12} />
                                 <Grid item xs={1} lg={2} />
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Learning</Typography>
@@ -551,8 +551,8 @@ export default function Able(props) {
                                         <br />Recruiting participants from online communities, local vision rehabilitation center and personal connections.{(mobile) ? <br /> : []}
                                     </Typography>
                                 </Grid>
-                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
-                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                                <Grid item sx={{ display: { xs: 'flex', lg: 'none', } }} xs={1} />
+                                <Grid item sx={{ display: { xs: 'flex', lg: 'none', } }} xs={1} />
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Concept</Typography>
                                     <Typography variant='body1'>
@@ -560,7 +560,7 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                                <Grid item sx={{ display: { xs: 'flex', lg: 'none', } }} xs={1} />
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>Agile Prototyping</Typography>
                                     <Typography variant='body1'>
@@ -618,7 +618,7 @@ export default function Able(props) {
                                 </Typography>
                             </Grid>
                             <Grid item xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none', } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none', } }} xs={1} />
                             <Grid className={classes.textAlignRight} item xs={10} lg={3}>
                                 <img src={img['Problem02.png']} className={classes.imgFitContent} alt='NIH Aricle' />
                                 <div className={classes.smallMarginTop}>
@@ -737,8 +737,8 @@ export default function Able(props) {
                                     and confidence, even in unfamiliar stores.
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                             <Grid item xs={10} lg={4}>
                                 <div className={classes.personaMotivation}>
                                     <div><Typography variant='body2'>Motivation</Typography></div>
@@ -779,8 +779,8 @@ export default function Able(props) {
                                     • Risk of injuries from protruding objects in stores.
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='body2'><br />Goal</Typography>
                                 <Typography variant='body1'>
@@ -808,7 +808,7 @@ export default function Able(props) {
                                 <img src={img['MarketResearch01.png']} className={classes.imgFitContent} alt='market research' />
                             </Grid>
                             <Grid item xs={1} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item xs={10} lg={4}>
                                 <img src={img['MarketResearch02.png']} className={classes.imgFitContent} alt='uniqlo' />
                             </Grid>
@@ -933,16 +933,16 @@ export default function Able(props) {
                         <div>
                             <Box className={classes.appCover}>
                                 <Grid container spacing={3}>
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={11}>
                                         <Typography className={classes.appCoverTitle} variant='h1'>Mobile App</Typography>
                                     </Grid>
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={12} />
                                     <Grid item xs={12} />
                                     <Grid item xs={1} lg={2} />
                                     <Grid item xs={10} lg={3}>
@@ -957,9 +957,9 @@ export default function Able(props) {
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={5}>
                                         <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['App01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop id="video" />
                                     </Grid>
@@ -1005,7 +1005,7 @@ export default function Able(props) {
                                     <video className={classes.imgFitContent} src={img['App03.mp4']} controls id="video" />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} md={3} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} md={3} />
                                 <Grid item xs={10} md={6} lg={3}>
                                     <video className={classes.imgFitContent} src={img['App02.mp4']} controls id="video" />
                                 </Grid>
@@ -1023,12 +1023,12 @@ export default function Able(props) {
                             />
                             <Box className={classes.margin2}>
                                 <Grid container spacing={3}>
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={5}>
                                         <img src={img['MultisensoryMagazine02.png']} className={classes.imgFitContent} alt='magazine prototype' />
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={3}>
                                         <Typography variant='body1'>
                                             Taking a further step in providing assistance outside of the store, the multisensory magazine allows
@@ -1044,13 +1044,13 @@ export default function Able(props) {
                                             Cheon (MADE ’22) woo hoo!
                                             <br /><br />
                                         </Typography>
-                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'flex', } }} variant='caption'>
                                             left: magazine prototype with sample fabrics and scratch and sniff stickers. <br />
                                             right: magazine request page on Able app.
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} md={3} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} md={3} />
                                     <Grid item xs={10} md={6} lg={2}>
                                         <img src={img['MultisensoryMagazine03.png']} className={classes.imgFitContent} alt='magazine subscription via app' />
                                     </Grid>
@@ -1090,7 +1090,7 @@ export default function Able(props) {
                                             to reference the measurements and patterns used, and then to design ours.
                                         <br /><br />
                                     </Typography>
-                                    <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                    <Typography sx={{ display: { xs: 'none', lg: 'flex', } }} variant='caption'>
                                         right 1: store interior<br />
                                         right 2: tactile pavings<br />
                                         bottom 1: documentation of relevant ADA guidelines<br />
@@ -1098,7 +1098,7 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img['AbleStore02.png']} className={classes.imgFitContent} alt='able store interior' />
                                     <img src={img['AbleStore03.png']} className={classes.imgFitContent} alt='tactile paving' />
@@ -1115,12 +1115,12 @@ export default function Able(props) {
                                 </Grid>
                             </GridFormat>
                             <Grid container spacing={3}>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={3}>
                                     <img src={img['AbleStore06.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid className={classes.justifyContent} item xs={10} lg={4}>
                                     <img src={img['AbleStore07.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                     <Typography variant='body1'>
@@ -1131,7 +1131,7 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={4}>
                                     <img src={img['AbleStore08.png']} className={classes.imgFitContent} alt='tactile paving scale model' />
                                 </Grid>
@@ -1172,7 +1172,7 @@ export default function Able(props) {
                                         <br /><br />
                                     </Typography>
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img['TactileMap02.png']} className={classes.imgFitContent} alt='Tactile Map' />
@@ -1180,18 +1180,18 @@ export default function Able(props) {
                             </Grid>
                             <Grid className={classes.alignItemsEnd} container spacing={3}>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap03.png']} className={classes.imgFitContent} alt='Tactile Map user testing' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap04.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap04.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={10} lg={5}>
                                     <img src={img['TactileMap03.png']} className={classes.imgFitContent} alt='Tactile Map' />
                                 </Grid>
                             </Grid>
@@ -1209,13 +1209,13 @@ export default function Able(props) {
                                 zIndex='1'
                             />
                             <Grid container spacing={3}>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item lg={12} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item lg={2} />
                                 <Grid item lg={8} xs={12}>
                                     <video className={clsx(classes.imgFitContent, classes.appVid)} src={img['AssistiveHangerDemo.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop id="video" />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={2} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item lg={12} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item lg={2} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item lg={12} />
                             </Grid>
                             <Grid container spacing={3}>
                                 <Grid item xs={1} lg={2} />
@@ -1232,7 +1232,7 @@ export default function Able(props) {
                                             size as well as online information that guaranteed efficiency and independence</span>.
                                         <br /><br />
                                     </Typography>
-                                    <Typography sx={{ display: { xs: 'none', lg: 'block' } }} variant='caption'>
+                                    <Typography sx={{ display: { xs: 'none', lg: 'flex' } }} variant='caption'>
                                         right: site testing with sighted participants at The Matchbox<br />
                                         bottom left: team Able working hard in the Brown Design Workshop!<br />
                                         bottom center: concept testing with earlier iteration with stakeholder at INSIGHT<br />
@@ -1240,7 +1240,7 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={4}>
                                     <img src={img['AssistiveHanger02.png']} className={classes.imgFitContent} alt='Assistive Hanger user testing' />
                                 </Grid>
@@ -1252,11 +1252,11 @@ export default function Able(props) {
                         <div className={classes.margin}>
                             <Typography style={{ padding: '0 24px' }} variant='h1'>Assistive Price Tag</Typography>
                             <GridFormat>
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item lg={1} />
                                 <Grid item xs={10} lg={6}>
                                     <img src={img['Pricetag01.png']} className={clsx(classes.imgFitContent, classes.margin2)} alt='Price Tag' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={1} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item lg={1} />
                             </GridFormat>
                             <Grid container spacing={1}>
                                 <Grid item xs={1} lg={2} />
@@ -1281,12 +1281,11 @@ export default function Able(props) {
                             <Grid container spacing={3}>
                                 <Grid item xs={12} />
                                 <Grid item xs={12} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={4}>
                                     <img src={img['Pricetag03.png']} className={classes.imgFitContent} alt='Price Tag' />
                                 </Grid>
                                 <Grid item xs={1} lg={2} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid className={classes.justifyContent} item xs={10} lg={4}>
                                     <div>
                                         <Typography variant='body1'>
@@ -1299,7 +1298,7 @@ export default function Able(props) {
                                                 frustrating parts of shopping</span>.
                                             <br /><br />
                                         </Typography>
-                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'flex', } }} variant='caption'>
                                             top: detail photos of embossing, braille and QR code<br />
                                             left: concept testing with earlier prototype with stakeholder<br />
                                             bottom left: price tag on The Matchbox’s merchandise, displayed in store<br />
@@ -1323,12 +1322,12 @@ export default function Able(props) {
                                 zIndex='1'
                             />
                             <Grid container spacing={3}>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={3}>
                                     <img src={img['MultisensoryStation02.png']} className={classes.imgFitContent} alt='Multisensory Station' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={3}>
                                     <Typography variant='body1'>
                                         At the center of the store is the multisensory station, where shoppers can bring items regardless of store
@@ -1350,19 +1349,19 @@ export default function Able(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={4}>
                                     <video className={classes.imgFitContent} src={img['MultisensoryVid01.mp4']} controls id="video" />
                                 </Grid>
                             </Grid>
                             <div className={classes.negMargin}>
                                 <Grid className={classes.arrows} container spacing={3}>
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={4}>
                                         <img src={img['MultisensoryStation03.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={4}>
                                         <Typography variant='body1'>
                                             Our team was able to test the working prototype with 3 sighted participants, who found the experience to be fun and
@@ -1391,7 +1390,7 @@ export default function Able(props) {
                                             host all electrical parts.
                                             <br /><br />
                                         </Typography>
-                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'flex', } }} variant='caption'>
                                             right: code setup on Arduino IDE<br />
                                             right bottom: schematics diagram<br />
                                             left: screenshot on SolidWorks and Cura
@@ -1399,25 +1398,25 @@ export default function Able(props) {
                                     </div>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img['MultisensoryStation04.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'none', lg: 'block', } }} item lg={6} />
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex', } }} item lg={6} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img['MultisensoryStation05.png']} className={clsx(classes.imgFitContent, classes.padding)} alt='Multisensory Station user testing' />
                                 </Grid>
                             </Grid>
                             <Box className={classes.negMargin2}>
                                 <Grid container alignItems='center' spacing={3}>
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                    <Grid xs={10} lg={4}>
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                                    <Grid item xs={10} lg={4}>
                                         <img src={img['MultisensoryStation06.png']} className={classes.imgFitContent2} alt='Multisensory Station print setup' />
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={3}>
                                         <Typography variant='body1'>
                                             You might be wondering, why is this thing a semi-cone shaped? After doing multiple sound tests on rapidly
@@ -1427,7 +1426,7 @@ export default function Able(props) {
                                             applied to itself.
                                             <br /><br />
                                         </Typography>
-                                        <Typography sx={{ display: { xs: 'none', lg: 'block', } }} variant='caption'>
+                                        <Typography sx={{ display: { xs: 'none', lg: 'flex', } }} variant='caption'>
                                             upper left: cross-section view of the housing. The housing was designed with the minimum material needed to reduce
                                             printing time, but still durable to hold all parts<br />
                                             left: setting up on Cura using customized settings on wall thickness, infill density and infill pattern for maximum
@@ -1444,8 +1443,8 @@ export default function Able(props) {
                                     <Grid item xs={10} lg={6}>
                                         <img src={img['MultisensoryStation07.png']} className={classes.imgFitContent} alt='Multisensory Station user testing' />
                                     </Grid>
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none', } }} item xs={1} />
                                     <Grid item xs={10} lg={3}>
                                         <video className={classes.imgFitContent} src={img['MultisensoryVid02.mp4']} controls id="video" />
                                     </Grid>
