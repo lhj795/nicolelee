@@ -669,13 +669,24 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
                                             <Card
+                                                title={"Involv"}
+                                                desc={"Bringing Community Together to Support Each Other"}
+                                                caption={"UI/UX "}
+                                                img={InvolvCover}
+                                                alt={"Involv"}
+                                                bgColor={BgColors.Involv}
+                                                color="white"
+                                                link={"/Involv"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
                                                 title={"LovePop"}
                                                 desc={"Work from Summer Internship 2019"}
                                                 caption={"Consumer Product, CAD Design"}
                                                 img={LovePop}
                                                 alt={"LovePop"}
                                                 bgColor={BgColors.Able}
-                                                color="black"
                                                 link={"/LovePop"}
                                             />
                                         </Grid>
@@ -700,18 +711,6 @@ export default function Work(props) {
                                                 alt={"Pokemon"}
                                                 bgColor={BgColors.Able}
                                                 link={"/Pokemon"}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} lg={4}>
-                                            <Card
-                                                title={"Involv"}
-                                                desc={"Bringing Community Together to Support Each Other"}
-                                                caption={"UI/UX "}
-                                                img={InvolvCover}
-                                                alt={"Involv"}
-                                                bgColor={BgColors.Involv}
-                                                color="white"
-                                                link={"/project"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
