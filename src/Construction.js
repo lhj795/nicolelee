@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { TypographyTheme } from './components/ui/Typography';
 import Base from "./Base";
 import TalentMindCover from './10xFinders/img/TalentMindCover.png';
-import AMCCover from './AMC/img/AMCCover.jpg';
+import LightlyCover from './Lightly/img/LightlyCover.png';
 import AbleCover from './Able/img/AssistiveHanger01.png';
 import ConstructionImg from './img/Construction.svg';
 
@@ -21,6 +21,7 @@ const cardStyles = makeStyles(({
     default: {
         opacity: "0",
         display: "flex",
+        flexDirection: 'column',
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
@@ -32,6 +33,7 @@ const cardStyles = makeStyles(({
     hover: {
         opacity: "1",
         display: "flex",
+        flexDirection: 'column',
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
@@ -135,7 +137,7 @@ export default function Construction(props) {
     var BgColors = {
         TenEx: "rgba(198, 215, 236, 0.5)",
         Able: "rgba(255, 255, 255, 0.5)",
-        AMC: "rgba(136, 27, 48, 0.7)",
+        Lightly: "rgba(255, 255, 255, 0.5)",
     }
 
     return (
@@ -186,14 +188,13 @@ export default function Construction(props) {
                         </Grid>
                         <Grid item xs={4}>
                             <Card
-                                title={"AMC"}
-                                desc={"A Reimagined Movie-Watching Experience"}
-                                caption={"Experience Design, Service Design"}
-                                img={AMCCover}
-                                alt={"AMCs"}
-                                bgColor={BgColors.AMC}
-                                color="white"
-                                link={"/AMC"}
+                                title={"Lightly"}
+                                desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                caption={"Product Design, UI/UX"}
+                                img={LightlyCover}
+                                alt={"Lightly"}
+                                bgColor={BgColors.Lightly}
+                                link={"/Lightly"}
                             />
                         </Grid>
                     </Grid>

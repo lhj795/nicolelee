@@ -646,6 +646,17 @@ export default function Work(props) {
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
                                             <Card
+                                                title={"Lightly"}
+                                                desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                                caption={"Product Design, UI/UX"}
+                                                img={LightlyCover}
+                                                alt={"Lightly"}
+                                                bgColor={BgColors.Lightly}
+                                                link={"/Lightly"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
                                                 title={"AMC"}
                                                 desc={"A Reimagined Movie-Watching Experience"}
                                                 caption={"Experience Design, Service Design"}
@@ -654,17 +665,6 @@ export default function Work(props) {
                                                 bgColor={BgColors.AMC}
                                                 color="white"
                                                 link={"/AMC"}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} lg={4}>
-                                            <Card
-                                                title={"Lightly"}
-                                                desc={"Bringing Back Casual Moments in Hybrid Workspace"}
-                                                caption={"Product Design, UI/UX"}
-                                                img={LightlyCover}
-                                                alt={"Lightly"}
-                                                bgColor={BgColors.Lightly}
-                                                link={"/Lightly"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
