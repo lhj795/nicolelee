@@ -597,7 +597,7 @@ export default function Work(props) {
                                 </div>
                                 <div className={classes.wrap} style={{ color: dynamicBgColor, transition: "0.4s" }}>
                                     <Grid container className={classes.about} spacing={3}>
-                                        <Grid item lg={2} sx={{ display: { lg: 'block', xs: 'none' } }} />
+                                        <Grid item lg={2} sx={{ display: { lg: 'flex', xs: 'none' } }} />
                                         <Grid item xs={12} md={6} lg={3}>
                                             <div
                                                 className={classes.animatedItem}
@@ -797,7 +797,7 @@ export default function Work(props) {
                         />
                     </div>
                     <Box className={classes.engineerAnimContainer}>
-                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                        <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
                             <video style={{ opacity: vidOpacity, transition: "1s", }} src={Engineer} webkit-playsinline="true" playsInline autoPlay muted loop id="video" />
                         </Box>
                         <Typography variant="h4" className={classes.engineerText}>ENGINEER</Typography>

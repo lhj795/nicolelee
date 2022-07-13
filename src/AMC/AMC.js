@@ -258,15 +258,15 @@ export default function AMC(props) {
                                     <span className={classes.boldText}>Role</span>: RISD Industrial Design Advanced Studio: Business of Product Design - Final Project
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Role</span>: Research, Concept, Visual
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body1'>
                                     <span className={classes.boldText}>Tools</span>: Adobe Suite, Rhino
@@ -305,8 +305,8 @@ export default function AMC(props) {
                                     </Typography>
                                 </Collapse>
                             </Grid>
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
                                 <Box
                                     sx={{ display: "flex" }}
@@ -374,7 +374,7 @@ export default function AMC(props) {
                                 <Grid item xs={12} />
                             </Grid>
                             <Grid container spacing={2}>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={12} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={12} />
                                 <Grid item xs={1} lg={2} />
                                 <Grid item xs={10} lg={2}>
                                     <Typography variant='body2'>
@@ -425,8 +425,8 @@ export default function AMC(props) {
                                     <br />Credit: Patrick T. Fallon/Bloomberg via Getty Images
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                             <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>AMC? Hmm yeah it's a great theater…</Typography>
                                 <Typography variant='body1'>
@@ -443,8 +443,8 @@ export default function AMC(props) {
                                 <Typography variant='caption'>
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                             <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>Do you regularly go to the movies?</Typography>
                                 <Typography variant='body1'>
@@ -461,8 +461,8 @@ export default function AMC(props) {
                                 <Typography variant='caption'>
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                             <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                 <Typography variant='body2'>Do you care about the brand?</Typography>
                                 <Typography variant='body1'>
@@ -521,9 +521,9 @@ export default function AMC(props) {
                             <Grid item xs={10} lg={2}>
                                 <Typography variant='body2'>Leah's visit at the new AMC</Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={10} lg={3}>
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     Leah's journey starts by receiving notification via AMC app on a recommended movie release, then invites her friend to
                                     reserve seats together. Upon entering the theater, Leah receives her premium admission pass. While waiting for the movie to
@@ -534,7 +534,7 @@ export default function AMC(props) {
                                     after her favorite character.
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={3}>
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex' } }} item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     Leah's journey starts by receiving notification via AMC app on a recommended movie release, then invites her friend to
                                     reserve seats together. Upon entering the theater, Leah receives her premium admission pass. While waiting for the movie to
@@ -542,9 +542,9 @@ export default function AMC(props) {
                                     Leah enters
                                 </Typography>
                             </Grid>
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                            <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={3}>
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex' } }} item xs={10} lg={3}>
                                 <Typography variant='body1'>
                                     the auditorium where she finds her premium sofa seat. During the movie, Leah stops by the Sky Lounge located in the
                                     auditorium, to refill her cup of soda and use the restroom, without missing any scenes. In AMC, every item our customer
@@ -587,8 +587,8 @@ export default function AMC(props) {
                                         </Box>
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={12} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={12} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                     <Grid className={classes.justifyCenter} item xs={11} lg={6}>
                                         <img src={img[`App01.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                     </Grid>
@@ -602,7 +602,7 @@ export default function AMC(props) {
                                     <img src={img[`App02.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid className={classes.justifyCenter} item xs={10} lg={4}>
                                     <Typography variant='body2'>
                                         Personalized Notifications
@@ -620,7 +620,7 @@ export default function AMC(props) {
                                     <img src={img[`App03.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         Remote Booking with Friends
@@ -650,7 +650,7 @@ export default function AMC(props) {
                                     </Box>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid className={classes.justifyCenter} item xs={10} lg={6}>
                                     <img src={img[`Ticket01.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
@@ -660,7 +660,7 @@ export default function AMC(props) {
                                     <img src={img[`Ticket02.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
                                         3 Tiered Admission System
@@ -690,7 +690,7 @@ export default function AMC(props) {
                                     <Typography className={classes.valetCaption} variant='body1'>Providing convenience to all mobile movie-goers.</Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img[`Valet.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                 </Grid>
@@ -725,7 +725,7 @@ export default function AMC(props) {
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={1} />
-                                    <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                    <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                     <Grid item xs={10} lg={5}>
                                         <img src={img[`Gate02.svg`]} className={classes.imgFitContent} alt='AMC App' />
                                     </Grid>
@@ -739,7 +739,7 @@ export default function AMC(props) {
                                 sx={{
                                     color: { xs: 'black', lg: 'white' },
                                     left: { xs: '', lg: 'calc(16.6666666vw + 72px)' },
-                                    margin: { xs: '0 0 -28vh 0', md: '0 0 -5vh', lg: '10vh 0 0 0' },
+                                    margin: { xs: '0 0 -8vh 0', lg: '10vh 0 0 0' },
                                     position: { xs: 'relative', lg: 'absolute' },
                                     padding: { xs: '24px', lg: '0' },
                                     zIndex: '1'
@@ -788,7 +788,7 @@ export default function AMC(props) {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid item xs={10} lg={5}>
                                     <img src={img[`Arcade02.svg`]} className={classes.imgFitContent} alt='AMC VR' />
                                 </Grid>
@@ -831,11 +831,11 @@ export default function AMC(props) {
                             <Grid container spacing={3}>
                                 <Grid item xs={12} />
                                 <Grid item xs={12} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={10} lg={5}>
                                     <img src={img[`Theater03.svg`]} className={classes.imgFitContent} alt='sky lounge' />
                                 </Grid>
-                                <Grid sx={{ display: { xs: 'block', lg: 'none' } }} item xs={1} />
+                                <Grid sx={{ display: { xs: 'flex', lg: 'none' } }} item xs={1} />
                                 <Grid item xs={1} lg={2} />
                                 <Grid className={classes.justifyCenter} item xs={10} lg={3}>
                                     <Typography variant='body2'>
@@ -850,7 +850,7 @@ export default function AMC(props) {
                                 </Grid>
                                 <Grid item xs={1} />
                                 <Grid item xs={1} />
-                                <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item xs={10} lg={5}>
+                                <Grid sx={{ display: { xs: 'none', lg: 'flex' } }} item xs={10} lg={5}>
                                     <img src={img[`Theater03.svg`]} className={classes.imgFitContent} alt='sky lounge' />
                                 </Grid>
                             </Grid>
@@ -879,10 +879,10 @@ export default function AMC(props) {
                             <Box
                                 sx={{
                                     color: 'black',
-                                    display: {xs: 'none', lg: 'block'},
+                                    display: {xs: 'none', lg: 'flex'},
                                     position: {xs: 'relative', lg: 'absolute'},
                                     right: {xs: '', lg: '8.33333vw'},
-                                    marginTop: {xs: '1rem', lg: '70vh'},
+                                    marginTop: {xs: '1rem', lg: '78vh'},
                                     zIndex: '1',
                                     padding: {xs: '0 24px 24px 24px', lg: '0'},
                                 }}
@@ -905,7 +905,7 @@ export default function AMC(props) {
                             <Box
                                 sx={{
                                     color: 'black',
-                                    display: {xs: 'block', lg: 'none'},
+                                    display: {xs: 'flex', lg: 'none'},
                                     position: {xs: 'relative', lg: 'absolute'},
                                     right: {xs: '', lg: '8.33333vw'},
                                     marginTop: {xs: '1rem', lg: '70vh'},

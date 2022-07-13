@@ -90,10 +90,10 @@ export default function LovePop(props) {
                                         </article>
                                     );
                                 })}
-                                <button className="prev" onClick={() => setIndex(index - 1)}>
+                                <button className="prevL" onClick={() => setIndex(index - 1)}>
                                     <FiChevronLeft />
                                 </button>
-                                <button className="next" onClick={() => setIndex(index + 1)}>
+                                <button className="nextL" onClick={() => setIndex(index + 1)}>
                                     <FiChevronRight />
                                 </button>
                             </section>
@@ -126,8 +126,8 @@ export default function LovePop(props) {
                                     </Typography>
                                 </Collapse>
                             </Grid>
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
                                 <Box
                                     sx={{ display: "flex" }}
