@@ -323,8 +323,8 @@ export default function Lightly(props) {
                                     </Typography>
                                 </Collapse>
                             </Grid>
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid onClick={() => setShowDesc2(!showDesc2)} item xs={10} lg={4}>
                                 <Box
                                     sx={{ display: "flex" }}
@@ -421,7 +421,7 @@ export default function Lightly(props) {
                                         <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                                 <Grid item xs={1} />
                                 <Grid className={pZElem} item lg={2} xs={10}>
                                     <Typography variant='body2'>Concept</Typography>
@@ -431,7 +431,7 @@ export default function Lightly(props) {
                                         <br />{(mobile) ? [] : <br />}
                                     </Typography>
                                 </Grid>
-                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
+                                <Grid item zeroMinWidth className={classes.pZ} sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                                 <Grid item xs={1} />
                                 <Grid className={pZElem} item lg={2} xs={10}>
                                     <Typography variant='body2'>Prototype</Typography>
@@ -464,13 +464,13 @@ export default function Lightly(props) {
                             <Grid item lg={4} xs={12}>
                                 <img src={img['TheProblem02.svg']} className={classes.imgFitContent} alt='zoom fatigue' />
                             </Grid>
-                            <Grid sx={{ display: { xs: 'none', lg: 'block' } }} item lg={2} />
+                            <Grid sx={{ display: { xs: 'none', lg: 'flex' } }} item lg={2} />
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='h3'>Lost collegial moments</Typography>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item xs={10} lg={4}>
                                 <Typography variant='body1'>
                                     The transition to hybrid working compensated many crucial factors of effective teaming including motivation, efficiency, and
@@ -570,8 +570,8 @@ export default function Lightly(props) {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item lg={4} xs={10}>
                                 <Typography variant='body1'>
                                     Emma remained in office where she does her work with teams across the company. She leads in-person and hybrid meetings with
@@ -588,8 +588,8 @@ export default function Lightly(props) {
                                     • Elevate motivation and focus during WFH.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                            <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                            <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             <Grid item lg={4} xs={10}>
                                 <Typography variant='body2'>{(mobile) ? [] : <br />}Frustrations</Typography>
                                 <Typography variant='body1'>
@@ -599,8 +599,9 @@ export default function Lightly(props) {
                                 </Typography>
                             </Grid>
                         </GridFormat>
-                        <GridFormat>
-                            <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'block' } }}>
+                        <Box className={classes.margin2}>
+                        <GridFormat alignItems='center'>
+                            <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'inherit' }, flexDirection: 'column', alignItems: 'flex-start' }}>
                                 <Typography variant='body2'>Video Conferencing</Typography>
                                 <img src={img['Tools01.svg']} className={classes.tools} alt='Tools' />
                                 <Typography variant='body2'>Scheduling and Project Management</Typography>
@@ -613,7 +614,7 @@ export default function Lightly(props) {
                                 <img src={img['Tools05.svg']} className={classes.tools} alt='Tools' />
                             </Grid>
                             <Grid className={classes.alignLeft} item lg={4} xs={10}>
-                                <Box sx={{ display: { xs: 'block', lg: 'none' }, alignSelf: 'center', width: {xs: '100%', md: '50%'} }}>
+                                <Box sx={{ display: { xs: 'flex', lg: 'none' }, alignSelf: 'center', width: {xs: '100%', md: '50%'} }}>
                                     <img src={img['ToolsMobile.svg']} className={classes.imgFitContent} alt='Tools' />
                                 </Box>
                                 <img src={img['Persona03.svg']} className={classes.paulEmma} alt='Tools' />
@@ -628,6 +629,7 @@ export default function Lightly(props) {
                                 </Typography>
                             </Grid>
                         </GridFormat>
+                        </Box>
                     </div>
 
                     {/* solution */}
@@ -714,7 +716,7 @@ export default function Lightly(props) {
                             </Grid>
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={1} lg={2} />
-                            <Grid item sx={{ display: { xs: 'none', lg: 'block' } }} lg={4}>
+                            <Grid item sx={{ display: { xs: 'none', lg: 'flex' }, flexDirection: 'column' }} lg={4}>
                                 <Typography variant='body1'>
                                     The initial prototype was purely mechanical, made of laser cut plywood parts that had a three level opening and closing
                                     mechanism with paper panels. After succeeding with the open/close mechanism, we decided to move forward by reiterating a
@@ -731,15 +733,15 @@ export default function Lightly(props) {
                             <Grid className={classes.pZ2} item xs={12} lg={4}>
                                 <img src={img['Lamp02.gif']} className={classes.imgFitContent} alt='lightly' />
                             </Grid>
-                            <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'block' } }} ></Grid>
+                            <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'flex' } }} ></Grid>
                             <Grid className={classes.pZ2} item xs={12} lg={4}>
                                 <img src={img['Lamp04.svg']} className={classes.imgFitContent} alt='lightly' />
                             </Grid>
                             <Grid className={classes.pZ2} item xs={12} lg={4}>
                                 <img src={img['Lamp03.svg']} className={classes.imgFitContent} alt='lightly' />
                             </Grid>
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={1} />
-                            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }} xs={10}>
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
+                            <Grid item sx={{ display: { xs: 'flex', lg: 'none' }, flexDirection: 'column' }} xs={10}>
                                 <Typography variant='body1'>
                                     The initial prototype was purely mechanical, made of laser cut plywood parts that had a three level opening and closing
                                     mechanism with paper panels. After succeeding with the open/close mechanism, we decided to move forward by reiterating a
@@ -775,8 +777,8 @@ export default function Lightly(props) {
                     <div>
                         <Box sx={{ margin: '10vh 0' }}>
                             <Grid alignItems='center' container spacing={3}>
-                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
-                                <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'block' } }}>
+                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'flex' } }} />
+                                <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'flex' } }}>
                                     <Typography variant='h3'>Video Conferencing Integration<br /></Typography>
                                     <Typography variant='body1'>
                                         <br />As the meeting progresses through different meeting modes by shifting light brightness and color, the lighting changes
@@ -785,12 +787,12 @@ export default function Lightly(props) {
                                         times, as well as adjust it, such as by snoozing, changing duration, or skipping.
                                     </Typography>
                                 </Grid>
-                                <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'block' } }} />
+                                <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'flex' } }} />
                                 <Grid item lg={5} xs={12}>
                                     <video className={classes.imgFitContent} src={img['App01.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={10} sx={{ display: { xs: 'block', lg: 'none' } }}>
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={10} sx={{ display: { xs: 'flex', lg: 'none' }, flexDirection: 'column' }}>
                                     <Typography variant='h3'>Video Conferencing Integration<br /></Typography>
                                     <Typography variant='body1'>
                                         <br />As the meeting progresses through different meeting modes by shifting light brightness and color, the lighting changes
@@ -803,17 +805,17 @@ export default function Lightly(props) {
                         </Box>
                         <Box sx={{ margin: '10vh 0' }}>
                             <Grid container spacing={3}>
-                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
+                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'flex' } }} />
                                 <Grid item xs={12} lg={8}>
                                     <video className={classes.imgFitContent} src={img['App02.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
-                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
+                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'flex' } }} />
                                 <Grid item lg={2} xs={1} />
                                 <Grid item lg={4} xs={10}>
                                     <Typography variant='h3'>Internap App<br /></Typography>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                                 <Grid item lg={4} xs={10}>
                                     <Typography variant='body1'>
                                         But it’s not just during meeting that the user can adjust the meeting flow. In fact, for some users, it may make more
@@ -826,11 +828,11 @@ export default function Lightly(props) {
                         </Box>
                         <Box sx={{ margin: '10vh 0' }}>
                             <Grid alignItems='center' container spacing={3}>
-                                <Grid item lg={1} sx={{ display: { lg: 'block', xs: 'none' } }} />
+                                <Grid item lg={1} sx={{ display: { lg: 'flex', xs: 'none' } }} />
                                 <Grid item lg={5} xs={12}>
                                     <video className={classes.imgFitContent} src={img['App04.mp4']} webkit-playsinline="true" playsInline autoPlay muted loop controls id="video" />
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { lg: 'none', xs: 'block' } }} />
+                                <Grid item xs={1} sx={{ display: { lg: 'none', xs: 'flex' } }} />
                                 <Grid item xs={10} lg={4}>
                                     <Typography variant='h3'>Online Calendar Integration<br /></Typography>
                                     <Typography variant='body1'>
@@ -847,8 +849,8 @@ export default function Lightly(props) {
                     <div>
                         <Box sx={{ margin: '10vh 0' }}>
                             <Grid container spacing={3}>
-                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'block' } }} />
-                                <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'block' } }}>
+                                <Grid item lg={2} sx={{ display: { xs: 'none', lg: 'flex' } }} />
+                                <Grid item lg={4} sx={{ display: { xs: 'none', lg: 'flex' }, flexDirection: 'column' }}>
                                     <Typography variant='body1'>
                                         And people agree. Testing participants appreciated Lightly for it fosters a sense of connection through lighting
                                         synchronization. They also pointed out that establishing a common vibe is not only helpful for connection but also
@@ -894,12 +896,12 @@ export default function Lightly(props) {
                                         </Typography>
                                     </Box>
                                 </Grid>
-                                <Grid item lg={1} sx={{ display: { lg: 'block', xs: 'none' } }} />
+                                <Grid item lg={1} sx={{ display: { lg: 'flex', xs: 'none' } }} />
                                 <Grid item lg={5} xs={12}>
                                     <img src={img['Testing01.svg']} className={classes.imgFitContent} alt='user testing' />
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
-                                <Grid item xs={10} sx={{ display: { xs: 'block', lg: 'none' } }}>
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
+                                <Grid item xs={10} sx={{ display: { xs: 'flex', lg: 'none' }, flexDirection: 'column' }}>
                                     <Typography variant='body1'>
                                         And people agree. Testing participants appreciated Lightly for it fosters a sense of connection through lighting
                                         synchronization. They also pointed out that establishing a common vibe is not only helpful for connection but also
@@ -945,7 +947,7 @@ export default function Lightly(props) {
                                         </Typography>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             </Grid>
                         </Box>
                         <Box sx={{ margin: '10vh 0' }}>
@@ -1000,7 +1002,7 @@ export default function Lightly(props) {
                                         </Typography>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={1} sx={{ display: { xs: 'block', lg: 'none' } }} />
+                                <Grid item xs={1} sx={{ display: { xs: 'flex', lg: 'none' } }} />
                             </Grid>
                                 <Grid item xs={1}/>
                         </Box>

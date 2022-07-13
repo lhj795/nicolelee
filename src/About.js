@@ -75,7 +75,7 @@ export default function About(props) {
                         </Typography>
                     </Grid>
                     <Grid item xs={1} />
-                    <Grid item xs={1} sx={{display: {xs: 'block', lg: 'none'}}}/>
+                    <Grid item xs={1} sx={{display: {xs: 'flex', lg: 'none'}}}/>
                     <Grid item xs={10} lg={5} sx={{marginTop: {xs: '0', lg: '-16px'}}}>
                         <img className={classes.imgFitContent} src={Nicole} alt='Nicole in her natural state' />
                     </Grid>

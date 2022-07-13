@@ -8,6 +8,7 @@ import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { GridFormat, Heading } from '../components/ui/UIComponents';
+import { PrimaryButton, SecondaryButton } from './InvolvUI';
 
 const useStyles = makeStyles(({
     wrap: {
@@ -598,6 +599,30 @@ export default function Involv(props) {
                             <Grid item xs={1} lg={3}/>
                             <Grid item xs={10} lg={6}>
                             <img src={img['IA2.svg']} className={classes.imgFitContent} alt='Wireframe' />
+                            </Grid>
+                        </GridFormat>
+                    </Box>
+
+                    {/* project documentation */}
+                    <Box className={classes.margin}>
+                        <GridFormat>
+                            <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'flex' } }} />
+                            <Grid item xs={10} lg={6}>
+                                <Typography variant='h3'>Project Documentation</Typography>
+                                <Typography variant='body1'>This is what the design panels saw on our XD Documentation!</Typography>
+                            </Grid>
+                            <Grid item xs={1} lg={3}/>
+                            <Grid item xs={1} lg={3}/>
+                            <Grid item xs={5} lg={2}>
+                                <PrimaryButton onClick={() => window.open('https://xd.adobe.com/view/8223fed3-4e9c-472c-892d-9fadac77fc9f-d770/screen/00328b0f-5f40-4501-8b3b-1604ae2be451/', '_blank')}  >XD Prototype</PrimaryButton>
+                            </Grid>
+                            <Grid item xs={5} lg={2}>
+                                <SecondaryButton onClick={() => window.open('https://www.facebook.com/adobecreativejam/videos/3306745376071451/', '_blank')}  >Presentation (20:20~)</SecondaryButton>
+                            </Grid>
+                            <Grid item xs={1} lg={3}/>
+                            <Grid item xs={1} lg={1}/>
+                            <Grid item xs={10} lg={12}>
+                            <img src={img['Documentation.svg']} className={classes.imgFitContent} alt='Wireframe' />
                             </Grid>
                         </GridFormat>
                     </Box>
