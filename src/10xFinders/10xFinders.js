@@ -1471,10 +1471,10 @@ export default function TenEx(props) {
                                 captionLg={5}
                             />
                             <GridFormat>
-                                <Grid item lg={8} xs={10}><img src={img['UserTesting01.svg']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting01.png']} className={classes.imgFitContent} alt='excel sheet' /></Grid>
                             </GridFormat>
                             <GridFormat>
-                                <Grid item lg={8} xs={10}><img src={img['UserTesting02.svg']} className={classes.imgFitContent} alt='summary' /></Grid>
+                                <Grid item lg={8} xs={10}><img src={img['UserTesting02.png']} className={classes.imgFitContent} alt='summary' /></Grid>
                             </GridFormat>
                             <div className={classes.margin} >
                                 <GridFormat>
