@@ -609,7 +609,7 @@ export default function Involv(props) {
                             <Grid item lg={1} sx={{ display: { xs: 'none', lg: 'flex' } }} />
                             <Grid item xs={10} lg={6}>
                                 <Typography variant='h3'>Project Documentation</Typography>
-                                <Typography variant='body1'>This is what the design panels saw on our XD Documentation!</Typography>
+                                <Typography variant='body1'>This is what the design panels saw on our XD Documentation! </Typography>
                             </Grid>
                             <Grid item xs={1} lg={3}/>
                             <Grid item xs={1} lg={3}/>
