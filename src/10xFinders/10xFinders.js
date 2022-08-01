@@ -293,23 +293,6 @@ const useStyles = makeStyles(({
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'flex-start',
-        height: () => {
-            if (window.innerWidth > 1200) {
-                return '27vh'
-            } else if (window.innerWidth > 900 && window.innerWidth <= 1200) {
-                return '20vmin'
-            } else {
-                return '39vh';
-            }
-        },
-        // '@media (min-width:1200px)': {
-        //     height: ''
-        // },
-        // height: {
-        //     xs: '39vh',
-        //     md: '20vmin',
-        //     lg: '27vh'
-        // }
     },
     journeyImg: {
         height: '3rem',
@@ -637,7 +620,7 @@ export default function TenEx(props) {
                             <Grid item xs={1} lg={2} />
                         </GridFormat>
                         <GridFormat>
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey01.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>01</div>
                                 <Typography variant='body2'>Planning</Typography>
@@ -649,7 +632,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey02.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>02</div>
                                 <Typography variant='body2'>Sourcing</Typography>
@@ -660,7 +643,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={1} lg={2} />
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey03.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>03</div>
                                 <Typography variant='body2'>Screening</Typography>
@@ -672,7 +655,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey04.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>04</div>
                                 <Typography variant='body2'>Interviewing</Typography>
@@ -684,7 +667,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item xs={1} lg={2} />
                             <Grid item xs={1} lg={2} />
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey05.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>05</div>
                                 <Typography variant='body2'>Verifying & Hiring</Typography>
@@ -696,7 +679,7 @@ export default function TenEx(props) {
                             </Grid>
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
                             <Grid item sx={{ display: { xs: 'flex', lg: 'none' } }} xs={1} />
-                            <Grid className={classes.journeyItem} item xs={10} lg={4}>
+                            <Grid className={classes.journeyItem} sx={{ height: { xs: '39vh', md: '20vmin', lg: '27vh' } }} item xs={10} lg={4}>
                                 <img src={img['Journey06.svg']} className={classes.journeyImg} alt='Planning' />
                                 <div className={classes.journeyNum}>06</div>
                                 <Typography variant='body2'>Business Development</Typography>
@@ -722,8 +705,8 @@ export default function TenEx(props) {
                         />
                         <GridFormat>
                             <Grid item xs={10}>
-                        <Box sx={{ display: { xs: 'flex', lg: 'none' } }}><MarketMobile /></Box>
-                        </Grid>
+                                <Box sx={{ display: { xs: 'flex', lg: 'none' } }}><MarketMobile /></Box>
+                            </Grid>
                         </GridFormat>
                         <Box sx={{ display: { xs: 'none', lg: 'flex' } }}><MarketWeb /></Box>
                     </div>
@@ -745,7 +728,10 @@ export default function TenEx(props) {
                             captionLg={5}
                         />
                         <GridFormat>
-                            <Grid item sx={{ overflowX: 'scroll' }} lg={8} xs={10}>
+                            <Grid item xs={10} lg={8}>
+                                <img src={img['Competitor.svg']} className={classes.imgFitContent} alt='Outreach' />
+                            </Grid>
+                            {/* <Grid item sx={{ overflowX: 'scroll' }} lg={8} xs={10}>
                                 <Grid sx={{ minWidth: '700px' }} container spacing={0}>
                                     <Grid item xs={2} />
                                     <Grid className={classes.alignCenter} item xs={2}>
@@ -800,7 +786,7 @@ export default function TenEx(props) {
                                     <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
                                     <Grid className={classes.bordersLast} item xs={2}><div className={classes.circleClosed} /></Grid>
                                 </Grid>
-                            </Grid>
+                            </Grid> */}
                         </GridFormat>
                     </div>
 
@@ -1042,7 +1028,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1070,7 +1056,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1098,7 +1084,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1126,7 +1112,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1184,7 +1170,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1212,7 +1198,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1240,7 +1226,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
@@ -1268,7 +1254,7 @@ export default function TenEx(props) {
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                         sx={{
-                                            width: {lg: '50vw', xs: '100vw'},
+                                            width: { lg: '50vw', xs: '100vw' },
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
