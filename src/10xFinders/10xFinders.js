@@ -377,7 +377,7 @@ export default function TenEx(props) {
                     <div className={classes.coverContainer}>
                         <Box
                             sx={{
-                                width: { xs: '90vw', lg: '50vw' },
+                                width: { xs: '90vw', lg: '51vw' },
                                 right: { xs: '5vw', lg: '0' },
                                 position: 'absolute',
                                 transition: '0.3s'
@@ -386,11 +386,13 @@ export default function TenEx(props) {
                             <img className={classes.imgFitContent} src={img['Cover.svg']} alt='10xFinders' />
                         </Box>
                         <Grid container spacing={3}>
-                            <Grid item lg={2} xs={1} />
-                            <Grid className={classes.zIndex} item lg={3} xs={10}>
+                            <Grid item lg={2} md={1} xs={1} />
+                            <Grid className={classes.zIndex} item lg={3} md={4} xs={10}>
+                                <Box sx={{marginTop: { lg: '0', md: '25vh', xs: '10vh' },}}>
                                 <img className={classes.coverLogo} src={img['TenExLogo.svg']} alt='10xFinders' />
+                                </Box>
                             </Grid>
-                            <Grid item lg={7} xs={1} />
+                            <Grid item lg={7} md={7} xs={1} />
                             <Grid item xs={1} lg={2} />
                             <Grid className={classes.zIndex} item xs={10} lg={4}>
                                 <Typography variant='h4'>
