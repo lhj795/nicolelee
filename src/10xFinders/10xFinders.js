@@ -302,6 +302,14 @@ const useStyles = makeStyles(({
                 return '39vh';
             }
         },
+        // '@media (min-width:1200px)': {
+        //     height: ''
+        // },
+        // height: {
+        //     xs: '39vh',
+        //     md: '20vmin',
+        //     lg: '27vh'
+        // }
     },
     journeyImg: {
         height: '3rem',

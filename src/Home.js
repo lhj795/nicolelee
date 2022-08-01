@@ -11,8 +11,12 @@ import CraigslistCover from './img/CRAIGSLIST/CraigslistCover.jpg';
 import DriftCover from './img/DRIFT/DriftCover.jpg';
 import InvolvCover from './img/INVOLV/InvolvCover.jpg';
 import KoziCover from './img/KOZI/KoziCover.png';
+import KoziCoverProduct from './img/KoziCoverProduct.png';
 import LocalyzeCover from './img/LOCALYZE/LocalyzeCover.jpg';
 import AbleCover from './Able/img/AssistiveHanger01.png';
+import AbleCoverApp from './img/AbleCoverApp.png';
+import AMCCoverApp from './img/AMCCoverApp.png';
+import LightlyCoverApp from './img/LightlyCoverApp.png';
 import LightlyCover from './Lightly/img/LightlyCover.png';
 import LovePop from './img/LovePop.jpg';
 import JellyfishCover from './img/JellyfishCover.mp4';
@@ -51,6 +55,7 @@ const cardStyles = makeStyles(({
         paddingTop: "22vh",
         position: "relative",
         color: "#222222",
+        padding: "16px"
     },
     overlay: {
         height: "38vh",
@@ -495,32 +500,32 @@ function VideoCard(props) {
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={TypographyTheme}>
+                <div
+                    className={classes.overlay}
+                    onMouseEnter={onHover}
+                    onMouseLeave={onLeave}
+                    onClick={() => window.open(props.href, '_blank')}
+                    style={{ cursor: 'pointer' }}
+                >
+                    <video
+                        className={zoomedStyle}
+                        src={props.video}
+                        alt={props.alt}
+                        muted
+                        autoPlay
+                        loop
+                    />
                     <div
-                        className={classes.overlay}
-                        onMouseEnter={onHover}
-                        onMouseLeave={onLeave}
-                        onClick={() => window.open(props.href, '_blank')}  
-                        style={{cursor: 'pointer'}}
+                        className={hoveredStyle}
+                        style={{
+                            backgroundColor: props.bgColor,
+                        }}
                     >
-                        <video
-                            className={zoomedStyle}
-                            src={props.video}
-                            alt={props.alt}
-                            muted
-                            autoPlay
-                            loop
-                        />
-                        <div
-                            className={hoveredStyle}
-                            style={{
-                                backgroundColor: props.bgColor,
-                            }}
-                        >
-                            <Typography style={{ textTransform: "uppercase", color: props.color }} variant="h4">{props.title}</Typography>
-                            <Typography style={{ color: props.color }} variant="body1">{props.desc}</Typography>
-                            <div className={classes.caption}><Typography style={{ color: props.color }} variant="caption">{props.caption}</Typography></div>
-                        </div>
+                        <Typography style={{ textTransform: "uppercase", color: props.color }} variant="h4">{props.title}</Typography>
+                        <Typography style={{ color: props.color }} variant="body1">{props.desc}</Typography>
+                        <div className={classes.caption}><Typography style={{ color: props.color }} variant="caption">{props.caption}</Typography></div>
                     </div>
+                </div>
             </ThemeProvider>
         </StyledEngineProvider>
     );
@@ -574,6 +579,7 @@ export default function Work(props) {
     var BgColors = {
         TenEx: "rgba(198, 215, 236, 0.5)",
         Able: "rgba(255, 255, 255, 0.5)",
+        AbleApp: "rgba(255, 252, 238, 0.5)",
         AMC: "rgba(136, 27, 48, 0.7)",
         Lightly: "rgba(255, 255, 255, 0.5)",
         Kozi: "rgba(223, 242, 248, 0.7)",
@@ -619,7 +625,7 @@ export default function Work(props) {
                                     <Grid container spacing={3}>
                                         <Grid item xs={12}>
                                             <Typography variant="h1">
-                                                WORK
+                                                UI/UX
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
@@ -637,10 +643,10 @@ export default function Work(props) {
                                             <Card
                                                 title={"Able"}
                                                 desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
-                                                caption={"UX Strategy, Consumer Product, Experience Design"}
-                                                img={AbleCover}
+                                                caption={"Accessible UI/UX, Retail"}
+                                                img={AbleCoverApp}
                                                 alt={"Able"}
-                                                bgColor={BgColors.Able}
+                                                bgColor={BgColors.AbleApp}
                                                 link={"/Able"}
                                             />
                                         </Grid>
@@ -649,7 +655,7 @@ export default function Work(props) {
                                                 title={"Lightly"}
                                                 desc={"Bringing Back Casual Moments in Hybrid Workspace"}
                                                 caption={"Product Design, UI/UX"}
-                                                img={LightlyCover}
+                                                img={LightlyCoverApp}
                                                 alt={"Lightly"}
                                                 bgColor={BgColors.Lightly}
                                                 link={"/Lightly"}
@@ -660,8 +666,8 @@ export default function Work(props) {
                                                 title={"AMC"}
                                                 desc={"A Reimagined Movie-Watching Experience"}
                                                 caption={"Experience Design, Service Design"}
-                                                img={AMCCover}
-                                                alt={"AMCs"}
+                                                img={AMCCoverApp}
+                                                alt={"AMC"}
                                                 bgColor={BgColors.AMC}
                                                 color="white"
                                                 link={"/AMC"}
@@ -677,40 +683,6 @@ export default function Work(props) {
                                                 bgColor={BgColors.Involv}
                                                 color="white"
                                                 link={"/Involv"}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} lg={4}>
-                                            <Card
-                                                title={"LovePop"}
-                                                desc={"Work from Summer Internship 2019"}
-                                                caption={"Consumer Product, CAD Design"}
-                                                img={LovePop}
-                                                alt={"LovePop"}
-                                                bgColor={BgColors.Able}
-                                                link={"/LovePop"}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} lg={4}>
-                                            <VideoCard
-                                                title={"WebHID Experiment"}
-                                                desc={"Translating Jellyfish Perspective to a Browser"}
-                                                caption={"WebHID Device, HTML, CSS, JS"}
-                                                video={JellyfishCover}
-                                                alt={"Jellyfish"}
-                                                bgColor={BgColors.Jellyfish}
-                                                color="white"
-                                                href='https://jellyfish02.vercel.app/'
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} lg={4}>
-                                            <Card
-                                                title={"Pokemon Card Maker"}
-                                                desc={"API, HTML, CSS, JS"}
-                                                caption={"Wanna Make Some Pokemon Cards?"}
-                                                img={PokemonCover}
-                                                alt={"Pokemon"}
-                                                bgColor={BgColors.Able}
-                                                link={"/Pokemon"}
                                             />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={4}>
@@ -755,6 +727,109 @@ export default function Work(props) {
                                                 alt={"Localyze"}
                                                 bgColor={BgColors.Localyze}
                                                 link={"/project"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sx={{height: '20vh'}}/>
+                                        <Grid item xs={12}>
+                                            <Typography variant="h1">
+                                                Frontend
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"10xFinders"}
+                                                desc={"All Recruiting Workflow on One Platform"}
+                                                caption={"UI/UX, Branding, Frontend Dev"}
+                                                img={TalentMindCover}
+                                                alt={"10xfinders"}
+                                                bgColor={BgColors.TenEx}
+                                                link={"/10xfinders"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <VideoCard
+                                                title={"WebHID Experiment"}
+                                                desc={"Translating Jellyfish Perspective to a Browser"}
+                                                caption={"WebHID Device, HTML, CSS, JS"}
+                                                video={JellyfishCover}
+                                                alt={"Jellyfish"}
+                                                bgColor={BgColors.Jellyfish}
+                                                color="white"
+                                                href='https://jellyfish02.vercel.app/'
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"Pokemon Card Maker"}
+                                                desc={"API, HTML, CSS, JS"}
+                                                caption={"Wanna Make Some Pokemon Cards?"}
+                                                img={PokemonCover}
+                                                alt={"Pokemon"}
+                                                bgColor={BgColors.Able}
+                                                link={"/Pokemon"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sx={{height: '20vh'}}/>
+                                        <Grid item xs={12}>
+                                            <Typography variant="h1">
+                                                Product
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"Able"}
+                                                desc={"Inclusive Innovation in Retail for the Blind and Visually Impaired"}
+                                                caption={"UX Strategy, Consumer Product, Experience Design"}
+                                                img={AbleCover}
+                                                alt={"Able"}
+                                                bgColor={BgColors.Able}
+                                                link={"/Able"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"Lightly"}
+                                                desc={"Bringing Back Casual Moments in Hybrid Workspace"}
+                                                caption={"Product Design, UI/UX"}
+                                                img={LightlyCover}
+                                                alt={"Lightly"}
+                                                bgColor={BgColors.Lightly}
+                                                link={"/Lightly"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"AMC"}
+                                                desc={"A Reimagined Movie-Watching Experience"}
+                                                caption={"Experience Design, Service Design"}
+                                                img={AMCCover}
+                                                alt={"AMC"}
+                                                bgColor={BgColors.AMC}
+                                                color="white"
+                                                link={"/AMC"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"LovePop"}
+                                                desc={"Work from Summer Internship 2019"}
+                                                caption={"Consumer Product, CAD Design"}
+                                                img={LovePop}
+                                                alt={"LovePop"}
+                                                bgColor={BgColors.Able}
+                                                link={"/LovePop"}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={4}>
+                                            <Card
+                                                title={"Kozi"}
+                                                desc={"New Way of Addressing Seasonal Affective Disorder"}
+                                                caption={"Designing for Mental Health, Soft Goods"}
+                                                img={KoziCoverProduct}
+                                                alt={"Kozi"}
+                                                bgColor={BgColors.Jellyfish}
+                                                link={"/project"}
+                                                color='white'
                                             />
                                         </Grid>
                                     </Grid>

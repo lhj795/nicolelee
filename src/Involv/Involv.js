@@ -254,7 +254,7 @@ export default function Involv(props) {
                                 <Collapse in={showDesc2} timeout="auto" unmountOnExit>
                                     <Typography variant='body1'>
                                         <br />
-                                        This was an accelerated week-long project done for the design competition, Professional + Oxfam America Creative Jam. In a
+                                        This was an accelerated week-long project done for the Professional + Oxfam America Creative Jam. In a
                                         team of three members, I was responsible for concept generation, market research, and UI/UX design. The prompt of the
                                         competition was “name and design an app that turns personal values into actions that have a measurable benefit. Use
                                         technology to make supporting causes more than just a  transactional experience.” My team placed 5th place among 97
@@ -278,7 +278,7 @@ export default function Involv(props) {
                         </Grid>
                         <div className={classes.designProcessBg}>
                             <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
-                                <Grid container spacing={2}>
+                                <Grid alignItems='center' container spacing={2}>
                                     <Grid item xs={12} />
                                     <Grid item xs={12} />
                                     <Grid item xs={2} />
