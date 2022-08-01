@@ -50,25 +50,19 @@ export default function About(props) {
                         <Typography variant='body1'>
                             <br />Here’s my TLDR.
                             <br /><br />
-                            I recently finished my studies at Brown University and RISD in Master of Arts in Design Engineering (MADE). In this past year I’ve
-                            learned from professors in the RISD Architecture + Design Division, Brown School of Engineering, critics from IBM, IDEO, 
-                            Giant Shoulders, Shaper and UrbanLeaf. From lectures, workshops and projects led by technical and industry experts, I gained a 
-                            significant amount of skills in UX design, software engineering and embedded systems electronics, as well as hone in my 
-                            collaboration skills to work as an effective team player.
+                            I have a BFA in Industrial Design from Rhode Island School of Design (RISD), and recently finished my MA in Design Engineering (MADE) at 
+                            Brown University and RISD. I learned from professors in the RISD Architecture + Design Division, Brown School of Engineering, and critics 
+                            from highly regarded corporations including IBM, IDEO, Giant Shoulders, Shaper, and UrbanLeaf. With their guidance, I worked on projects 
+                            with local stakeholders, and gained a significant amount of skills in UX design, software engineering and embedded systems electronics. 
+                            Being part of a multidisciplinary cohort, I also improved my collaboration skills to work as an effective team player.
                             <br /><br />
-                            While and before I was in the MADE program, I worked as a product designer and frontend engineer at 10xFinders, a recruiting
-                            software platform and services company. Being the sole designer on team, I always worked very closely with clients and stakeholders 
-                            for real user feedback and efficient implementation of design iterations.
+                            Meanwhile, I was a product designer and frontend engineer at 10xFinders, a recruiting SaaS and services company. Being the sole designer 
+                            on the team, I single-handedly built the entire design system and the platform, always working closely with internal team members and clients.
                             <br /><br />
-                            Born and raised in Seoul, Korea, then starting at a young age, I moved to the USA to the Upstate NY → Midwest → West Coast → and
-                            now back in the East Coast. Growing up I had been exposed to a lot of different cultures and lifestyles. I find this background
-                            extremely useful in my practice.
+                            My driving force of creativity heavily relies on the user. I believe in order to bring innovative solutions to life, it is crucial to recognize 
+                            the connection among human-centered design, technology, business, and ultimately their user.
                             <br /><br />
-                            This being said, my life revolves around human connection. My driving force of inspiration heavily relies on the human, the user. I
-                            believe in order to bring creative ideas and innovative solutions to life, it is crucial to recognize the connection between design,
-                            business, technology and the user.
-                            <br /><br />
-                            Outside of studio you can find me cooking up latest food and cocktail recipes and scouting Spiderman merch.
+                            Outside of studio you can find me cooking up latest food / cocktail recipes and scouting Spiderman merch.
                         </Typography>
                         <Typography variant='body1'><br/>
                         <a href={Resume} target="blank">Resume</a>
