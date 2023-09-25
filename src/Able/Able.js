@@ -31,6 +31,7 @@ const useStyles = makeStyles(({
         objectFit: 'cover',
         filter: 'brightness(0.6)',
         backdropFilter: 'invert(1)',
+        overflow: 'hidden',
         mixBlendMode: () => {
             if (window.innerWidth > 1200) {
                 return 'color-dodge'
@@ -124,6 +125,7 @@ const useStyles = makeStyles(({
         width: '100%',
         maxHeight: '100vh',
         objectFit: 'cover',
+        overflow: 'hidden',
     },
     imgFitContent2: {
         width: '100%',
